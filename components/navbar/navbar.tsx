@@ -6,17 +6,42 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const closeDropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
 
   const links = [
     {
       label: "About Us",
-      href: "/about",
+      href: "",
+      subRoutes: [
+        {
+          label: "Company Profile",
+          href: "/about-us/company-profile",
+        },
+        {
+          label: "Corporate Philosophy",
+          href: "/about-us/corporate-philosophy",
+        },
+      ],
     },
     {
       label: "Projects",
-      href: "/projects",
+      href: "",
+      subRoutes: [
+        {
+          label: "Residential Projects",
+          href: "/projects/residential-projects",
+        },
+        {
+          label: "Commercial Projects",
+          href: "/projects/commercial-projects",
+        },
+      ],
     },
     {
       label: "Gallery",
@@ -50,20 +75,40 @@ const Navbar = () => {
       }
     };
 
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMenuOpen(false);
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
+      if (closeDropdownTimeout.current) {
+        clearTimeout(closeDropdownTimeout.current);
+      }
     };
   }, [isMenuOpen]);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  const toggleAccordion = (index: number) => {
+    setOpenAccordion((prev) => (prev === index ? null : index));
+  };
+
+  const openDropdownMenu = (index: number) => {
+    if (closeDropdownTimeout.current) {
+      clearTimeout(closeDropdownTimeout.current);
+    }
+    setOpenDropdown(index);
+  };
+
+  const scheduleCloseDropdown = () => {
+    if (closeDropdownTimeout.current) {
+      clearTimeout(closeDropdownTimeout.current);
+    }
+    closeDropdownTimeout.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 300);
+  };
+
+  const linkClasses =
+    "uppercase text-xs md:text-xs lg:text-sm xl:text-base tracking-wide hover:text-[#8AC028] transition-colors whitespace-nowrap";
 
   return (
     <header className="w-full">
@@ -73,15 +118,61 @@ const Navbar = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-2 md:gap-3 lg:gap-5 xl:gap-8 flex-wrap lg:flex-nowrap">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="uppercase text-xs md:text-xs lg:text-sm xl:text-base tracking-wide hover:text-[#8AC028] transition-colors whitespace-nowrap"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link, index) => {
+            const hasSubRoutes = link.subRoutes && link.subRoutes.length > 0;
+
+            if (hasSubRoutes) {
+              return (
+                <div
+                  key={`${link.label}-${index}`}
+                  className="relative"
+                  onMouseEnter={() => openDropdownMenu(index)}
+                  onMouseLeave={scheduleCloseDropdown}
+                >
+                  <button
+                    className={`${linkClasses} flex items-center gap-1`}
+                    aria-haspopup="true"
+                    aria-expanded={openDropdown === index}
+                    type="button"
+                  >
+                    {link.label}
+                  </button>
+
+                  {openDropdown === index && (
+                    <div
+                      className="absolute left-0 top-full w-56 pt-2"
+                      onMouseEnter={() => openDropdownMenu(index)}
+                      onMouseLeave={scheduleCloseDropdown}
+                    >
+                      <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg shadow-black/5">
+                        <div className="py-3">
+                          {link.subRoutes?.map((sub, subIdx) => (
+                            <Link
+                              key={`${sub.href}-${subIdx}`}
+                              href={sub.href}
+                              className="block px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#8AC028] hover:bg-gray-50 transition-colors"
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={`${link.label}-${index}`}
+                href={link.href}
+                className={linkClasses}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden md:block shrink-0">
@@ -146,17 +237,63 @@ const Navbar = () => {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-4">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="uppercase text-base font-semibold tracking-wide hover:text-[#8AC028] transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <nav className="flex flex-col gap-3">
+              {links.map((link, index) => {
+                const hasSubRoutes =
+                  link.subRoutes && link.subRoutes.length > 0;
+
+                if (hasSubRoutes) {
+                  const isOpen = openAccordion === index;
+                  return (
+                    <div
+                      key={`${link.label}-${index}`}
+                      className="border-b border-white/10 pb-2"
+                    >
+                      <button
+                        onClick={() => toggleAccordion(index)}
+                        className="flex w-full items-center justify-between text-left uppercase text-base font-semibold tracking-wide hover:text-[#8AC028] transition-colors"
+                        aria-expanded={isOpen}
+                        type="button"
+                      >
+                        {link.label}
+                        <span
+                          className={`inline-block h-2.5 w-2.5 border-b border-r border-current transition-transform duration-200 ${
+                            isOpen ? "-rotate-135" : "rotate-45"
+                          }`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <div className="mt-3 flex flex-col gap-2 pl-3">
+                          {link.subRoutes?.map((sub, subIdx) => (
+                            <Link
+                              key={`${sub.href}-${subIdx}`}
+                              href={sub.href}
+                              className="text-sm font-medium hover:text-[#8AC028] transition-colors"
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                setOpenAccordion(null);
+                              }}
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={`${link.label}-${index}`}
+                    href={link.href}
+                    className="uppercase text-base font-semibold tracking-wide hover:text-[#8AC028] transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             <Link

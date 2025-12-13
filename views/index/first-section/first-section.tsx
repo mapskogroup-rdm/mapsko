@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import FirstSectionImage from "@/assets/images/a9299b1a4a025755e7789e96f2d6c4a94a47139a.png";
 import BuildingIcon from "./building.svg";
 import PlotIcon from "./plot.svg";
 import G183Icon from "./g183.svg";
@@ -58,7 +57,7 @@ const FirstSection = () => {
 
         <div className="w-full md:w-1/3 flex justify-center">
           <Image
-            src={FirstSectionImage}
+            src={"/assets/mapsko-detailed-logo.png"}
             alt="first-section-image"
             width={500}
             height={500}

@@ -18,23 +18,23 @@ const PropertyNavbar = ({ property }: PropertyNavbarProps) => {
   const links = [
     {
       label: "About Us",
-      href: `${property.slug}/about`,
+      href: `/project/${property.slug}/about`,
     },
     {
       label: "Location",
-      href: `${property.slug}/location`,
+      href: `/project/${property.slug}/location`,
     },
     {
       label: "Floor Plans",
-      href: `${property.slug}/floor-plans`,
+      href: `/project/${property.slug}/floor-plans`,
     },
     {
       label: "Image Gallery",
-      href: `${property.slug}/image-gallery`,
+      href: `/project/${property.slug}/image-gallery`,
     },
     {
       label: "Video Gallery",
-      href: `${property.slug}/video-gallery`,
+      href: `/project/${property.slug}/video-gallery`,
     },
     {
       label: "Contact Us",
@@ -71,7 +71,10 @@ const PropertyNavbar = ({ property }: PropertyNavbarProps) => {
   return (
     <header className="w-full">
       <div className="common-frame-box flex items-center justify-between gap-2 sm:gap-3 md:gap-4 lg:gap-6">
-        <div className="bg-white px-3 py-4 md:py-8 rounded-b-2xl">
+        <Link
+          href={`/project/${property.slug}`}
+          className="bg-white flex px-3 py-4 md:py-8 rounded-b-2xl"
+        >
           <SanityImage
             image={property.propertyLogo}
             alt={property.name}
@@ -79,7 +82,7 @@ const PropertyNavbar = ({ property }: PropertyNavbarProps) => {
             width={230}
             height={100}
           />
-        </div>
+        </Link>
         <nav className="hidden md:flex items-center gap-2 md:gap-3 lg:gap-5 xl:gap-8 flex-wrap lg:flex-nowrap">
           {links.map((link, index) => {
             return (

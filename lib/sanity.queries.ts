@@ -7,42 +7,44 @@ export const projectSlugsQuery = groq`
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0]{
     _id,
-    title,
+    name,
     "slug": slug.current,
-    location,
-    status,
-    priceRange,
-    possession,
-    amenities,
-    about,
-    logo,
-    coverImage,
-    highlightImage,
+    primaryCoverPhoto,
+    propertyLogo,
+    primaryPropertyPhoto,
+    secondaryCoverPhoto,
+    primaryHighlights[]{
+      _key,
+      icon,
+      title
+    },
+    headline,
+    propertyPitch,
+    primaryAmenities[]{
+      _key,
+      icon,
+      title
+    },
+    allAmenities,
     floorPlans[]{
       _key,
-      name,
       image,
-      bedrooms,
-      bathrooms,
-      area,
-      price,
-      downloadUrl
+      label
     },
+    aboutFloorPlans,
     imageGallery[]{
-      ...,
-      "alt": coalesce(caption, asset->altText, asset->originalFilename)
-    },
-    videoGallery[]{
       _key,
-      title,
-      youtubeId,
-      poster
-    },
-    seo{
-      title,
-      description,
       image,
-      ogType
+      label
+    },
+    aboutImageGallery,
+    about,
+    aboutLocation,
+    googleMapsLink,
+    videos[]{
+      _key,
+      videoUrl,
+      title
     }
   }
 `;

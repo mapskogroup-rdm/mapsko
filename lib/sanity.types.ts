@@ -1,50 +1,54 @@
-import type { PortableTextBlock } from "sanity";
-import type { Image } from "sanity";
+import type { Image, PortableTextBlock } from "sanity";
 
-export interface FloorPlan {
-  _key: string;
-  name: string;
-  image?: Image;
-  bedrooms?: number;
-  bathrooms?: number;
-  area?: string;
-  price?: string;
-  downloadUrl?: string;
+export interface PrimaryHighlight {
+  _key?: string;
+  icon?: Image;
+  title?: string;
 }
 
-export interface GalleryImage extends Image {
+export interface PrimaryAmenity {
   _key?: string;
-  caption?: string;
-  alt?: string | null;
+  icon?: Image;
+  title?: string;
+}
+
+export interface FloorPlan {
+  _key?: string;
+  image?: Image;
+  label?: string;
+}
+
+export interface GalleryItem {
+  _key?: string;
+  image?: Image;
+  label?: string;
 }
 
 export interface VideoItem {
-  _key: string;
+  _key?: string;
+  videoUrl?: string;
   title?: string;
-  youtubeId: string;
-  poster?: Image;
 }
 
 export interface ProjectDocument {
   _id: string;
   slug?: string;
-  title: string;
-  location?: string;
-  status?: string;
-  priceRange?: string;
-  possession?: string;
-  amenities?: string[];
-  about?: PortableTextBlock[];
-  logo?: Image;
-  coverImage?: Image;
-  highlightImage?: Image;
+  name: string;
+  primaryCoverPhoto: Image;
+  propertyLogo: Image;
+  primaryPropertyPhoto: Image;
+  secondaryCoverPhoto?: Image;
+  primaryHighlights?: PrimaryHighlight[];
+  headline?: string;
+  propertyPitch?: PortableTextBlock[];
+  primaryAmenities?: PrimaryAmenity[];
+  allAmenities?: string[];
   floorPlans?: FloorPlan[];
-  imageGallery?: GalleryImage[];
-  videoGallery?: VideoItem[];
-  seo?: {
-    title?: string;
-    description?: string;
-    image?: Image;
-    ogType?: string;
-  };
+  aboutFloorPlans?: string;
+  imageGallery?: GalleryItem[];
+  aboutImageGallery?: string;
+  about?: string;
+  aboutLocation?: string;
+  googleMapsLink?: string;
+  videos?: VideoItem[];
 }

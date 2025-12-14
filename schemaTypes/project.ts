@@ -5,240 +5,260 @@ export default defineType({
   title: "Project",
   type: "document",
   groups: [
-    { name: "content", title: "Content", default: true },
-    { name: "media", title: "Media" },
-    { name: "seo", title: "SEO" },
+    { name: "main", title: "Main Page", default: true },
+    { name: "about", title: "About" },
+    { name: "location", title: "Location" },
+    { name: "floorPlans", title: "Floor Plans" },
+    { name: "imageGallery", title: "Image Gallery" },
+    { name: "videos", title: "Videos" },
   ],
   fields: [
+    // Main Page
     defineField({
-      name: "title",
+      name: "name",
       title: "Name",
       type: "string",
-      group: "content",
+      group: "main",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      group: "content",
+      group: "main",
       options: {
-        source: "title",
+        source: "name",
         maxLength: 96,
       },
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "location",
-      title: "Location",
-      type: "string",
-      group: "content",
+      name: "primaryCoverPhoto",
+      title: "Primary Cover Photo",
+      type: "image",
+      group: "main",
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "status",
-      title: "Status",
-      type: "string",
-      description: "E.g. Ready to move, Under construction",
-      group: "content",
+      name: "secondaryCoverPhoto",
+      title: "Secondary Cover Photo",
+      type: "image",
+      group: "main",
+      options: { hotspot: true },
     }),
     defineField({
-      name: "priceRange",
-      title: "Price Range",
-      type: "string",
-      description: "E.g. Starting from 80 Lacs",
-      group: "content",
+      name: "propertyLogo",
+      title: "Property Logo",
+      type: "image",
+      group: "main",
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "possession",
-      title: "Possession / Delivery",
-      type: "string",
-      group: "content",
+      name: "primaryPropertyPhoto",
+      title: "Primary Property Photo",
+      type: "image",
+      group: "main",
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "amenities",
-      title: "Amenities",
+      name: "primaryHighlights",
+      title: "Primary Highlights",
       type: "array",
-      of: [{ type: "string" }],
-      group: "content",
+      group: "main",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({
+              name: "icon",
+              title: "Icon",
+              type: "image",
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: "title",
+              title: "Title",
+              type: "string",
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
-      name: "about",
-      title: "About",
+      name: "headline",
+      title: "Headline",
+      type: "string",
+      group: "main",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "propertyPitch",
+      title: "Property Pitch",
       type: "array",
-      group: "content",
+      group: "main",
       of: [{ type: "block" }],
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "logo",
-      title: "Logo",
-      type: "image",
-      group: "media",
-      options: { hotspot: true },
+      name: "primaryAmenities",
+      title: "Primary Amenities",
+      type: "array",
+      group: "main",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({
+              name: "icon",
+              title: "Icon",
+              type: "image",
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: "title",
+              title: "Title",
+              type: "string",
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
-      name: "coverImage",
-      title: "Cover Image",
-      type: "image",
-      group: "media",
-      options: { hotspot: true },
+      name: "allAmenities",
+      title: "All Amenities",
+      type: "array",
+      group: "main",
+      of: [{ type: "string" }],
     }),
-    defineField({
-      name: "highlightImage",
-      title: "Highlight Image",
-      type: "image",
-      group: "media",
-      options: { hotspot: true },
-    }),
+
+    // Floor Plans Page
     defineField({
       name: "floorPlans",
       title: "Floor Plans",
       type: "array",
-      group: "media",
+      group: "floorPlans",
       of: [
         defineArrayMember({
-          name: "floorPlan",
-          title: "Floor Plan",
           type: "object",
           fields: [
-            defineField({
-              name: "name",
-              title: "Title",
-              type: "string",
-              validation: (rule) => rule.required(),
-            }),
             defineField({
               name: "image",
               title: "Image",
               type: "image",
               options: { hotspot: true },
-              validation: (rule) => rule.required(),
             }),
             defineField({
-              name: "bedrooms",
-              title: "Bedrooms",
-              type: "number",
-            }),
-            defineField({
-              name: "bathrooms",
-              title: "Bathrooms",
-              type: "number",
-            }),
-            defineField({
-              name: "area",
-              title: "Area",
+              name: "label",
+              title: "Label",
               type: "string",
-              description: "e.g. 1650 sq ft",
-            }),
-            defineField({
-              name: "price",
-              title: "Price",
-              type: "string",
-            }),
-            defineField({
-              name: "downloadUrl",
-              title: "Download URL",
-              type: "url",
             }),
           ],
           preview: {
             select: {
-              title: "name",
+              title: "label",
               media: "image",
-              subtitle: "area",
             },
           },
         }),
       ],
     }),
     defineField({
+      name: "aboutFloorPlans",
+      title: "About Floor Plans",
+      type: "text",
+      group: "floorPlans",
+    }),
+
+    // Image Gallery Page
+    defineField({
       name: "imageGallery",
       title: "Image Gallery",
       type: "array",
-      group: "media",
+      group: "imageGallery",
       of: [
         defineArrayMember({
-          type: "image",
-          options: { hotspot: true },
+          type: "object",
           fields: [
             defineField({
-              name: "caption",
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: "label",
+              title: "Label",
               type: "string",
             }),
           ],
+          preview: {
+            select: {
+              title: "label",
+              media: "image",
+            },
+          },
         }),
       ],
     }),
     defineField({
-      name: "videoGallery",
-      title: "Video Gallery",
+      name: "aboutImageGallery",
+      title: "About Image Gallery",
+      type: "text",
+      group: "imageGallery",
+    }),
+
+    // About Page
+    defineField({
+      name: "about",
+      title: "About",
+      type: "text",
+      group: "about",
+      validation: (rule) => rule.required(),
+    }),
+
+    // Location Page
+    defineField({
+      name: "aboutLocation",
+      title: "About Location",
+      type: "text",
+      group: "location",
+    }),
+    defineField({
+      name: "googleMapsLink",
+      title: "Google Maps Link",
+      type: "url",
+      group: "location",
+    }),
+
+    // Videos Page
+    defineField({
+      name: "videos",
+      title: "Videos",
       type: "array",
-      group: "media",
+      group: "videos",
       of: [
         defineArrayMember({
-          name: "video",
-          title: "Video",
           type: "object",
           fields: [
             defineField({
+              name: "videoUrl",
+              title: "Video URL",
+              type: "url",
+            }),
+            defineField({
               name: "title",
+              title: "Title",
               type: "string",
-            }),
-            defineField({
-              name: "youtubeId",
-              title: "YouTube Video ID",
-              type: "string",
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: "poster",
-              title: "Poster",
-              type: "image",
-              options: { hotspot: true },
             }),
           ],
           preview: {
             select: {
               title: "title",
-              subtitle: "youtubeId",
-              media: "poster",
+              subtitle: "videoUrl",
             },
-          },
-        }),
-      ],
-    }),
-    defineField({
-      name: "seo",
-      title: "SEO",
-      type: "object",
-      group: "seo",
-      fields: [
-        defineField({
-          name: "title",
-          title: "SEO Title",
-          type: "string",
-        }),
-        defineField({
-          name: "description",
-          title: "SEO Description",
-          type: "text",
-        }),
-        defineField({
-          name: "image",
-          title: "SEO / OG Image",
-          type: "image",
-          options: { hotspot: true },
-        }),
-        defineField({
-          name: "ogType",
-          title: "OG Type",
-          type: "string",
-          initialValue: "website",
-          options: {
-            list: [
-              { title: "Website", value: "website" },
-              { title: "Article", value: "article" },
-            ],
-            layout: "dropdown",
           },
         }),
       ],
@@ -246,9 +266,8 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "title",
-      subtitle: "location",
-      media: "logo",
+      title: "name",
+      media: "primaryCoverPhoto",
     },
   },
 });

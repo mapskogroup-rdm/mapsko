@@ -4,11 +4,11 @@ const ThirdSection = () => {
   return (
     <section className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
       <div className="text-center">
-        <p className="text-neutral-500 text-4xl font-normal">
+        <p className="text-neutral-500 text-2xl md:text-4xl font-normal">
           Corporate Identification No. of
         </p>
 
-        <p className="text-neutral-500 text-4xl font-bold">
+        <p className="text-neutral-500 text-2xl md:text-4xl font-bold">
           MAPSKO Builders Pvt. Ltd. U45203HR2003PTC107241
         </p>
       </div>

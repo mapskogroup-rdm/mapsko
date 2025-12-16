@@ -49,7 +49,7 @@ const Navbar = () => {
     },
     {
       label: "Gallery",
-      href: "/contact",
+      href: "/gallery",
     },
     {
       label: "Ready to move in",
@@ -148,7 +148,7 @@ const Navbar = () => {
                       onMouseEnter={() => openDropdownMenu(index)}
                       onMouseLeave={scheduleCloseDropdown}
                     >
-                      <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg shadow-black/5">
+                      <div className="overflow-hidden border border-gray-100 bg-white shadow-lg shadow-black/5">
                         <div className="py-3">
                           {link.subRoutes?.map((sub, subIdx) => (
                             <Link
@@ -182,7 +182,7 @@ const Navbar = () => {
         <div className="hidden md:block shrink-0">
           <Link
             href="/contact"
-            className="border border-[#8AC028] hover:bg-[#8AC028] hover:text-black cursor-pointer transition-all duration-300 py-2 px-4 md:px-5 lg:px-6 xl:px-8 text-[#8AC028] font-bold text-xs md:text-xs lg:text-sm xl:text-base whitespace-nowrap"
+            className="border uppercase border-[#8AC028] hover:bg-[#8AC028] hover:text-black cursor-pointer transition-all duration-300 py-2 px-4 md:px-5 lg:px-6 xl:px-8 text-[#8AC028] font-bold text-xs md:text-xs lg:text-sm xl:text-base whitespace-nowrap"
           >
             Contact Us
           </Link>
@@ -225,7 +225,7 @@ const Navbar = () => {
           <div
             ref={menuRef}
             onClick={(e) => e.stopPropagation()}
-            className="absolute left-3 right-3 sm:left-4 sm:right-4 top-6 rounded-2xl bg-black p-6 shadow-xl text-white"
+            className="absolute left-3 right-3 sm:left-4 sm:right-4 top-6 bg-black p-6 shadow-xl text-white"
           >
             <div className="mb-4 flex items-center justify-between">
               <span className="text-lg font-semibold">Menu</span>

@@ -41,6 +41,10 @@ const Navbar = () => {
           label: "Commercial Projects",
           href: "/projects/commercial-projects",
         },
+        {
+          label: "Project Updates",
+          href: "/projects/project-updates",
+        },
       ],
     },
     {

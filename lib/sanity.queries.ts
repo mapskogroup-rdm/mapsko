@@ -48,3 +48,32 @@ export const projectBySlugQuery = groq`
     }
   }
 `;
+
+export const blogSlugsQuery = groq`
+  *[_type == "blog" && defined(slug.current)][].slug.current
+`;
+
+export const blogBySlugQuery = groq`
+  *[_type == "blog" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    shortDescription,
+    coverImage,
+    content,
+    createdDate
+  }
+`;
+
+export const allBlogsQuery = groq`
+  *[_type == "blog"] | order(createdDate desc){
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    shortDescription,
+    coverImage,
+    createdDate
+  }
+`;

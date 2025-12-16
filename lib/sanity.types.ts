@@ -52,3 +52,14 @@ export interface ProjectDocument {
   googleMapsLink?: string;
   videos?: VideoItem[];
 }
+
+export interface BlogDocument {
+  _id: string;
+  title: string;
+  slug: string;
+  category: "news" | "development" | "project-updates";
+  shortDescription: string;
+  coverImage: Image;
+  content: PortableTextBlock[];
+  createdDate: string;
+}

@@ -26,28 +26,46 @@ export async function POST(req: NextRequest) {
       return new Response("Bad Request: Missing _type", { status: 400 });
     }
 
-    // Handle project document revalidation
-    if (body._type === "project") {
-      if (body.slug?.current) {
-        const slug = body.slug.current;
-        revalidatePath(`/project/${slug}`, "page");
-        console.log(`Revalidated project page: /project/${slug}`);
+    // Handle different document types
+    const documentType = body._type;
+    const slug = body.slug?.current;
+
+    // Define route mapping for each document type
+    const routeMap: Record<string, string> = {
+      project: "/project",
+      blog: "/blog",
+    };
+
+    const basePath = routeMap[documentType];
+
+    if (basePath) {
+      if (slug) {
+        // Revalidate the specific page
+        const pagePath = `${basePath}/${slug}`;
+        revalidatePath(pagePath, "page");
+
+        // Also revalidate the listing page (e.g., /blog, /projects)
+        revalidatePath(basePath, "page");
+
+        console.log(`Revalidated ${documentType} page: ${pagePath}`);
 
         return NextResponse.json({
           revalidated: true,
           now: Date.now(),
-          path: `/project/${slug}`,
+          path: pagePath,
+          type: documentType,
         });
       } else {
-        // If slug is missing, revalidate all project pages
+        // If slug is missing, revalidate all pages of this type
         // This is useful for deletions or when slug changes
-        revalidatePath("/project", "layout");
-        console.log("Revalidated all project pages (slug missing)");
+        revalidatePath(basePath, "layout");
+        console.log(`Revalidated all ${documentType} pages (slug missing)`);
 
         return NextResponse.json({
           revalidated: true,
           now: Date.now(),
-          path: "/project/*",
+          path: `${basePath}/*`,
+          type: documentType,
         });
       }
     }

@@ -26,7 +26,9 @@ const PropertyPitch = () => {
 
         <div className="flex flex-col-reverse lg:flex-row gap-8 sm:gap-12 md:gap-16 lg:gap-24 xl:gap-36 items-center">
           <div className="space-y-8 sm:space-y-12 md:space-y-16 lg:space-y-20 xl:space-y-28 w-full lg:w-auto">
-            <PortableText value={property.propertyPitch as any} />
+            <div className="space-y-2">
+              <PortableText value={property.propertyPitch as any} />
+            </div>
             <Link
               href={`/project/${property.slug}/about`}
               className="flex hover:bg-sky-700 duration-300 w-fit hover:text-white border border-sky-700 text-sky-700 px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 font-bold py-2 sm:py-3"

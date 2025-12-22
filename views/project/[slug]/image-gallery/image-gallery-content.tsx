@@ -23,7 +23,7 @@ const ImageGalleryContent = () => {
         {property.aboutImageGallery}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {property.imageGallery?.map((imageItem) => (
           <div key={imageItem._key}>
             {imageItem.image && (
@@ -31,7 +31,7 @@ const ImageGalleryContent = () => {
                 image={imageItem.image}
                 alt={imageItem.label || ""}
                 width={1000}
-                className="object-cover"
+                className="object-cover md:h-[350px] xl:h-[500px]"
               />
             )}
             <p className="p-4 bg-lime-500 text-center text-white text-2xl font-extrabold">

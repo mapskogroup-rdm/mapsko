@@ -20,7 +20,7 @@ const FirstSection = () => {
               Late Mr. Amrit Singla{" "}
             </span>
             <span className="text-white font-light">
-              (Former chairman , Mapsko Group.)
+              (Former chairman , Mapsko Group)
             </span>
           </div>
         </div>

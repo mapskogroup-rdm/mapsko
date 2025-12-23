@@ -1,4 +1,4 @@
-import LogoWithName from "@/assets/icons/mapsko-logo-with-name.svg";
+import Logo from "@/assets/icons/mapsko-white-logo.svg";
 import InstagramIcon from "./instagram.svg";
 import FacebookIcon from "./facebook.svg";
 import YoutubeIcon from "./youtube.svg";
@@ -31,12 +31,24 @@ const completeProjects = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/mapskogroup/",
     icon: InstagramIcon,
   },
-  { label: "Facebook", href: "https://www.facebook.com/", icon: FacebookIcon },
-  { label: "Twitter", href: "https://x.com/", icon: YoutubeIcon },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: LinkedInIcon },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/mapskogroup/",
+    icon: FacebookIcon,
+  },
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/@mapskogroup5591",
+    icon: YoutubeIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/mapskogroup/",
+    icon: LinkedInIcon,
+  },
 ];
 
 const Footer = () => {
@@ -45,13 +57,10 @@ const Footer = () => {
       <div className="common-frame-box py-12 md:py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12 items-start">
           <div className="flex flex-col gap-4 text-sm md:text-base">
-            <LogoWithName
-              aria-label="Mapsko logo"
-              className="w-48 md:w-56 h-auto filter brightness-0 invert"
-            />
-            <p className="max-w-[360px] leading-relaxed">
-              Experience unmatched comfort and luxury with GHD Infra –
-              redefining living for you.
+            <Logo aria-label="Mapsko logo" className="w-10" />
+            <p className="max-w-[340px] leading-relaxed">
+              Crafting Luxury & Premium Homes with Mapsko — Shaping Homes,
+              Shaping Lives.
             </p>
             <div className="flex items-center gap-3 pt-1">
               {socialLinks.map(({ label, href, icon: Icon }) => (
@@ -81,7 +90,7 @@ const Footer = () => {
             </p>
             <p>Inquiry : +(91)-(124)-4250610/20/30</p>
             <p>
-              sales@mapskogroup.com,
+              sales@mapskogroup.com
               <br />
               info@mapskogroup.com
             </p>

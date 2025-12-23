@@ -1,5 +1,6 @@
 import { ImageBackground } from "@/components/image-background";
 import Navbar from "@/components/navbar/navbar";
+import Link from "next/link";
 import React from "react";
 
 const HeroSection = () => {
@@ -24,9 +25,12 @@ const HeroSection = () => {
             Premium Real Estate Excellence Since 1960s
           </p>
 
-          <button className="border border-white hover:bg-white hover:text-black cursor-pointer transition-all duration-300 py-3 px-6 sm:py-4 sm:px-8 mt-6 sm:mt-10 text-sm sm:text-base">
+          <Link
+            href="/projects/project-updates"
+            className="flex w-fit mx-auto border border-white hover:bg-white hover:text-black cursor-pointer transition-all duration-300 py-3 px-6 sm:py-4 sm:px-8 mt-6 sm:mt-10 text-sm sm:text-base"
+          >
             Explore Our Projects
-          </button>
+          </Link>
         </div>
         <div className="w-full mx-auto px-4 sm:px-6 mb-8 sm:mb-12 md:mb-20">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 sm:divide-x sm:divide-white sm:*:px-4 text-base sm:text-lg xl:text-2xl">

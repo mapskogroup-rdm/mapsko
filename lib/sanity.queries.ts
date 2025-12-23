@@ -49,6 +49,19 @@ export const projectBySlugQuery = groq`
   }
 `;
 
+export const galleryImagesQuery = groq`
+  *[_type == "project" && defined(imageGallery)]{
+    _id,
+    name,
+    "slug": slug.current,
+    imageGallery[]{
+      _key,
+      image,
+      label
+    }
+  }
+`;
+
 export const blogSlugsQuery = groq`
   *[_type == "blog" && defined(slug.current)][].slug.current
 `;

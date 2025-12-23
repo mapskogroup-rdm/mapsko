@@ -43,7 +43,7 @@ const PropertyNavbar = ({ property }: PropertyNavbarProps) => {
     },
     {
       label: "Contact Us",
-      href: `/contact`,
+      href: `/project/${property.slug}/contact`,
       enabled: true,
     },
   ];

@@ -34,3 +34,46 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes mapsko-marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.mapsko-marquee {
+  overflow: hidden;
+}
+
+.mapsko-marquee__track {
+  display: flex;
+  width: max-content;
+  --mapsko-marquee-duration: 180s;
+  --mapsko-marquee-delay: -60s;
+  animation-name: mapsko-marquee-x;
+  animation-duration: var(--mapsko-marquee-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: var(--mapsko-marquee-delay);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.mapsko-marquee--ltr .mapsko-marquee__track {
+  animation-direction: reverse;
+}
+
+.mapsko-marquee:hover .mapsko-marquee__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mapsko-marquee__track {
+    animation: none;
+    transform: none;
+  }
+}

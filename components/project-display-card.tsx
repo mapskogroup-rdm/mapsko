@@ -26,12 +26,12 @@ const ProjectDisplayCard = ({
       alt="second-image"
       width={1000}
       height={1000}
-      className="w-full flex flex-col justify-end group h-[500px] sm:h-[600px] md:h-[700px] lg:h-[850px]"
+      className="w-full flex flex-col cursor-pointer justify-end group h-[500px] sm:h-[600px] md:h-[700px] lg:h-[850px]"
     >
       <div
-        className="group-hover:h-[450px] sm:group-hover:h-[550px] md:group-hover:h-[650px] lg:group-hover:h-[700px] transition-all duration-300 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] w-full flex flex-col items-center justify-end p-4 sm:p-6 md:p-8 lg:p-10 opacity-90"
+        className="transition-all duration-300 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] w-full flex flex-col items-center justify-end p-4 sm:p-6 md:p-8 lg:p-10 opacity-90"
         style={{
-          background: `linear-gradient(to top, ${gradientColor}, ${gradientColor}, ${gradientColor}00)`,
+          background: `linear-gradient(to top left, ${gradientColor} 0%, ${gradientColor} 80%, transparent 100%)`,
         }}
       >
         <span className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase pb-4 sm:pb-6 md:pb-8 lg:pb-10">

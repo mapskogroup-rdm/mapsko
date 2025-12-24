@@ -9,6 +9,7 @@ export const projectBySlugQuery = groq`
     _id,
     name,
     "slug": slug.current,
+    projectType,
     primaryCoverPhoto,
     propertyLogo,
     primaryPropertyPhoto,

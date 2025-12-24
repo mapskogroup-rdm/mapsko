@@ -34,6 +34,7 @@ export interface ProjectDocument {
   _id: string;
   slug?: string;
   name: string;
+  projectType: "residential" | "commercial";
   primaryCoverPhoto: Image;
   propertyLogo: Image;
   primaryPropertyPhoto: Image;

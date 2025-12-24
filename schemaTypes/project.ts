@@ -33,6 +33,20 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "projectType",
+      title: "Project Type",
+      type: "string",
+      group: "main",
+      options: {
+        list: [
+          { title: "Residential", value: "residential" },
+          { title: "Commercial", value: "commercial" },
+        ],
+        layout: "radio",
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "primaryCoverPhoto",
       title: "Primary Cover Photo",
       type: "image",

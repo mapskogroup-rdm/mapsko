@@ -1,13 +1,30 @@
 import Logo from "@/assets/icons/mapsko-white-logo.svg";
-import ImageOne from "./1bddecb26decebe4ec32a0649ed579702eebf9d0.png";
-import ImageTwo from "./30670fa87e5d197beafe5e3bd64f06acda1a190f.png";
-import ImageThree from "./64dd47375b6a39495647c66b1f6eac7127c73667.png";
-import ImageFour from "./ed8ee2035efd6a4ee8f452675001b2c8d4e4e9f7.png";
-import Image from "next/image";
+import TestimonialVideo from "@/components/testimonial-video";
 
-type Props = {};
+const FifthSection = () => {
+  const testimonials = [
+    {
+      videoUrl: "/assets/testimonials/1.mp4",
+      id: "1",
+      title: "",
+    },
+    {
+      videoUrl: "/assets/testimonials/2.mp4",
+      id: "2",
+      title: "",
+    },
+    {
+      videoUrl: "/assets/testimonials/3.mp4",
+      id: "3",
+      title: "",
+    },
+    {
+      videoUrl: "/assets/testimonials/4.mp4",
+      id: "4",
+      title: "",
+    },
+  ];
 
-const FifthSection = (props: Props) => {
   return (
     <div className="w-full bg-[#0B6BB8]">
       <section className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
@@ -21,31 +38,15 @@ const FifthSection = (props: Props) => {
           </p>
         </div>
 
-        <div className="grid xs:grid-cols-2 md:grid-cols-4 gap-4">
-          <Image
-            src={ImageOne}
-            className="flex w-full object-cover h-[700px]"
-            alt="image-one"
-            width={400}
-          />
-          <Image
-            src={ImageTwo}
-            className="flex w-full object-cover h-[700px]"
-            alt="image-two"
-            width={400}
-          />
-          <Image
-            src={ImageThree}
-            className="flex w-full object-cover h-[700px]"
-            alt="image-three"
-            width={400}
-          />
-          <Image
-            src={ImageFour}
-            className="flex w-full object-cover h-[700px]"
-            alt="image-four"
-            width={400}
-          />
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+          {testimonials.map((testimonial) => (
+            <TestimonialVideo
+              key={testimonial.id}
+              src={testimonial.videoUrl}
+              title={testimonial.title}
+              className="w-full aspect-9/16 max-h-[720px]"
+            />
+          ))}
         </div>
       </section>
     </div>

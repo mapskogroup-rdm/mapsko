@@ -5,7 +5,7 @@ import { PropertyDataProvider } from "@/views/project/[slug]/use-property-data";
 import HeroSection from "@/views/project/[slug]/index/hero-section";
 import PrimaryHighlights from "@/views/project/[slug]/index/primary-highlights";
 import PropertyPitch from "@/views/project/[slug]/index/property-pitch";
-import PrimaryAmenities from "@/views/project/[slug]/index/primary-ammenities";
+import AboutAmenities from "@/views/project/[slug]/index/aboutAmenities";
 import AllAmmenities from "@/views/project/[slug]/index/all-ammenities";
 import Footer from "@/components/footer/footer";
 import FloorPlansIndex from "@/views/project/[slug]/index/floor-plans-index";
@@ -96,7 +96,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       />
       <PrimaryHighlights />
       <PropertyPitch />
-      <PrimaryAmenities />
+      <AboutAmenities />
       <AllAmmenities />
       <FloorPlansIndex />
       <VisualShowcase />

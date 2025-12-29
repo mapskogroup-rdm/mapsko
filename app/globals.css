@@ -51,7 +51,7 @@ body {
 .mapsko-marquee__track {
   display: flex;
   width: max-content;
-  --mapsko-marquee-duration: 180s;
+  --mapsko-marquee-duration: 60s;
   --mapsko-marquee-delay: -60s;
   animation-name: mapsko-marquee-x;
   animation-duration: var(--mapsko-marquee-duration);
@@ -67,8 +67,13 @@ body {
   animation-direction: reverse;
 }
 
-.mapsko-marquee:hover .mapsko-marquee__track {
-  animation-play-state: paused;
+/* JS-controlled marquee tracks disable CSS animation */
+.mapsko-marquee__track--js {
+  animation: none !important;
+}
+
+.mapsko-marquee:hover .mapsko-marquee__track:not(.mapsko-marquee__track--js) {
+  animation-duration: 200s;
 }
 
 @media (prefers-reduced-motion: reduce) {

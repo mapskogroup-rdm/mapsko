@@ -3,6 +3,7 @@ import { client } from "@/lib/sanity.client";
 import { projectsWithSliderQuery } from "@/lib/sanity.queries";
 import type { ProjectWithSlider } from "@/lib/sanity.types";
 import ProjectDisplayCardV2 from "@/components/project-display-card-v2";
+import { MarqueeTrack } from "@/components/marquee-track";
 
 const SecondSection = async () => {
   const projects = await client.fetch<ProjectWithSlider[]>(
@@ -25,27 +26,25 @@ const SecondSection = async () => {
         </p>
       </div>
 
-      <div className="mapsko-marquee mapsko-marquee--rtl text-white text-center">
-        <div className="mapsko-marquee__track">
-          {[0, 1].map((dupIndex) => (
-            <div key={dupIndex} className="flex flex-nowrap items-stretch">
-              {projects.map((project, index) => (
-                <div
-                  key={`${dupIndex}-${project._id}`}
-                  className="shrink-0 w-[85vw] sm:w-[420px] md:w-[460px] xl:w-[calc((100vw-3rem)/3)]"
-                >
-                  <ProjectDisplayCardV2
-                    projectSlider={project}
-                    gradientColor={
-                      (index + dupIndex) % 2 === 0 ? "#0B6BB8" : "#8AC028"
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      <MarqueeTrack direction="rtl">
+        {[0, 1].map((dupIndex) => (
+          <div key={dupIndex} className="flex flex-nowrap items-stretch">
+            {projects.map((project, index) => (
+              <div
+                key={`${dupIndex}-${project._id}`}
+                className="shrink-0 w-[85vw] sm:w-[420px] md:w-[460px] xl:w-[calc((100vw-3rem)/3)]"
+              >
+                <ProjectDisplayCardV2
+                  projectSlider={project}
+                  gradientColor={
+                    (index + dupIndex) % 2 === 0 ? "#0B6BB8" : "#8AC028"
+                  }
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </MarqueeTrack>
     </div>
   );
 };

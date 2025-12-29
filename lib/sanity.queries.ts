@@ -26,6 +26,7 @@ export const projectBySlugQuery = groq`
       icon,
       title
     },
+    aboutAmenities,
     allAmenities,
     floorPlans[]{
       _key,

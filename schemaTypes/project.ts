@@ -143,6 +143,12 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "aboutAmenities",
+      title: "About Amenities",
+      type: "text",
+      group: "main",
+    }),
+    defineField({
       name: "primaryAmenities",
       title: "Primary Amenities",
       type: "array",

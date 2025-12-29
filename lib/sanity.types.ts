@@ -43,6 +43,7 @@ export interface ProjectDocument {
   headline?: string;
   propertyPitch?: PortableTextBlock[];
   primaryAmenities?: PrimaryAmenity[];
+  aboutAmenities?: string;
   allAmenities?: string[];
   floorPlans?: FloorPlan[];
   aboutFloorPlans?: string;

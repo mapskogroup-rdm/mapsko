@@ -34,7 +34,7 @@ const FloorPlansContent = () => {
               />
             )}
             {floorPlan.label && (
-              <p className="p-4 bg-lime-500 text-center text-white text-2xl font-extrabold">
+              <p className="p-4 bg-lime-500 text-center text-white text-2xl font-bold">
                 {floorPlan.label}
               </p>
             )}

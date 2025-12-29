@@ -16,7 +16,7 @@ const FirstSection = () => {
           />
 
           <div className="bg-sky-700 p-5">
-            <span className="text-white font-extrabold">
+            <span className="text-white font-bold">
               Late Mr. Amrit Singla{" "}
             </span>
             <span className="text-white font-light">
@@ -28,7 +28,7 @@ const FirstSection = () => {
         <div className="">
           <Logo className="h-[100px]" />
           <div className="pt-6">
-            <p className="text-sky-700 text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase">
+            <p className="text-sky-700 text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
               MAPSKO: Crafting Signature Landmarks, Building India's Future
             </p>
             <p className="text-neutral-500 text-base md:text-lg font-light">

@@ -44,7 +44,7 @@ const ProjectDisplayCardV2 = ({ projectSlider, gradientColor }: Props) => {
 
         <Link
           href={`/project/${projectSlider.slug}`}
-          className="text-center justify-start text-white text-sm sm:text-base md:text-lg lg:text-xl w-fit font-extrabold border py-2 sm:py-2.5 md:py-3 px-4 sm:px-5 md:px-6 border-white hover:bg-white hover:text-black cursor-pointer transition-all duration-300"
+          className="text-center justify-start text-white text-sm sm:text-base md:text-lg lg:text-xl w-fit font-bold border py-2 sm:py-2.5 md:py-3 px-4 sm:px-5 md:px-6 border-white hover:bg-white hover:text-black cursor-pointer transition-all duration-300"
         >
           View Project
         </Link>

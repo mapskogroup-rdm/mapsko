@@ -10,13 +10,13 @@ const SecondSection = () => {
           <Logo className="h-16 sm:h-20 md:h-24 lg:h-[100px] w-auto" />
 
           <div className="pt-4 sm:pt-6">
-            <span className="text-sky-700 text-2xl sm:text-3xl md:text-4xl font-extrabold font-['Avenir'] uppercase">
+            <span className="text-sky-700 text-2xl sm:text-3xl md:text-4xl font-bold uppercase">
               A Vision for India&apos;s Tomorrow
               <br />
               Built on Trust & Growth
               <br />
             </span>
-            <span className="text-neutral-500 text-base sm:text-lg font-light font-['Avenir']">
+            <span className="text-neutral-500 text-base sm:text-lg font-light">
               <br />
               Our vision is to redefine contemporary living in India. Beyond
               building homes, we curate sophisticated lifestyles that inspire
@@ -35,7 +35,7 @@ const SecondSection = () => {
             alt="second-section"
             width={1000}
             height={1000}
-            className="w-full h-auto max-w-[500px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-none mx-auto lg:mx-0"
+            className="min-w-full h-auto max-w-[300px] sm:max-w-[600px] mx-auto lg:mx-0"
           />
         </div>
       </div>

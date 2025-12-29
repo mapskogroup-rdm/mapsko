@@ -69,7 +69,7 @@ const GalleryContent = (props: Props) => {
                     />
                   )}
                   {imageItem.label && (
-                    <p className="p-4 bg-lime-500 text-center text-white text-base sm:text-lg md:text-xl font-extrabold">
+                    <p className="p-4 bg-lime-500 text-center text-white text-base sm:text-lg md:text-xl font-bold">
                       {imageItem.label}
                     </p>
                   )}

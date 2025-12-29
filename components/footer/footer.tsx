@@ -86,13 +86,27 @@ const Footer = async () => {
                 Baani The Address, 1, 6th Floor, Golf Course Rd, Sector 56,
                 Gurugram, Haryana 122011
               </p>
-              <p>
-                <span className="font-semibold">Inquiry :</span>
-                <br />
-                +(91)-(124)-4250610 <br />
-                +(91)-(124)-4250620 <br />
-                +(91)-(124)-4250630
-              </p>
+              <div className="flex flex-col">
+                <p className="font-semibold">Inquiry :</p>
+                <Link
+                  href="tel:+911244250610"
+                  className="hover:underline underline-offset-4"
+                >
+                  +(91)-(124)-4250610
+                </Link>
+                <Link
+                  href="tel:+911244250620"
+                  className="hover:underline underline-offset-4"
+                >
+                  +(91)-(124)-4250620
+                </Link>
+                <Link
+                  href="tel:+911244250630"
+                  className="hover:underline underline-offset-4"
+                >
+                  +(91)-(124)-4250630
+                </Link>
+              </div>
               <p>
                 sales
                 <AtSymbolIcon

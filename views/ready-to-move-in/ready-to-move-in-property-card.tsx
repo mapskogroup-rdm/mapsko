@@ -47,7 +47,7 @@ const ReadyToMoveInPropertyCard = ({
               />
             </div>
             <div className="space-y-1">
-              <h3 className="text-sky-700 text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase leading-tight">
+              <h3 className="text-sky-700 text-2xl sm:text-3xl lg:text-4xl font-bold uppercase leading-tight">
                 {title}
               </h3>
               <p className="text-neutral-600 text-base sm:text-lg font-semibold">

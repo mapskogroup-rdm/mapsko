@@ -17,7 +17,7 @@ const logos = [
 const SixthSection = () => {
   return (
     <section className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
-      <h2 className="text-[#0B6BB8] text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-wide text-center pb-16">
+      <h2 className="text-[#0B6BB8] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wide text-center pb-16">
         Featured In
       </h2>
 

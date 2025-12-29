@@ -5,7 +5,7 @@ const FirstSection = () => {
     <div className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28 space-y-12">
       <div className="">
         <Logo className="h-[100px]" />
-        <h2 className="text-sky-700 text-4xl font-extrabold uppercase py-6">
+        <h2 className="text-sky-700 text-4xl font-bold uppercase py-6">
           Ready to Move In Property for Your Dream Home
         </h2>
 

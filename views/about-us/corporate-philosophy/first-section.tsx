@@ -14,13 +14,13 @@ const FirstSection = () => {
         />
       </div>
       <div className="w-full lg:max-w-[950px] justify-start">
-        <span className="text-sky-700 text-2xl sm:text-3xl md:text-4xl font-extrabold font-['Avenir'] uppercase">
+        <span className="text-sky-700 text-2xl sm:text-3xl md:text-4xl font-bold uppercase">
           Mission in Motion:
           <br />
           Technology, Trust & Timelines
           <br />
         </span>
-        <span className="text-neutral-500 text-base sm:text-lg font-light font-['Avenir']">
+        <span className="text-neutral-500 text-base sm:text-lg font-light">
           <br />
           Our mission is the path we initiate to reach our goals, be it
           long-term or short-term. And the path involves embracing new

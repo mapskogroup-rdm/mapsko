@@ -25,7 +25,7 @@ const benefits = [
 const FourthSection = () => {
   return (
     <section className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
-      <h2 className="text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase text-center px-4">
+      <h2 className="text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-center px-4">
         Key Benefits
       </h2>
 

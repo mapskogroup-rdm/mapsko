@@ -19,7 +19,7 @@ const ThirdSection = () => {
         <Logo className="h-16 sm:h-20 md:h-24 lg:h-[100px] w-auto" />
 
         <div className="pt-4 sm:pt-6 max-w-6xl">
-          <span className="text-sky-700 text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase">
+          <span className="text-sky-700 text-2xl sm:text-3xl md:text-4xl font-bold uppercase">
             From Standards to Signatures:
             <br />
             Our Quality Promise

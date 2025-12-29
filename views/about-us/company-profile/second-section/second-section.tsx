@@ -9,7 +9,7 @@ const SecondSection = () => {
         <div className="">
           <Logo className="h-[100px]" />
           <div className="pt-6">
-            <p className="text-sky-700 text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase">
+            <p className="text-sky-700 text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
               A Legacy Continued,
               <br />A Future Accelerated
             </p>
@@ -41,8 +41,8 @@ const SecondSection = () => {
             height={1000}
           />
           <div className="bg-sky-700 p-5">
-            <span className="text-white font-extrabold">
-              The Visionary Mr. Krishan Singhla{" "}
+            <span className="text-white font-bold">
+              The Visionary Mr. Krishan Singla{" "}
             </span>
             <span className="text-white font-light">(Chairperson)</span>
           </div>

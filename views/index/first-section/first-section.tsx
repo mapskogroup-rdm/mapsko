@@ -72,7 +72,7 @@ const FirstSection = () => {
               className="flex flex-col items-center gap-1.5 sm:gap-4 md:gap-6 bg-[#F9F9F9] px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 lg:py-14"
             >
               <point.icon className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto" />
-              <p className="text-center text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-['Avenir'] uppercase">
+              <p className="text-center text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                 {point.value}
               </p>
               <div className="text-center text-neutral-500 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-tight sm:leading-5">

@@ -6,7 +6,7 @@ import HeroSection from "@/views/blog/hero-section";
 import { fetchAllBlogs } from "@/views/blog/utils/blog-data";
 
 export const metadata = {
-  title: "Mapsko Blog | News and Project Updates",
+  title: "Mapsko Blogs | News and Project Updates",
   description:
     "Read the latest news, development updates, and insights from Mapsko’s residential and commercial projects in Gurugram.",
   alternates: {
@@ -28,7 +28,7 @@ const Page = async () => {
         <Navigator
           routes={[
             { label: "Home", href: "/" },
-            { label: "Blog", href: "/blog" },
+            { label: "Blogs", href: "/blog" },
           ]}
         />
       </div>

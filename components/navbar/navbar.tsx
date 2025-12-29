@@ -56,7 +56,7 @@ const Navbar = () => {
       href: "/ready-to-move-in",
     },
     {
-      label: "Blog",
+      label: "Blogs",
       href: "/blog",
     },
     {

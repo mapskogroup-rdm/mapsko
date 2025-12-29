@@ -19,7 +19,7 @@ export async function generateMetadata(
   if (!blog) {
     return applyPageDefaults(
       {
-        title: "Blog | Mapsko",
+        title: "Blogs | Mapsko",
         alternates: { canonical: absoluteUrl(`/blog/${slug}`) },
         robots: { index: false, follow: false },
       },
@@ -66,7 +66,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         <Navigator
           routes={[
             { label: "Home", href: "/blog" },
-            { label: "Blog", href: "" },
+            { label: "Blogs", href: "" },
           ]}
         />
       </div>

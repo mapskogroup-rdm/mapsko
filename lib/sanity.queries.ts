@@ -14,6 +14,10 @@ export const projectBySlugQuery = groq`
     propertyLogo,
     primaryPropertyPhoto,
     secondaryCoverPhoto,
+    brochurePdf{
+      "url": asset->url,
+      "originalFilename": asset->originalFilename
+    },
     primaryHighlights[]{
       _key,
       icon,

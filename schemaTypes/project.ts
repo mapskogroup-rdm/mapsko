@@ -135,6 +135,18 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "brochurePdf",
+      title: "Brochure PDF",
+      type: "file",
+      group: "main",
+      description:
+        "Upload the project brochure as a PDF (used for the download banner on the project page).",
+      options: {
+        accept: "application/pdf",
+        storeOriginalFilename: true,
+      },
+    }),
+    defineField({
       name: "propertyPitch",
       title: "Property Pitch",
       type: "array",

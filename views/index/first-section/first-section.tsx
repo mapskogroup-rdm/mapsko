@@ -2,28 +2,29 @@ import React from "react";
 import Image from "next/image";
 import BuildingIcon from "./building.svg";
 import PlotIcon from "./plot.svg";
+import PlotTwoIcon from "./plot-two.svg";
 import G183Icon from "./g183.svg";
 
 const points = [
   {
     icon: BuildingIcon,
     label: "Projects Successfully Delivered",
-    value: 7,
-  },
-  {
-    icon: PlotIcon,
-    label: "Acres Delivered in Sonipat",
-    value: 135,
-  },
-  {
-    icon: PlotIcon,
-    label: "Lakhs Sq. Ft. Delivered",
-    value: 13,
+    value: 9,
   },
   {
     icon: G183Icon,
+    label: "Major Residential Projects",
+    value: 6,
+  },
+  {
+    icon: PlotTwoIcon,
+    label: "Lakhs Square Feet Delivered",
+    value: 13,
+  },
+  {
+    icon: PlotIcon,
     label: "Major Commercial Project",
-    value: 7,
+    value: 3,
   },
 ];
 
@@ -39,7 +40,7 @@ const FirstSection = () => {
           <div className="space-y-3 sm:space-y-3 md:space-y-4 text-neutral-500 text-sm sm:text-base md:text-lg font-light pt-3 sm:pt-4 md:pt-5">
             <p>
               MAPSKO is a pioneering and growing name in the real estate
-              organization, echoing its position among the top-notch developers.
+              industry, echoing its position among the top-notch developers.
               Empowered with world-class structures and services, MAPSKO is
               India's blossoming real estate developer.
             </p>
@@ -75,7 +76,7 @@ const FirstSection = () => {
               <p className="text-center text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase">
                 {point.value}
               </p>
-              <div className="text-center text-neutral-500 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-tight sm:leading-5">
+              <div className="text-center text-neutral-500 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-tight sm:leading-7">
                 {point.label}
               </div>
             </div>

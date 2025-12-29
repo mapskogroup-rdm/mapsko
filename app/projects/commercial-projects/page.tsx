@@ -47,8 +47,8 @@ const Page = () => {
         business arcade, Galleria, etc. The projects are designed by a group of
         professional building consultants who will surely give you a sense of
         luxury. The spacious ambiance and highly decorated interiors are the
-        USP's of these commercial projects in Gurugram, Sonipat, and Gurgaon
-        that will change your entire lifestyle into an extraordinary one.
+        USP’s of these commercial projects in Gurgaon that will change your
+        entire lifestyle into an extraordinary one.
       </div>
 
       <FirstSection />

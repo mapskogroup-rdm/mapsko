@@ -6,6 +6,11 @@ export interface PrimaryHighlight {
   title?: string;
 }
 
+export interface BrochurePdf {
+  url?: string;
+  originalFilename?: string;
+}
+
 export interface PrimaryAmenity {
   _key?: string;
   icon?: Image;
@@ -39,6 +44,7 @@ export interface ProjectDocument {
   propertyLogo: Image;
   primaryPropertyPhoto: Image;
   secondaryCoverPhoto?: Image;
+  brochurePdf?: BrochurePdf;
   primaryHighlights?: PrimaryHighlight[];
   headline?: string;
   propertyPitch?: PortableTextBlock[];

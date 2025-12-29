@@ -40,7 +40,8 @@ const PropertyPitch = () => {
           <SanityImage
             image={property.primaryPropertyPhoto}
             width={674}
-            className="w-full lg:w-auto lg:min-w-[400px] xl:min-w-[500px] 2xl:min-w-[674px]"
+            height={674}
+            className="w-full lg:w-auto lg:min-w-[400px] xl:min-w-[500px] 2xl:min-w-[674px] object-cover"
           />
         </div>
       </div>

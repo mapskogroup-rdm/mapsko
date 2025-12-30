@@ -32,7 +32,7 @@ const SecondSection = () => {
             </p>
           </div>
         </div>
-        <div className="md:min-w-[500px] md:max-w-[500px] md:min-h-[500px] md:max-h-[500px]">
+        {/* <div className="md:min-w-[500px] md:max-w-[500px] md:min-h-[500px] md:max-h-[500px]">
           <Image
             src={KrishanSinglaImage}
             alt="Krishan Single"
@@ -46,7 +46,7 @@ const SecondSection = () => {
             </span>
             <span className="text-white font-light">(Chairperson)</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

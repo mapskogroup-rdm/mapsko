@@ -45,6 +45,7 @@ export async function POST(req: NextRequest) {
         "/projects/project-updates",
         "/gallery",
         "/ready-to-move-in",
+        "/",
       ];
 
       if (slug) {

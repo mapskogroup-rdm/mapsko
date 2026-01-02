@@ -5,7 +5,7 @@ import { Resend } from "resend";
 // Optional env: RESEND_FROM (e.g., "Contact <contact@yourdomain.com>")
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const RECIPIENT = "vmbansal2001@gmail.com";
+const RECIPIENT = "advertisement@mapskogroup.com";
 const DEFAULT_FROM = "Contact <onboarding@resend.dev>";
 
 const requiredFields = [

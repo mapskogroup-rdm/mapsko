@@ -52,7 +52,7 @@ const Page = (props: Props) => {
         ASPR HILLS at Sector 78, Gurugram.
       </div>
 
-      {/* <FirstSection /> */}
+      <FirstSection />
       <SecondSection />
       <ThirdSection />
 

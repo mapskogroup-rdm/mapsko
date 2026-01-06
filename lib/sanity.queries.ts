@@ -119,7 +119,7 @@ export const projectsByStatusQuery = groq`
 `;
 
 export const readyToMoveInProjectsQuery = groq`
-  *[_type == "project" && defined(slug.current)]{
+  *[_type == "project" && defined(slug.current)] | order(rankingIndex asc, name asc){
     _id,
     name,
     "slug": slug.current,
@@ -128,7 +128,8 @@ export const readyToMoveInProjectsQuery = groq`
     propertyLogo,
     shortAddress,
     readyToMoveInContent,
-    about
+    about,
+    rankingIndex
   }
 `;
 

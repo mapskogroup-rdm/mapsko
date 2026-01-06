@@ -29,8 +29,8 @@ const FirstSection = () => {
           </h3>
           <p className="text-[15px] md:text-[16px] leading-6 text-[#707070] max-w-xl">
             {/* <span className="font-semibold">Address :</span>  */}
-            Baani The Address, 1, 6th Floor, Golf Course Rd, Sector 56,
-            Gurugram, Haryana 122011
+            Baani The Address, 6th Floor, No.1 Golf Course Road, Sector-56,
+            Gurugram-122011, Haryana, India
           </p>
         </div>
 

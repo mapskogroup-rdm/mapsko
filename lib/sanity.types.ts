@@ -112,6 +112,7 @@ export interface ReadyToMoveInProject {
   shortAddress?: string;
   readyToMoveInContent?: string;
   about?: string;
+  rankingIndex?: number;
 }
 
 export interface BlogDocument {

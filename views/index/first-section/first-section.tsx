@@ -14,7 +14,7 @@ const points = [
   {
     icon: G183Icon,
     label: "Under Construction Projects",
-    value: "4",
+    value: "5+",
   },
   {
     icon: PlotTwoIcon,

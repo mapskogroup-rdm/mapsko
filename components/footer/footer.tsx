@@ -38,28 +38,13 @@ const Footer = async () => {
     projectsForFooterQuery
   );
 
-  const residentialProjects = projects
-    .filter((p) => p.projectType === "residential")
-    .sort((a, b) => {
-      // Sort by rankingIndex first (lower numbers first), then by name
-      if (a.rankingIndex !== undefined && b.rankingIndex !== undefined) {
-        return a.rankingIndex - b.rankingIndex;
-      }
-      if (a.rankingIndex !== undefined) return -1;
-      if (b.rankingIndex !== undefined) return 1;
-      return a.name.localeCompare(b.name);
-    });
-  const commercialProjects = projects
-    .filter((p) => p.projectType === "commercial")
-    .sort((a, b) => {
-      // Sort by rankingIndex first (lower numbers first), then by name
-      if (a.rankingIndex !== undefined && b.rankingIndex !== undefined) {
-        return a.rankingIndex - b.rankingIndex;
-      }
-      if (a.rankingIndex !== undefined) return -1;
-      if (b.rankingIndex !== undefined) return 1;
-      return a.name.localeCompare(b.name);
-    });
+  const residentialProjects = projects.filter(
+    (p) => p.projectType === "residential"
+  );
+
+  const commercialProjects = projects.filter(
+    (p) => p.projectType === "commercial"
+  );
 
   return (
     <footer className="bg-[#0B6BB8] text-white">
@@ -98,8 +83,8 @@ const Footer = async () => {
               <p>
                 <span className="font-semibold">Corporate Office :</span>
                 <br />
-                6th Floor, Baani The Address, No.1, Golf Course Road, Sector-56,
-                Gurgaon-122011, Haryana, India
+                Baani The Address, 6th Floor, No.1 Golf Course Road, Sector-56,
+                Gurugram-122011, Haryana, India.
               </p>
               <div className="flex flex-col">
                 <p className="font-semibold">Inquiry :</p>

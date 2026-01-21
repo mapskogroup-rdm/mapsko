@@ -8,7 +8,7 @@ import G183Icon from "./g183.svg";
 const points = [
   {
     icon: BuildingIcon,
-    label: "Projects Successfully Delivered",
+    label: "Delivered /n Projects",
     value: "22+",
   },
   {
@@ -46,8 +46,8 @@ const FirstSection = () => {
             </p>
             <p>
               With a legacy rooted in real estate since the late 1990s, we have
-              been the driving force behind nearly 22+ successful residential
-              and commercial projects across Delhi and the NCR.
+              been the driving force behind nearly 22+ delivered
+              projects across Delhi and the NCR.
             </p>
             <p>
               Our commitment to excellence underscores exponential growth and
@@ -77,7 +77,12 @@ const FirstSection = () => {
                 {point.value}
               </p>
               <div className="text-center text-neutral-500 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-tight sm:leading-7">
-                {point.label}
+                {point.label.split("/n").map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    {index < point.label.split("/n").length - 1 && <br className="md:block hidden" />}
+                  </React.Fragment>
+                ))}
               </div>
             </div>
           ))}

@@ -48,7 +48,7 @@ const HeroSection = () => {
           <div className="w-full mx-auto px-4 sm:px-6 mb-8 sm:mb-12 md:mb-20">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 sm:divide-x sm:divide-white sm:*:px-4 text-base sm:text-lg xl:text-2xl">
               <p className="text-center sm:text-left">
-                <span className="font-bold">22+</span> Successful Projects
+                <span className="font-bold">22+</span> Delivered Projects
               </p>
               <p className="text-center sm:text-left">
                 ISO 9001:2000 Certified

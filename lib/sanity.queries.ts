@@ -126,7 +126,8 @@ export const projectsByStatusQuery = groq`
     _id,
     "slug": slug.current,
     registrationCode,
-    propertyLogo
+    propertyLogo,
+    statusText
   }
 `;
 

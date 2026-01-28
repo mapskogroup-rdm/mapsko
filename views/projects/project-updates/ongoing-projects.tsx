@@ -7,13 +7,13 @@ import type { ProjectUpdateItem } from "@/lib/sanity.types";
 const OngoingProjects = async () => {
   const projects = await client.fetch<ProjectUpdateItem[]>(
     projectsByStatusQuery,
-    { status: "ongoing" }
+    { status: "ongoing" },
   );
 
   const ongoingProjects = projects.map((project) => ({
     id: project._id,
     title: project.registrationCode || "",
-    subtext: "Construction is in full swing",
+    subtext: project.statusText || "",
     logoImage: project.propertyLogo,
     href: `/project/${project.slug}`,
   }));

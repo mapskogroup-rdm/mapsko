@@ -112,6 +112,7 @@ export interface ProjectUpdateItem {
   slug: string;
   registrationCode?: string;
   propertyLogo: Image;
+  statusText?: string;
 }
 
 export interface ReadyToMoveInProject {

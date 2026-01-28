@@ -15,20 +15,10 @@ const SecondSection = () => {
             </p>
             <p className="text-neutral-500 text-base md:text-lg font-light">
               <br />
-              From the visionary leadership of the late Mr. Amrit Singla Ji, the
-              reins of the group have gracefully passed to the capable hands of
-              Mr. Krishan Singla Ji, our current guiding force. Mr Krishan
-              Singla, an exceptional first-generation entrepreneur and
-              visionary, is charting our company's course with expertise and
-              dedication and has steered the MAPSKO Group to remarkable success.
-              As Chairman, he has led diverse ventures, including Jai Krishan
-              Estates Pvt Ltd, Apra Builders Ltd, and Mapsko Infrastructure Pvt
-              Ltd, showcasing the conglomerate's prominence in North India. With
-              a legacy rooted in real estate since the late 1990s, Mr Singla
-              pioneers the industry and serves as a driving force behind nearly
-              25+ successful residential and commercial projects across Delhi
-              and the NCR. His leadership underscores the group's exponential
-              growth and his role as a trailblazing figure in the field.
+              Built on decades of vision, commitment, and entrepreneurial excellence, MAPSKO&apos;s journey reflects a seamless transition from a strong foundation to progressive leadership. The group continues to evolve with a forward-looking approach, guided by experience, strategic insight, and a clear focus on long-term growth.
+              <br />
+              <br />
+              With deep-rooted expertise in real estate since the late 1990s, MAPSKO has emerged as a trusted force in North India&apos;s development landscape. Over the years, the group has successfully delivered nearly <strong>22+ residential and commercial projects</strong> across North India, contributing significantly to urban transformation. This legacy of consistency, innovation, and execution excellence continues to drive MAPSKO&apos;s expansion and industry leadership.
             </p>
           </div>
         </div>

@@ -29,32 +29,17 @@ const FirstSection = () => {
           <Logo className="h-[100px]" />
           <div className="pt-6">
             <p className="text-sky-700 text-2xl md:text-3xl lg:text-4xl font-bold uppercase">
-              MAPSKO: Crafting Signature Landmarks, Building India's Future
+              MAPSKO: CRAFTING SIGNATURE LANDMARKS, BUILDING INDIA&apos;S FUTURE
             </p>
             <p className="text-neutral-500 text-base md:text-lg font-light">
               <br />
-              MAPSKO is a leading real estate developer known for creating
-              world-class residential and commercial developments. With a strong
-              focus on quality, innovation, and design excellence, the brand has
-              earned its position among India's top real estate companies. Each
-              project reflects a distinct architectural identity, redefining
-              modern lifestyles beyond concrete and steel.
+              MAPSKO is a leading real estate developer recognized for delivering world-class residential and commercial developments. Driven by a strong commitment to quality, innovation, and design excellence, the brand has established itself among India&apos;s most respected real estate companies. Every MAPSKO project is defined by a distinct architectural identity, shaping modern lifestyles that go beyond concrete and steel.
               <br />
               <br />
-              Rooted in the legacy of the Krishna Apra Group, established in
-              1997 by Mr. Amrit Singla and Jai Krishan Estate Pvt. Ltd., MAPSKO
-              was conceptualized in 2003 with a vision to create
-              lifestyle-driven developments integrated with green and
-              sustainable environments. The Group brings together expertise
-              across architecture, engineering, planning, management, finance,
-              and legal domains to meet diverse client needs.
+              Conceptualized in the early 2000s with a vision to create lifestyle-focused developments, MAPSKO integrates sustainable planning, green environments, and future-ready infrastructure into every project. The group brings together multidisciplinary expertise across architecture, engineering, planning, management, finance, and legal domains to deliver holistic solutions tailored to evolving client needs.
               <br />
               <br />
-              For over a decade, MAPSKO has consistently set benchmarks in real
-              estate development by delivering landmark townships and commercial
-              spaces in prime locations, achieving international quality
-              standards through value engineering and advanced construction
-              practices.
+              Since 3 decades, MAPSKO has consistently set benchmarks in real estate development, delivering landmark townships and commercial spaces in prime locations. Through advanced construction practices, value engineering, and adherence to international quality standards, MAPSKO continues to shape urban living while building a future that is resilient, aspirational, and enduring.
             </p>
           </div>
         </div>

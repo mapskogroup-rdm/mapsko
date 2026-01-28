@@ -18,7 +18,7 @@ const PropertyNavbar = ({ property }: PropertyNavbarProps) => {
   const links = [
     {
       label: "Home",
-      href: `/project/${property.slug}`,
+      href: `/`,
       enabled: true,
     },
     {
@@ -124,19 +124,16 @@ const PropertyNavbar = ({ property }: PropertyNavbarProps) => {
           >
             <span className="relative block h-4 w-4">
               <span
-                className={`absolute left-0 top-0 block h-0.5 w-full bg-current transition-transform duration-300 ${
-                  isMenuOpen ? "translate-y-2 rotate-45" : ""
-                }`}
+                className={`absolute left-0 top-0 block h-0.5 w-full bg-current transition-transform duration-300 ${isMenuOpen ? "translate-y-2 rotate-45" : ""
+                  }`}
               />
               <span
-                className={`absolute left-0 top-2 block h-0.5 w-full bg-current transition-opacity duration-300 ${
-                  isMenuOpen ? "opacity-0" : "opacity-100"
-                }`}
+                className={`absolute left-0 top-2 block h-0.5 w-full bg-current transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"
+                  }`}
               />
               <span
-                className={`absolute left-0 top-4 block h-0.5 w-full bg-current transition-transform duration-300 ${
-                  isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-                }`}
+                className={`absolute left-0 top-4 block h-0.5 w-full bg-current transition-transform duration-300 ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                  }`}
               />
             </span>
           </button>

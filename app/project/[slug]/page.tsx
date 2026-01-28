@@ -32,7 +32,9 @@ export async function generateMetadata(
     );
   }
 
+  const title = project.mainPageMetaTitle || project.name;
   const description =
+    project.mainPageMetaDescription ||
     project.headline ||
     project.sliderDescription ||
     project.shortAddress ||
@@ -49,7 +51,7 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: project.name,
+      title,
       description,
       alternates: { canonical },
       openGraph: {
@@ -75,9 +77,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     `${project.slug ?? "project"}-brochure.pdf`;
   const brochureDownloadHref = brochureUrl
     ? `/api/brochure?${new URLSearchParams({
-        url: brochureUrl,
-        filename: brochureFilename,
-      }).toString()}`
+      url: brochureUrl,
+      filename: brochureFilename,
+    }).toString()}`
     : null;
 
   const ogImage =

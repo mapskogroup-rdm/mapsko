@@ -28,7 +28,9 @@ export async function generateMetadata(
   }
 
   const canonical = absoluteUrl(`/project/${project.slug}/floor-plans`);
+  const title = project.floorPlansMetaTitle || `${project.name} | Floor Plans`;
   const description =
+    project.floorPlansMetaDescription ||
     project.aboutFloorPlans ||
     project.headline ||
     "View detailed floor plans and layouts for this Mapsko project.";
@@ -38,7 +40,7 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: `${project.name} | Floor Plans`,
+      title,
       description,
       alternates: { canonical },
       openGraph: {

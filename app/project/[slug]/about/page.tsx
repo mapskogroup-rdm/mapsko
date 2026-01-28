@@ -26,7 +26,9 @@ export async function generateMetadata(
   }
 
   const canonical = absoluteUrl(`/project/${project.slug}/about`);
+  const title = project.aboutMetaTitle || `${project.name} | About`;
   const description =
+    project.aboutMetaDescription ||
     project.about ||
     project.headline ||
     project.sliderDescription ||
@@ -37,7 +39,7 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: `${project.name} | About`,
+      title,
       description,
       alternates: { canonical },
       openGraph: {

@@ -32,26 +32,38 @@ export const projectBySlugQuery = groq`
     },
     aboutAmenities,
     allAmenities,
+    mainPageMetaTitle,
+    mainPageMetaDescription,
     floorPlans[]{
       _key,
       image,
       label
     },
     aboutFloorPlans,
+    floorPlansMetaTitle,
+    floorPlansMetaDescription,
     imageGallery[]{
       _key,
       image,
       label
     },
     aboutImageGallery,
+    imageGalleryMetaTitle,
+    imageGalleryMetaDescription,
     about,
+    aboutMetaTitle,
+    aboutMetaDescription,
     aboutLocation,
     googleMapsLink,
+    locationMetaTitle,
+    locationMetaDescription,
     videos[]{
       _key,
       videoUrl,
       title
     },
+    videosMetaTitle,
+    videosMetaDescription,
     sliderPhoto,
     shortAddress,
     statusText,

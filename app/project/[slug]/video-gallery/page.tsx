@@ -28,7 +28,9 @@ export async function generateMetadata(
   }
 
   const canonical = absoluteUrl(`/project/${project.slug}/video-gallery`);
+  const title = project.videosMetaTitle || `${project.name} | Video Gallery`;
   const description =
+    project.videosMetaDescription ||
     "Watch project walkthroughs, construction progress, and amenity highlights in our video gallery.";
   const ogImage =
     toOgImage(project.primaryCoverPhoto, { alt: project.name }) ||
@@ -36,7 +38,7 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: `${project.name} | Video Gallery`,
+      title,
       description,
       alternates: { canonical },
       openGraph: {

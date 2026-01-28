@@ -191,6 +191,20 @@ export default defineType({
       group: "main",
       of: [{ type: "string" }],
     }),
+    defineField({
+      name: "mainPageMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "main",
+      description: "SEO meta title for the main project page",
+    }),
+    defineField({
+      name: "mainPageMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "main",
+      description: "SEO meta description for the main project page",
+    }),
 
     // Floor Plans Page
     defineField({
@@ -228,6 +242,20 @@ export default defineType({
       title: "About Floor Plans",
       type: "text",
       group: "floorPlans",
+    }),
+    defineField({
+      name: "floorPlansMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "floorPlans",
+      description: "SEO meta title for the floor plans page",
+    }),
+    defineField({
+      name: "floorPlansMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "floorPlans",
+      description: "SEO meta description for the floor plans page",
     }),
 
     // Image Gallery Page
@@ -267,6 +295,20 @@ export default defineType({
       type: "text",
       group: "imageGallery",
     }),
+    defineField({
+      name: "imageGalleryMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "imageGallery",
+      description: "SEO meta title for the image gallery page",
+    }),
+    defineField({
+      name: "imageGalleryMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "imageGallery",
+      description: "SEO meta description for the image gallery page",
+    }),
 
     // About Page
     defineField({
@@ -275,6 +317,20 @@ export default defineType({
       type: "text",
       group: "about",
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "aboutMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "about",
+      description: "SEO meta title for the about page",
+    }),
+    defineField({
+      name: "aboutMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "about",
+      description: "SEO meta description for the about page",
     }),
 
     // Location Page
@@ -289,6 +345,20 @@ export default defineType({
       title: "Google Maps Link",
       type: "url",
       group: "location",
+    }),
+    defineField({
+      name: "locationMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "location",
+      description: "SEO meta title for the location page",
+    }),
+    defineField({
+      name: "locationMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "location",
+      description: "SEO meta description for the location page",
     }),
 
     // Videos Page
@@ -320,6 +390,20 @@ export default defineType({
           },
         }),
       ],
+    }),
+    defineField({
+      name: "videosMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "videos",
+      description: "SEO meta title for the videos page",
+    }),
+    defineField({
+      name: "videosMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "videos",
+      description: "SEO meta description for the videos page",
     }),
 
     // Slider Card

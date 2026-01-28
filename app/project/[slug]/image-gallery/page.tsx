@@ -28,7 +28,10 @@ export async function generateMetadata(
   }
 
   const canonical = absoluteUrl(`/project/${project.slug}/image-gallery`);
+  const title =
+    project.imageGalleryMetaTitle || `${project.name} | Image Gallery`;
   const description =
+    project.imageGalleryMetaDescription ||
     project.aboutImageGallery ||
     project.headline ||
     "View the project image gallery highlighting architecture and amenities.";
@@ -38,7 +41,7 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: `${project.name} | Image Gallery`,
+      title,
       description,
       alternates: { canonical },
       openGraph: {

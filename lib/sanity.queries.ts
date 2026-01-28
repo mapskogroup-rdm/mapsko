@@ -88,7 +88,7 @@ export const galleryImagesQuery = groq`
 `;
 
 export const projectsWithSliderQuery = groq`
-  *[_type == "project" && defined(sliderPhoto)]{
+  *[_type == "project" && defined(sliderPhoto)] | order(rankingIndex asc, name asc){
     _id,
     name,
     "slug": slug.current,

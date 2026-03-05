@@ -40,6 +40,7 @@ const BuiltAndHandover = async () => {
             <ProjectCard
               key={project.id}
               title={project.title}
+              address={project.address}
               subtext={project.subtext}
               logoImage={project.logoImage}
               href={project.href}

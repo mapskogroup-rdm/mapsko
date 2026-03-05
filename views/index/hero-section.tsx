@@ -54,7 +54,7 @@ const HeroSection = () => {
                 ISO 9001:2000 Certified
               </p>
               <p className="text-center sm:text-left">
-                <span className="font-bold">3+ Decades</span> Legacy
+                <span className="font-bold">Reaching 30 years</span> Legacy
               </p>
               <p className="text-center sm:text-left">
                 <span className="font-bold">10,000+ </span>Happy Families

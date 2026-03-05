@@ -8,7 +8,7 @@ const points = [
   {
     icon: LegacyOfTrust,
     title: "Legacy of Trust",
-    descriptionPointOne: "3+ Decades of building excellence",
+    descriptionPointOne: "Reaching 30 years of building excellence",
     descriptionPointTwo: "Family values, corporate standards",
   },
   {

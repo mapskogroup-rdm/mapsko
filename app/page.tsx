@@ -4,7 +4,7 @@ import { absoluteUrl, toOgImage } from "@/lib/seo";
 export const metadata = {
   title: "Premium Real Estate Developer in Gurgaon | Mapsko Group",
   description:
-    "Mapsko Group is a leading real estate developer in Gurgaon and across NCR, delivering luxury homes, plots and commercial properties backed by 3+ decades of trust.",
+    "Mapsko Group is a leading real estate developer in Gurgaon and across NCR, delivering luxury homes, plots and commercial properties backed by Reaching 30 years of trust.",
   alternates: {
     canonical: absoluteUrl("/"),
   },

@@ -33,11 +33,6 @@ const FloorPlansContent = () => {
                 className="w-full object-cover"
               />
             )}
-            {floorPlan.label && (
-              <p className="p-4 bg-lime-500 text-center text-white text-2xl font-bold">
-                {floorPlan.label}
-              </p>
-            )}
           </div>
         ))}
       </div>

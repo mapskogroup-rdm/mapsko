@@ -68,11 +68,6 @@ const GalleryContent = (props: Props) => {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   )}
-                  {imageItem.label && (
-                    <p className="p-4 bg-lime-500 text-center text-white text-base sm:text-lg md:text-xl font-bold">
-                      {imageItem.label}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>

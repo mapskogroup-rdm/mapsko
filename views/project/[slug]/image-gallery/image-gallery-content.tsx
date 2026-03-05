@@ -34,11 +34,6 @@ const ImageGalleryContent = () => {
                 className="object-cover md:h-[350px] xl:h-[500px]"
               />
             )}
-            {imageItem.label && (
-              <p className="p-4 absolute bottom-0 left-0 right-0 text-center text-white text-2xl font-bold z-[1]">
-                {imageItem.label}
-              </p>
-            )}
           </div>
         ))}
       </div>

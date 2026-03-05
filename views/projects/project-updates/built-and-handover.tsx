@@ -13,7 +13,7 @@ const BuiltAndHandover = async () => {
   const completedProjects = projects.map((project) => ({
     id: project._id,
     title: project.registrationCode || "",
-    subtext: "",
+    subtext: project.statusText || "",
     logoImage: project.propertyLogo,
     href: `/project/${project.slug}`,
   }));

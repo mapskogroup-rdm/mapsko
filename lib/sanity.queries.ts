@@ -124,10 +124,12 @@ export const projectsWithPropertyImageQuery = groq`
 export const projectsByStatusQuery = groq`
   *[_type == "project" && projectStatus == $status && defined(propertyLogo) && defined(slug.current)]{
     _id,
+    name,
     "slug": slug.current,
     registrationCode,
     propertyLogo,
-    statusText
+    statusText,
+    shortAddress
   }
 `;
 

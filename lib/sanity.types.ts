@@ -109,10 +109,12 @@ export interface ProjectWithPropertyImage {
 
 export interface ProjectUpdateItem {
   _id: string;
+  name?: string;
   slug: string;
   registrationCode?: string;
   propertyLogo: Image;
   statusText?: string;
+  shortAddress?: string;
 }
 
 export interface ReadyToMoveInProject {

@@ -12,8 +12,8 @@ const BuiltAndHandover = async () => {
 
   const completedProjects = projects.map((project) => ({
     id: project._id,
-    title: project.registrationCode || "",
-    subtext: project.statusText || "",
+    title: project.shortAddress || project.registrationCode || "",
+    subtext: project.statusText || "Ready to move in",
     logoImage: project.propertyLogo,
     href: `/project/${project.slug}`,
   }));

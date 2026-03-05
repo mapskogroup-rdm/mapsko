@@ -13,6 +13,7 @@ const OngoingProjects = async () => {
   const ongoingProjects = projects.map((project) => ({
     id: project._id,
     title: project.registrationCode || "",
+    address: project.shortAddress || "",
     subtext: project.statusText || "",
     logoImage: project.propertyLogo,
     href: `/project/${project.slug}`,

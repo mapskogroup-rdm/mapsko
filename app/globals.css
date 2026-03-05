@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+body {
+  font-family: var(--font-avenir), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+ 
+.common-frame-box {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1640px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 420px) {
+  .common-frame-box {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .common-frame-box {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes mapsko-marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.mapsko-marquee {
+  overflow: hidden;
+}
+
+.mapsko-marquee__track {
+  display: flex;
+  width: max-content;
+  --mapsko-marquee-duration: 60s;
+  --mapsko-marquee-delay: -60s;
+  animation-name: mapsko-marquee-x;
+  animation-duration: var(--mapsko-marquee-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: var(--mapsko-marquee-delay);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.mapsko-marquee--ltr .mapsko-marquee__track {
+  animation-direction: reverse;
+}
+
+/* JS-controlled marquee tracks disable CSS animation */
+.mapsko-marquee__track--js {
+  animation: none !important;
+}
+
+.mapsko-marquee:hover .mapsko-marquee__track:not(.mapsko-marquee__track--js) {
+  animation-duration: 200s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mapsko-marquee__track {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Parallax window effect */
+.parallax-bg {
+  background-attachment: fixed;
+}
+
+/* Disable fixed background on mobile for better performance */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}

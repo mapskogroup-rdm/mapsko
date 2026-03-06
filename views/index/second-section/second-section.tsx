@@ -36,7 +36,7 @@ const SecondSection = async () => {
               >
                 <ProjectDisplayCardV2
                   projectSlider={project}
-                  gradientColor={
+                  initialColor={
                     (index + dupIndex) % 2 === 0 ? "#0B6BB8" : "#8AC028"
                   }
                 />

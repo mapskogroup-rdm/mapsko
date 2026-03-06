@@ -112,6 +112,117 @@ export default defineType({
                         },
                     ],
                 },
+                {
+                    type: "object",
+                    name: "faqSection",
+                    title: "FAQ Section",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "items",
+                            type: "array",
+                            of: [
+                                {
+                                    type: "object",
+                                    fields: [
+                                        { name: "question", type: "string" },
+                                        { name: "answer", type: "array", of: [{ type: "block" }] },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "object",
+                    name: "ctaSection",
+                    title: "CTA Banner",
+                    fields: [
+                        { name: "eyebrow", title: "Eyebrow", type: "string" },
+                        { name: "headline", title: "Headline", type: "string" },
+                        { name: "subtext", title: "Subtext", type: "text" },
+                        { name: "buttonLabel", title: "Button Label", type: "string" },
+                        { name: "buttonHref", title: "Button Link", type: "string" },
+                        {
+                            name: "variant",
+                            title: "Style Variant",
+                            type: "string",
+                            options: {
+                                list: [
+                                    { title: "Light", value: "light" },
+                                    { title: "Dark", value: "dark" },
+                                ],
+                                layout: "radio",
+                            },
+                        },
+                    ],
+                },
+                {
+                    type: "object",
+                    name: "statsSection",
+                    title: "Statistics Section",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "items",
+                            title: "Stats",
+                            type: "array",
+                            of: [
+                                {
+                                    type: "object",
+                                    fields: [
+                                        { name: "label", type: "string" },
+                                        { name: "value", type: "string" },
+                                        { name: "description", type: "text" },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "object",
+                    name: "testimonialsSection",
+                    title: "Testimonials Section",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "items",
+                            type: "array",
+                            of: [
+                                {
+                                    type: "object",
+                                    fields: [
+                                        { name: "quote", type: "text" },
+                                        { name: "name", type: "string" },
+                                        { name: "roleOrCompany", type: "string" },
+                                        { name: "avatar", type: "image", options: { hotspot: true } },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "object",
+                    name: "relatedContentSection",
+                    title: "Related Content Section",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "relatedBlogs",
+                            title: "Related Blogs",
+                            type: "array",
+                            of: [{ type: "reference", to: [{ type: "blog" }] }],
+                        },
+                        {
+                            name: "relatedProjects",
+                            title: "Related Projects",
+                            type: "array",
+                            of: [{ type: "reference", to: [{ type: "project" }] }],
+                        },
+                    ],
+                },
             ],
         }),
     ],

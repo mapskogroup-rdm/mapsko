@@ -164,7 +164,17 @@ export interface FeaturedInDocument {
 
 export interface LandingPageSection {
   _key: string;
-  _type: "hero" | "contentSection" | "iconBoxes" | "imageBoxes" | "projectSection";
+  _type:
+    | "hero"
+    | "contentSection"
+    | "iconBoxes"
+    | "imageBoxes"
+    | "projectSection"
+    | "faqSection"
+    | "ctaSection"
+    | "statsSection"
+    | "testimonialsSection"
+    | "relatedContentSection";
   headline?: string;
   subHeadline?: string;
   backgroundImage?: Image;
@@ -178,6 +188,31 @@ export interface LandingPageSection {
     description?: string;
   }[];
   projects?: ProjectDocument[];
+  items?: {
+    _key?: string;
+    label?: string;
+    value?: string;
+    description?: string;
+  }[];
+  faqItems?: {
+    _key?: string;
+    question?: string;
+    answer?: PortableTextBlock[];
+  }[];
+  testimonials?: {
+    _key?: string;
+    quote?: string;
+    name?: string;
+    roleOrCompany?: string;
+    avatar?: Image;
+  }[];
+  relatedBlogs?: BlogDocument[];
+  relatedProjects?: ProjectDocument[];
+  eyebrow?: string;
+  subtext?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+  variant?: "light" | "dark";
 }
 
 export interface LandingPageDocument {

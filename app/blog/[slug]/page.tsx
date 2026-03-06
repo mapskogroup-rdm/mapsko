@@ -11,6 +11,7 @@ import { buildBlogPostingJsonLd } from "@/lib/jsonld";
 import type { LandingPageSection } from "@/lib/sanity.types";
 import ProjectCard from "@/views/projects/project-updates/project-card";
 import SanityImageComponent from "@/components/sanity-image";
+import Link from "next/link";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
@@ -143,6 +144,167 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                 <div className="absolute inset-0 bg-black/50 -z-10" />
               </section>
             );
+          case "faqSection":
+            return (
+              <section
+                key={section._key}
+                className="py-16 bg-white"
+              >
+                <div className="common-frame-box max-w-3xl mx-auto">
+                  {section.heading && (
+                    <h2 className="text-2xl md:text-3xl font-black text-sky-700 mb-8 text-center uppercase tracking-tight">
+                      {section.heading}
+                    </h2>
+                  )}
+                  <div className="space-y-5">
+                    {section.items?.map((item, idx) => (
+                      <div
+                        key={item._key || idx}
+                        className="border border-neutral-200 rounded-sm p-4 md:p-5"
+                      >
+                        <h3 className="text-base md:text-lg font-bold text-sky-800 mb-2">
+                          {(item as any).question}
+                        </h3>
+                        <div className="prose max-w-none text-neutral-700">
+                          <PortableText value={(item as any).answer || []} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
+          case "ctaSection": {
+            const variant = section.variant || "dark";
+            const isDark = variant === "dark";
+            return (
+              <section
+                key={section._key}
+                className={isDark ? "py-16 bg-sky-900 text-white" : "py-16 bg-sky-50 text-sky-900"}
+              >
+                <div className="common-frame-box max-w-3xl mx-auto text-center">
+                  {section.eyebrow && (
+                    <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-2 opacity-80">
+                      {section.eyebrow}
+                    </p>
+                  )}
+                  {section.headline && (
+                    <h2 className="text-2xl md:text-3xl font-black mb-3 uppercase tracking-tight">
+                      {section.headline}
+                    </h2>
+                  )}
+                  {section.subtext && (
+                    <p
+                      className={
+                        isDark
+                          ? "text-sky-100 mb-6 max-w-2xl mx-auto"
+                          : "text-sky-800 mb-6 max-w-2xl mx-auto"
+                      }
+                    >
+                      {section.subtext}
+                    </p>
+                  )}
+                  {section.buttonLabel && section.buttonHref && (
+                    <Link
+                      href={section.buttonHref}
+                      className={
+                        isDark
+                          ? "inline-flex items-center justify-center px-7 py-2.5 bg-white text-sky-900 font-bold uppercase tracking-wide text-xs hover:bg-sky-100 transition-colors rounded-sm"
+                          : "inline-flex items-center justify-center px-7 py-2.5 bg-sky-900 text-white font-bold uppercase tracking-wide text-xs hover:bg-sky-800 transition-colors rounded-sm"
+                      }
+                    >
+                      {section.buttonLabel}
+                    </Link>
+                  )}
+                </div>
+              </section>
+            );
+          }
+          case "statsSection":
+            return (
+              <section
+                key={section._key}
+                className="py-16 bg-[#050816] text-white"
+              >
+                <div className="common-frame-box">
+                  {section.heading && (
+                    <h2 className="text-2xl md:text-3xl font-black mb-10 text-center uppercase tracking-tight text-sky-300">
+                      {section.heading}
+                    </h2>
+                  )}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+                    {section.items?.map((item, idx) => (
+                      <div
+                        key={item._key || idx}
+                        className="text-center"
+                      >
+                        <div className="text-2xl md:text-3xl font-black text-sky-400 mb-1">
+                          {item.value}
+                        </div>
+                        <div className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em] text-sky-100 mb-1">
+                          {item.label}
+                        </div>
+                        {item.description && (
+                          <p className="text-[11px] md:text-xs text-sky-200/80">
+                            {item.description}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
+          case "testimonialsSection":
+            return (
+              <section
+                key={section._key}
+                className="py-16 bg-[#F9F9F9]"
+              >
+                <div className="common-frame-box">
+                  {section.heading && (
+                    <h2 className="text-2xl md:text-3xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
+                      {section.heading}
+                    </h2>
+                  )}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {section.testimonials?.map((item, idx) => (
+                      <figure
+                        key={item._key || idx}
+                        className="bg-white border border-neutral-200 shadow-sm p-6 flex flex-col h-full"
+                      >
+                        <p className="text-neutral-700 text-sm md:text-base leading-relaxed mb-5">
+                          &ldquo;{item.quote}&rdquo;
+                        </p>
+                        <div className="mt-auto flex items-center gap-4">
+                          {item.avatar && (
+                            <div className="w-10 h-10 rounded-full overflow-hidden border border-neutral-200">
+                              <SanityImageComponent
+                                image={item.avatar}
+                                alt={item.name || "avatar"}
+                                width={40}
+                                height={40}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          )}
+                          <div>
+                            <div className="font-bold text-sky-800 text-sm md:text-base">
+                              {item.name}
+                            </div>
+                            {item.roleOrCompany && (
+                              <div className="text-xs text-neutral-500">
+                                {item.roleOrCompany}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
           case "contentSection":
             return (
               <section key={section._key} className="py-16 px-4 max-w-4xl mx-auto">
@@ -255,6 +417,69 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                         href={`/projects/${project.projectType}/${project.slug}`}
                       />
                     ))}
+                  </div>
+                </div>
+              </section>
+            );
+          case "relatedContentSection":
+            return (
+              <section
+                key={section._key}
+                className="py-16 bg-white"
+              >
+                <div className="common-frame-box">
+                  {section.heading && (
+                    <h2 className="text-2xl md:text-3xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
+                      {section.heading}
+                    </h2>
+                  )}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    {section.relatedBlogs && section.relatedBlogs.length > 0 && (
+                      <div>
+                        <h3 className="text-sm font-bold text-sky-800 mb-4 uppercase tracking-[0.18em]">
+                          Related Articles
+                        </h3>
+                        <div className="space-y-3">
+                          {section.relatedBlogs.map((related) => (
+                            <Link
+                              key={related._id}
+                              href={`/blog/${related.slug}`}
+                              className="block border border-neutral-200 hover:border-sky-300 rounded-sm p-3 transition-colors"
+                            >
+                              <div className="text-[11px] text-neutral-500 mb-1">
+                                {related.createdDate &&
+                                  new Date(related.createdDate).toLocaleDateString()}
+                              </div>
+                              <div className="font-bold text-sky-900 text-sm mb-1">
+                                {related.title}
+                              </div>
+                              <p className="text-xs text-neutral-600 line-clamp-2">
+                                {related.shortDescription}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {section.relatedProjects && section.relatedProjects.length > 0 && (
+                      <div>
+                        <h3 className="text-sm font-bold text-sky-800 mb-4 uppercase tracking-[0.18em]">
+                          Featured Projects
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {section.relatedProjects.map((project) => (
+                            <ProjectCard
+                              key={project._id}
+                              title={project.name}
+                              address={project.shortAddress}
+                              subtext={project.statusText || ""}
+                              logoImage={project.propertyLogo}
+                              href={`/projects/${project.projectType}/${project.slug}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </section>

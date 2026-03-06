@@ -172,6 +172,17 @@ export const blogBySlugQuery = groq`
           }
         }
       },
+      _type == "faqSection" => {
+        items[]{
+          ...,
+          answer[]{
+            ...,
+            _type == "block" => {
+              ...
+            }
+          }
+        }
+      },
       _type == "projectSection" => {
         projects[]->{
           _id,
@@ -183,6 +194,25 @@ export const blogBySlugQuery = groq`
           shortAddress,
           sliderDescription,
           primaryCoverPhoto
+        }
+      },
+      _type == "relatedContentSection" => {
+        relatedBlogs[]->{
+          _id,
+          title,
+          "slug": slug.current,
+          shortDescription,
+          coverImage,
+          createdDate
+        },
+        relatedProjects[]->{
+          _id,
+          name,
+          "slug": slug.current,
+          projectType,
+          propertyLogo,
+          shortAddress,
+          statusText
         }
       }
     }
@@ -239,6 +269,17 @@ export const landingPageBySlugQuery = groq`
           }
         }
       },
+      _type == "faqSection" => {
+        items[]{
+          ...,
+          answer[]{
+            ...,
+            _type == "block" => {
+              ...
+            }
+          }
+        }
+      },
       _type == "projectSection" => {
         projects[]->{
           _id,
@@ -250,6 +291,25 @@ export const landingPageBySlugQuery = groq`
           shortAddress,
           sliderDescription,
           primaryCoverPhoto
+        }
+      },
+      _type == "relatedContentSection" => {
+        relatedBlogs[]->{
+          _id,
+          title,
+          "slug": slug.current,
+          shortDescription,
+          coverImage,
+          createdDate
+        },
+        relatedProjects[]->{
+          _id,
+          name,
+          "slug": slug.current,
+          projectType,
+          propertyLogo,
+          shortAddress,
+          statusText
         }
       }
     }

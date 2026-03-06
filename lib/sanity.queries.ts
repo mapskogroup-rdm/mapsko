@@ -218,3 +218,14 @@ export const landingPageBySlugQuery = groq`
     }
   }
 `;
+
+export const allFeaturedInQuery = groq`
+  *[_type == "featuredIn"] | order(rankingIndex asc, _createdAt desc){
+    _id,
+    title,
+    shortDescription,
+    publicationLogo,
+    coverImage,
+    externalLink
+  }
+`;

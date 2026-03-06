@@ -151,6 +151,16 @@ export interface NewsDocument {
   content: PortableTextBlock[];
 }
 
+export interface FeaturedInDocument {
+  _id: string;
+  title: string;
+  shortDescription: string;
+  publicationLogo: Image;
+  coverImage: Image;
+  externalLink: string;
+  rankingIndex?: number;
+}
+
 export interface LandingPageSection {
   _key: string;
   _type: "hero" | "contentSection";

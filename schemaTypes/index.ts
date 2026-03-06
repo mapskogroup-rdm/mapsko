@@ -1,8 +1,8 @@
 import project from "./project";
 import blog from "./blog";
-import news from "./news";
 import landingPage from "./landingPage";
+import featuredIn from "./featuredIn";
 
-export const schemaTypes = [project, blog, news, landingPage];
+export const schemaTypes = [project, blog, news, landingPage, featuredIn];
 
 export default schemaTypes;

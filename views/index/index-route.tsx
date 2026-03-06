@@ -9,6 +9,7 @@ import SixthSection from "./sixth-section/sixth-section";
 import Footer from "@/components/footer/footer";
 import ParallaxWindow from "@/components/parallax-window";
 import NewsSection from "../news-section/news-section";
+import FeaturedInSection from "./featured-in-section";
 
 const IndexRoute = () => {
   return (
@@ -25,6 +26,7 @@ const IndexRoute = () => {
       <FourthSection />
       <FifthSection />
       <NewsSection />
+      <FeaturedInSection />
       <SixthSection />
       <Footer />
     </main>

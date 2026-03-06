@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+
 
 type Props = {
     text: string;
@@ -22,7 +22,19 @@ const TestimonialCardV2 = ({ text, author, position, index }: Props) => {
                 className="absolute -top-6 left-10 w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
                 style={{ backgroundColor: themeColor }}
             >
-                <Quote size={24} fill="white" />
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 2.5 1 5 3 6" />
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c1 0 1.25.25 1.25 1.25V15c0 2.5 1 5 3 6" />
+                </svg>
             </div>
 
             {/* Main Content */}

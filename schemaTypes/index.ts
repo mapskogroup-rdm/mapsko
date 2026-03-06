@@ -1,5 +1,6 @@
 import project from "./project";
 import blog from "./blog";
+import news from "./news";
 import landingPage from "./landingPage";
 import featuredIn from "./featuredIn";
 

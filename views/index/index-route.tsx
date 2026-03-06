@@ -27,7 +27,6 @@ const IndexRoute = () => {
       <FifthSection />
       <NewsSection />
       <FeaturedInSection />
-      <SixthSection />
       <Footer />
     </main>
   );

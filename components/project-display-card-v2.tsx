@@ -17,6 +17,11 @@ const ProjectDisplayCardV2 = ({ projectSlider, initialColor }: Props) => {
   const { sliderPhoto, shortAddress, statusText, sliderDescription } = projectSlider;
 
   useEffect(() => {
+    // Sync with the initialColor if it changes from parent
+    setCurrentColor(initialColor);
+  }, [initialColor]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentColor((prev) => (prev === COLORS[0] ? COLORS[1] : COLORS[0]));
     }, 5000);

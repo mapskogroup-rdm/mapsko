@@ -34,7 +34,7 @@ const SecondSection = async () => {
           <ProjectDisplayCardV2
             key={project._id}
             projectSlider={project}
-            gradientColor={index % 2 === 0 ? "#0B6BB8" : "#8AC028"}
+            initialColor={index % 2 === 0 ? "#0B6BB8" : "#8AC028"}
           />
         ))}
       </div>

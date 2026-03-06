@@ -214,6 +214,19 @@ export const landingPageBySlugQuery = groq`
             ...
           }
         }
+      },
+      _type == "projectSection" => {
+        projects[]->{
+          _id,
+          name,
+          "slug": slug.current,
+          projectType,
+          propertyLogo,
+          statusText,
+          shortAddress,
+          sliderDescription,
+          primaryCoverPhoto
+        }
       }
     }
   }

@@ -55,7 +55,63 @@ export default defineType({
                         { name: "body", type: "array", of: [{ type: "block" }] },
                     ],
                 },
-                // We can add more sections here as needed (e.g. Gallery, Feature, etc.)
+                {
+                    type: "object",
+                    name: "iconBoxes",
+                    title: "Icon Boxes",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "items",
+                            type: "array",
+                            of: [
+                                {
+                                    type: "object",
+                                    fields: [
+                                        { name: "icon", type: "image" },
+                                        { name: "title", type: "string" },
+                                        { name: "description", type: "text" },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "object",
+                    name: "imageBoxes",
+                    title: "Image Boxes",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "items",
+                            type: "array",
+                            of: [
+                                {
+                                    type: "object",
+                                    fields: [
+                                        { name: "image", type: "image", options: { hotspot: true } },
+                                        { name: "title", type: "string" },
+                                        { name: "description", type: "text" },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: "object",
+                    name: "projectSection",
+                    title: "Projects Section",
+                    fields: [
+                        { name: "heading", type: "string" },
+                        {
+                            name: "projects",
+                            type: "array",
+                            of: [{ type: "reference", to: [{ type: "project" }] }],
+                        },
+                    ],
+                },
             ],
         }),
     ],

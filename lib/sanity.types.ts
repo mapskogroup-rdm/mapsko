@@ -163,12 +163,20 @@ export interface FeaturedInDocument {
 
 export interface LandingPageSection {
   _key: string;
-  _type: "hero" | "contentSection";
+  _type: "hero" | "contentSection" | "iconBoxes" | "imageBoxes" | "projectSection";
   headline?: string;
   subHeadline?: string;
   backgroundImage?: Image;
   heading?: string;
   body?: PortableTextBlock[];
+  items?: {
+    _key: string;
+    icon?: Image;
+    image?: Image;
+    title?: string;
+    description?: string;
+  }[];
+  projects?: ProjectDocument[];
 }
 
 export interface LandingPageDocument {

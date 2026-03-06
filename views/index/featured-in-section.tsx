@@ -32,8 +32,20 @@ const FeaturedInSection = async () => {
                             rel="noopener noreferrer"
                             className="group flex flex-col bg-white border border-neutral-200 hover:shadow-xl transition-all duration-300"
                         >
+                            {/* Publication Logo */}
+                            <div className="p-6 pb-0">
+                                <div className="h-10 w-full max-w-[140px] flex items-center">
+                                    <SanityImage
+                                        image={item.publicationLogo}
+                                        alt="Publication logo"
+                                        width={200}
+                                        className="h-full w-auto object-contain object-left grayscale group-hover:grayscale-0 transition-all duration-300"
+                                    />
+                                </div>
+                            </div>
+
                             {/* Cover Image */}
-                            <div className="relative w-full aspect-[16/10] overflow-hidden">
+                            <div className="relative w-full aspect-[16/9] overflow-hidden mt-6">
                                 <SanityImage
                                     image={item.coverImage}
                                     alt={item.title}
@@ -43,18 +55,8 @@ const FeaturedInSection = async () => {
                             </div>
 
                             {/* Content Box */}
-                            <div className="p-6 md:p-8 flex flex-col flex-1">
-                                {/* Publication Logo */}
-                                <div className="h-12 w-full max-w-[150px] mb-6 flex items-center">
-                                    <SanityImage
-                                        image={item.publicationLogo}
-                                        alt="Publication logo"
-                                        width={200}
-                                        className="h-full w-auto object-contain object-left grayscale group-hover:grayscale-0 transition-all duration-300"
-                                    />
-                                </div>
-
-                                <h3 className="text-sky-800 text-xl md:text-2xl font-bold mb-4 line-clamp-2 min-h-[3.5rem]">
+                            <div className="p-6 md:p-8 pt-6 md:pt-6 flex flex-col flex-1">
+                                <h3 className="text-sky-800 text-lg md:text-xl font-bold mb-3 line-clamp-2 min-h-[3rem]">
                                     {item.title}
                                 </h3>
                                 <p className="text-neutral-600 text-sm md:text-base line-clamp-3 mb-6 flex-1">

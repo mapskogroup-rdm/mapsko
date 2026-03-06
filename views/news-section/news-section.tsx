@@ -9,7 +9,7 @@ const NewsSection = async (props: Props) => {
   const news = await getNews();
 
   return (
-    <section className="bg-stone-50">
+    <section className="bg-white">
       <div className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
         <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-5 md:space-y-6 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
           <Logo className="w-10 sm:w-12 md:w-14" />

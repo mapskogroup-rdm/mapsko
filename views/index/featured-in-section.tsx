@@ -11,7 +11,7 @@ const FeaturedInSection = async () => {
     if (!featuredInItems || featuredInItems.length === 0) return null;
 
     return (
-        <section className="bg-stone-50 overflow-hidden">
+        <section className="bg-[#f9f9f9] overflow-hidden">
             <div className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
                 <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-5 md:space-y-6 pb-12 sm:pb-16 md:pb-20 lg:pb-24 text-center">
                     <Logo className="w-10 sm:w-12 md:w-14" />

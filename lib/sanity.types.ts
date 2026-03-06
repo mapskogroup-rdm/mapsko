@@ -139,6 +139,7 @@ export interface BlogDocument {
   coverImage: Image;
   content: PortableTextBlock[];
   createdDate: string;
+  sections?: LandingPageSection[];
 }
 
 export interface NewsDocument {

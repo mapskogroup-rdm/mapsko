@@ -161,7 +161,31 @@ export const blogBySlugQuery = groq`
     shortDescription,
     coverImage,
     content,
-    createdDate
+    createdDate,
+    sections[]{
+      ...,
+      _type == "contentSection" => {
+        body[]{
+          ...,
+          _type == "block" => {
+            ...
+          }
+        }
+      },
+      _type == "projectSection" => {
+        projects[]->{
+          _id,
+          name,
+          "slug": slug.current,
+          projectType,
+          propertyLogo,
+          statusText,
+          shortAddress,
+          sliderDescription,
+          primaryCoverPhoto
+        }
+      }
+    }
   }
 `;
 

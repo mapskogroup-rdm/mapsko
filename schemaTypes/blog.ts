@@ -63,6 +63,90 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "sections",
+      title: "Page Sections",
+      type: "array",
+      group: "main",
+      of: [
+        {
+          type: "object",
+          name: "hero",
+          title: "Hero Section",
+          fields: [
+            { name: "headline", type: "string" },
+            { name: "subHeadline", type: "text" },
+            { name: "backgroundImage", type: "image", options: { hotspot: true } },
+          ],
+        },
+        {
+          type: "object",
+          name: "contentSection",
+          title: "Content Section",
+          fields: [
+            { name: "heading", type: "string" },
+            { name: "body", type: "array", of: [{ type: "block" }] },
+          ],
+        },
+        {
+          type: "object",
+          name: "iconBoxes",
+          title: "Icon Boxes",
+          fields: [
+            { name: "heading", type: "string" },
+            {
+              name: "items",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    { name: "icon", type: "image" },
+                    { name: "title", type: "string" },
+                    { name: "description", type: "text" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "imageBoxes",
+          title: "Image Boxes",
+          fields: [
+            { name: "heading", type: "string" },
+            {
+              name: "items",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    { name: "image", type: "image", options: { hotspot: true } },
+                    { name: "title", type: "string" },
+                    { name: "description", type: "text" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "projectSection",
+          title: "Projects Section",
+          fields: [
+            { name: "heading", type: "string" },
+            {
+              name: "projects",
+              type: "array",
+              of: [{ type: "reference", to: [{ type: "project" }] }],
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: "createdDate",
       title: "Created Date",
       type: "date",

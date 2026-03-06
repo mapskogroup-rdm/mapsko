@@ -14,7 +14,7 @@ const BuiltAndHandover = async () => {
     id: project._id,
     title: project.registrationCode || "",
     address: project.shortAddress || "",
-    subtext: project.statusText || "Ready to move in",
+    subtext: project.statusText || "",
     logoImage: project.propertyLogo,
     href: `/project/${project.slug}`,
   }));

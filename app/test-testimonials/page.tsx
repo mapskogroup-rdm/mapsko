@@ -68,7 +68,9 @@ export default function TestTestimonials() {
           <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-center px-4">
             Voices of Satisfaction
           </h2>
-          <div className="w-20 h-1 bg-sky-600 rounded-full" />
+          <p className="text-center text-white text-sm sm:text-base md:text-lg font-light uppercase px-4">
+            What our customers say about us
+          </p>
         </div>
       </section>
 

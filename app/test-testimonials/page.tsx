@@ -75,7 +75,7 @@ export default function TestTestimonials() {
       </section>
 
       {/* Row 1: Slides LEFT (rtl) - 6 testimonials */}
-      <section className="w-full overflow-hidden border-y">
+      <section className="w-full overflow-hidden">
         <MarqueeTrack direction="rtl">
           {[0, 1].map((dupIndex) => (
             <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">
@@ -98,7 +98,7 @@ export default function TestTestimonials() {
       </section>
 
       {/* Row 2: Slides RIGHT (ltr) - 6 testimonials */}
-      <section className="w-full overflow-hidden border-y">
+      <section className="w-full overflow-hidden">
         <MarqueeTrack direction="ltr">
           {[0, 1].map((dupIndex) => (
             <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">

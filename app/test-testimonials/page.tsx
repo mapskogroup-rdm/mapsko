@@ -65,7 +65,7 @@ export default function TestTestimonials() {
       <section className="w-full py-16 text-center">
         <div className="flex flex-col items-center justify-center space-y-4">
           <Logo className="w-12" />
-          <h2 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
+          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-center px-4">
             Voices of Satisfaction
           </h2>
           <div className="w-20 h-1 bg-sky-600 rounded-full" />
@@ -73,7 +73,7 @@ export default function TestTestimonials() {
       </section>
 
       {/* Row 1: Slides LEFT (rtl) - 6 testimonials */}
-      <section className="w-full overflow-hidden border-y border-sky-100 bg-white/50">
+      <section className="w-full overflow-hidden border-y">
         <MarqueeTrack direction="rtl">
           {[0, 1].map((dupIndex) => (
             <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">
@@ -96,7 +96,7 @@ export default function TestTestimonials() {
       </section>
 
       {/* Row 2: Slides RIGHT (ltr) - 6 testimonials */}
-      <section className="w-full overflow-hidden border-y border-green-100 bg-white/50">
+      <section className="w-full overflow-hidden border-y">
         <MarqueeTrack direction="ltr">
           {[0, 1].map((dupIndex) => (
             <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">

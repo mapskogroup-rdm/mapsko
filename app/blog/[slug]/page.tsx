@@ -1,9 +1,11 @@
+import React from "react";
 import Footer from "@/components/footer/footer";
 import Navigator from "@/components/navigator/navigator";
 import SanityImage from "@/components/sanity-image";
 import HeroSection from "@/views/blog/hero-section";
 import { fetchBlog } from "@/views/blog/utils/blog-data";
-import { PortableText } from "next-sanity";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "sanity";
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
 import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
@@ -12,6 +14,49 @@ import type { LandingPageSection } from "@/lib/sanity.types";
 import ProjectCard from "@/views/projects/project-updates/project-card";
 import SanityImageComponent from "@/components/sanity-image";
 import Link from "next/link";
+
+const blogPortableTextComponents = {
+  block: {
+    h1: ({ children }: { children?: React.ReactNode }) => (
+      <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4 text-sky-900 border-b border-sky-100 pb-2">
+        {children}
+      </h2>
+    ),
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <h3 className="text-xl md:text-2xl font-bold mt-8 mb-3 text-sky-800">
+        {children}
+      </h3>
+    ),
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <h4 className="text-lg md:text-xl font-semibold mt-6 mb-2 text-sky-800">
+        {children}
+      </h4>
+    ),
+    h4: ({ children }: { children?: React.ReactNode }) => (
+      <h5 className="text-base md:text-lg font-semibold mt-4 mb-2 text-sky-700">
+        {children}
+      </h5>
+    ),
+    h5: ({ children }: { children?: React.ReactNode }) => (
+      <h6 className="text-base font-semibold mt-4 mb-2 text-sky-700">
+        {children}
+      </h6>
+    ),
+    h6: ({ children }: { children?: React.ReactNode }) => (
+      <h6 className="text-sm font-semibold mt-3 mb-1 text-sky-700 uppercase tracking-wide">
+        {children}
+      </h6>
+    ),
+    normal: ({ children }: { children?: React.ReactNode }) => (
+      <p className="mb-4 text-neutral-700 leading-relaxed">{children}</p>
+    ),
+    blockquote: ({ children }: { children?: React.ReactNode }) => (
+      <blockquote className="border-l-4 border-sky-300 pl-6 my-6 italic text-neutral-600">
+        {children}
+      </blockquote>
+    ),
+  },
+};
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
@@ -92,8 +137,8 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
           <h1 className="text-3xl md:text-5xl font-bold pb-10 md:pb-20 md:leading-16 leading-10">
             {blog.title}
           </h1>
-          <div className="prose">
-            <PortableText value={blog.content} />
+          <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-sky-900 prose-headings:tracking-tight prose-p:text-neutral-700 prose-p:leading-relaxed">
+            <PortableText value={blog.content as PortableTextBlock[]} components={blogPortableTextComponents} />
           </div>
         </div>
       </div>
@@ -417,69 +462,6 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                         href={`/projects/${project.projectType}/${project.slug}`}
                       />
                     ))}
-                  </div>
-                </div>
-              </section>
-            );
-          case "relatedContentSection":
-            return (
-              <section
-                key={section._key}
-                className="py-16 bg-white"
-              >
-                <div className="common-frame-box">
-                  {section.heading && (
-                    <h2 className="text-2xl md:text-3xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
-                      {section.heading}
-                    </h2>
-                  )}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    {section.relatedBlogs && section.relatedBlogs.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-bold text-sky-800 mb-4 uppercase tracking-[0.18em]">
-                          Related Articles
-                        </h3>
-                        <div className="space-y-3">
-                          {section.relatedBlogs.map((related) => (
-                            <Link
-                              key={related._id}
-                              href={`/blog/${related.slug}`}
-                              className="block border border-neutral-200 hover:border-sky-300 rounded-sm p-3 transition-colors"
-                            >
-                              <div className="text-[11px] text-neutral-500 mb-1">
-                                {related.createdDate &&
-                                  new Date(related.createdDate).toLocaleDateString()}
-                              </div>
-                              <div className="font-bold text-sky-900 text-sm mb-1">
-                                {related.title}
-                              </div>
-                              <p className="text-xs text-neutral-600 line-clamp-2">
-                                {related.shortDescription}
-                              </p>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {section.relatedProjects && section.relatedProjects.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-bold text-sky-800 mb-4 uppercase tracking-[0.18em]">
-                          Featured Projects
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          {section.relatedProjects.map((project) => (
-                            <ProjectCard
-                              key={project._id}
-                              title={project.name}
-                              address={project.shortAddress}
-                              subtext={project.statusText || ""}
-                              logoImage={project.propertyLogo}
-                              href={`/projects/${project.projectType}/${project.slug}`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </section>

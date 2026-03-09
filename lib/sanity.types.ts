@@ -180,20 +180,17 @@ export interface LandingPageSection {
   backgroundImage?: Image;
   heading?: string;
   body?: PortableTextBlock[];
+  /** Used by iconBoxes, imageBoxes (icon/image, title, description) and statsSection (value, label, description) */
   items?: {
-    _key: string;
+    _key?: string;
     icon?: Image;
     image?: Image;
     title?: string;
     description?: string;
-  }[];
-  projects?: ProjectDocument[];
-  items?: {
-    _key?: string;
     label?: string;
     value?: string;
-    description?: string;
   }[];
+  projects?: ProjectDocument[];
   faqItems?: {
     _key?: string;
     question?: string;

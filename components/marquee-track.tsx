@@ -20,11 +20,17 @@ export const MarqueeTrack = ({
     const container = containerRef.current;
     if (!track || !container) return;
 
-    // Create animation for smooth speed control
-    const keyframes = [
-      { transform: "translate3d(0, 0, 0)" },
-      { transform: "translate3d(-50%, 0, 0)" },
-    ];
+    // Create animation: rtl = move left, ltr = move right
+    const keyframes =
+      direction === "rtl"
+        ? [
+            { transform: "translate3d(0, 0, 0)" },
+            { transform: "translate3d(-50%, 0, 0)" },
+          ]
+        : [
+            { transform: "translate3d(-50%, 0, 0)" },
+            { transform: "translate3d(0, 0, 0)" },
+          ];
 
     const animationOptions: KeyframeAnimationOptions = {
       duration: 60000, // 60s in milliseconds
@@ -60,7 +66,7 @@ export const MarqueeTrack = ({
         animationRef.current.cancel();
       }
     };
-  }, []);
+  }, [direction]);
 
   return (
     <div

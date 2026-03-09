@@ -7,18 +7,21 @@ type Props = {
     position?: string;
     imageUrl?: string;
     index: number;
+    /** White background with blue/green borders and highlights only */
+    variant?: "default" | "white";
 };
 
-const TestimonialCardV2 = ({ text, author, position, imageUrl, index }: Props) => {
+const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = "default" }: Props) => {
     // Alternate colors based on index: Blue for even, Green for odd
     const isEven = index % 2 === 0;
-    const themeColor = isEven ? "#0B6BB8" : "#8AC028";
-    const bgOpacity = isEven ? "bg-sky-50" : "bg-lime-50";
-    const textColor = isEven ? "text-sky-900" : "text-lime-900";
-    const borderColor = isEven ? "border-sky-200" : "border-lime-200";
+    const themeColor = isEven ? "#0B6BB8" : "#22c55e";
+    const borderColor = isEven ? "border-sky-400" : "border-green-400";
+    const accentColor = isEven ? "text-sky-600" : "text-green-600";
+    const bgClass = variant === "white" ? "bg-white" : isEven ? "bg-sky-50" : "bg-lime-50";
+    const textColor = variant === "white" ? "text-neutral-800" : isEven ? "text-sky-900" : "text-lime-900";
 
     return (
-        <div className={`relative group p-8 md:p-10 rounded-3xl border ${borderColor} ${bgOpacity} transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full overflow-hidden`}>
+        <div className={`relative group p-8 md:p-10 rounded-3xl border-2 ${borderColor} ${bgClass} transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full overflow-hidden`}>
             {/* Quote Icon with Theme Background */}
             <div
                 className="absolute -top-6 left-10 w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 z-10"
@@ -47,7 +50,7 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index }: Props) =
             </div>
 
             {/* Author Details with Profile Image */}
-            <div className="mt-8 pt-6 border-t border-black/5 flex items-center gap-4">
+            <div className={`mt-8 pt-6 border-t flex items-center gap-4 ${variant === "white" ? "border-sky-100" : "border-black/5"}`}>
                 <div className={`w-14 h-14 rounded-full border-2 ${borderColor} overflow-hidden shrink-0 bg-white`}>
                     <Image
                         src={imageUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${author}`}
@@ -58,7 +61,7 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index }: Props) =
                     />
                 </div>
                 <div className="flex flex-col">
-                    <h4 className={`text-lg md:text-xl font-bold uppercase tracking-wide ${textColor}`}>
+                    <h4 className={`text-lg md:text-xl font-bold uppercase tracking-wide ${variant === "white" ? accentColor : textColor}`}>
                         {author}
                     </h4>
                     {position && (

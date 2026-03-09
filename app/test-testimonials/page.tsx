@@ -1,124 +1,122 @@
+"use client";
+
 import TestimonialCardV2 from "@/components/testimonial-card-v2";
 import Logo from "@/assets/icons/mapsko-logo.svg";
 import { MarqueeTrack } from "@/components/marquee-track";
 
-const testimonials = [
-    {
-        author: "Amit Sharma",
-        position: "Resident, Mapsko Mount Ville",
-        text: "Moving to Mount Ville was the best decision for my family. The quality of construction and the green spaces are exactly what we were looking for in Gurgaon.",
-        imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amit",
-    },
-    {
-        author: "Priya Verma",
-        position: "Homeowner, Mapsko Royale Ville",
-        text: "Mapsko Group stays true to their word. The handover was project-perfect and the amenities are top-notch. Truly a premium living experience.",
-        imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
-    },
-    {
-        author: "Rajesh Gupta",
-        position: "Investor, Mapsko Garden Estate",
-        text: "I have invested in multiple projects with Mapsko over the last decade. Their commitment to delivery and transparency makes them stand out in the NCR market.",
-        imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rajesh",
-    },
-    {
-        author: "Sneha Reddy",
-        position: "Resident, Mapsko Krishna Apra Gardens",
-        text: "The community life here is amazing. Everything from security to maintenance is handled with extreme professionalism. Mapsko truly builds homes, not just houses.",
-        imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sneha",
-    }
+const testimonialsRow1 = [
+  {
+    author: "Vikram Taneja",
+    text: "Loved Mapsko Casabella, Sector 82 Gurgaon. Green surroundings, clean environment, great amenities, and excellent connectivity. Chose a ready-to-move 3BHK with complete legal clarity.",
+  },
+  {
+    author: "Ankit Sharma",
+    text: "Finding luxury within budget seemed impossible until Mapsko. My new apartment is beautifully designed, affordable, well-built, and surrounded by great facilities. Truly impressive.",
+  },
+  {
+    author: "Shweta Mishra",
+    text: "Mapsko Group feels like one of the most genuine real estate companies. My spacious 3BHK apartment purchase was one of the best decisions I've made.",
+  },
+  {
+    author: "Prashant Singh",
+    text: "My first home buying experience with Mapsko was exceptional. Their professional team understood my needs and guided me perfectly throughout the entire process.",
+  },
+  {
+    author: "Dikha Gupta",
+    text: "Grateful to Mapsko Group for my first home at Mapsko Paradise. My wife and I absolutely love the apartment and the lifestyle it offers.",
+  },
+  {
+    author: "Abhinav Mishra",
+    text: "Stunning sunset and panoramic Gurgaon views from the top floor. Living here feels amazing and truly special every single day.",
+  },
+];
+
+const testimonialsRow2 = [
+  {
+    author: "Gaurav Khurana",
+    text: "Among the few mid-size builders delivering quality projects. Though slightly delayed, construction quality is good. My two Gurgaon investments still feel worthwhile.",
+  },
+  {
+    author: "Anuj Kumar",
+    text: "I was unsure about trusting a builder for my first home, but choosing Mapsko was the right decision. Happy to be one of their satisfied customers.",
+  },
+  {
+    author: "Roopa Acharya",
+    text: "5-star review for Mapsko Group. Excellent management, innovative ideas, and strong construction quality. The industry truly needs more genuine companies like this.",
+  },
+  {
+    author: "Ajay Tiwari",
+    text: "Mapsko projects consistently impress me. As a real estate investor, I appreciate their prime locations, great amenities, and reliable project quality.",
+  },
+  {
+    author: "Lishu Bhatia",
+    text: "Great place to live with spacious play areas for kids. Facilities are excellent, well-maintained, and the new society environment feels very pleasant.",
+  },
+  {
+    author: "Nishant Pathak",
+    text: "Currently living in Delhi, but soon moving to my dream home at Mapsko Casa Bella. After exploring many projects, this one felt perfect.",
+  },
 ];
 
 export default function TestTestimonials() {
-    return (
-        <main className="min-h-screen bg-[#fcfcfc] pb-24">
-            {/* --- OPTION 1: 1 ROW STATIC --- */}
-            <section className="common-frame-box py-24">
-                <div className="flex flex-col items-center justify-center space-y-4 mb-16 text-center">
-                    <Logo className="w-12" />
-                    <h2 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
-                        Option 1: <span className="text-lime-500 text-2xl md:text-3xl font-bold">1-Row Static Grid (4 Cards)</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-sky-700 rounded-full"></div>
+  return (
+    <main className="min-h-screen bg-neutral-50 pb-24">
+      {/* Header */}
+      <section className="w-full py-16 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <Logo className="w-12" />
+          <h1 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
+            What Our <span className="text-green-600">Customers Say</span>
+          </h1>
+          <div className="w-20 h-1 bg-sky-600 rounded-full" />
+        </div>
+      </section>
+
+      {/* Row 1: Slides LEFT (rtl) - 6 testimonials */}
+      <section className="w-full overflow-hidden border-y border-sky-100 bg-white/50">
+        <MarqueeTrack direction="rtl">
+          {[0, 1].map((dupIndex) => (
+            <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">
+              {testimonialsRow1.map((item, index) => (
+                <div
+                  key={`r1-${dupIndex}-${index}`}
+                  className="w-[90vw] sm:w-[400px] md:w-[420px] lg:w-[380px] xl:w-[420px] shrink-0"
+                >
+                  <TestimonialCardV2
+                    index={index}
+                    author={item.author}
+                    text={item.text}
+                    variant="white"
+                  />
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {testimonials.map((item, index) => (
-                        <TestimonialCardV2
-                            key={index}
-                            index={index}
-                            author={item.author}
-                            position={item.position}
-                            text={item.text}
-                            imageUrl={item.imageUrl}
-                        />
-                    ))}
-                </div>
-            </section>
-
-            {/* --- OPTION 2: 3-CARD SLIDER --- */}
-            <section className="py-24 bg-white border-y border-neutral-100">
-                <div className="common-frame-box">
-                    <div className="flex flex-col items-center justify-center space-y-4 mb-16 text-center">
-                        <h2 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
-                            Option 2: <span className="text-lime-500 text-2xl md:text-3xl font-bold">3-Card Dynamic Slider</span>
-                        </h2>
-                        <div className="w-20 h-1 bg-sky-700 rounded-full"></div>
-                    </div>
-                </div>
-
-                <MarqueeTrack direction="rtl">
-                    {[0, 1].map((dupIndex) => (
-                        <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6">
-                            {testimonials.map((item, index) => (
-                                <div key={`${dupIndex}-${index}`} className="w-[85vw] sm:w-[350px] md:w-[450px] lg:w-[calc((100vw-8rem)/3)] shrink-0 h-full">
-                                    <TestimonialCardV2
-                                        index={index}
-                                        author={item.author}
-                                        position={item.position}
-                                        text={item.text}
-                                        imageUrl={item.imageUrl}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </MarqueeTrack>
-            </section>
-
-            {/* --- OPTION 3: 2-CARD SLIDER --- */}
-            <section className="common-frame-box py-24">
-                <div className="flex flex-col items-center justify-center space-y-4 mb-16 text-center">
-                    <h2 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
-                        Option 3: <span className="text-lime-500 text-2xl md:text-3xl font-bold">2-Card Dynamic Slider</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-sky-700 rounded-full"></div>
-                </div>
-
-                <MarqueeTrack direction="ltr">
-                    {[0, 1].map((dupIndex) => (
-                        <div key={dupIndex} className="flex flex-nowrap gap-8 pr-8">
-                            {testimonials.slice(0, 3).map((item, index) => (
-                                <div key={`${dupIndex}-${index}`} className="w-[90vw] sm:w-[450px] md:w-[550px] lg:w-[calc((100vw-10rem)/2)] shrink-0">
-                                    <TestimonialCardV2
-                                        index={index}
-                                        author={item.author}
-                                        position={item.position}
-                                        text={item.text}
-                                        imageUrl={item.imageUrl}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </MarqueeTrack>
-            </section>
-
-            <div className="text-center py-10">
-                <p className="text-neutral-400 font-bold uppercase tracking-[0.3em] text-xs">
-                    Review these options and let me know your preference!
-                </p>
+              ))}
             </div>
-        </main>
-    );
+          ))}
+        </MarqueeTrack>
+      </section>
+
+      {/* Row 2: Slides RIGHT (ltr) - 6 testimonials */}
+      <section className="w-full overflow-hidden border-y border-green-100 bg-white/50">
+        <MarqueeTrack direction="ltr">
+          {[0, 1].map((dupIndex) => (
+            <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">
+              {testimonialsRow2.map((item, index) => (
+                <div
+                  key={`r2-${dupIndex}-${index}`}
+                  className="w-[90vw] sm:w-[400px] md:w-[420px] lg:w-[380px] xl:w-[420px] shrink-0"
+                >
+                  <TestimonialCardV2
+                    index={index + 6}
+                    author={item.author}
+                    text={item.text}
+                    variant="white"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </MarqueeTrack>
+      </section>
+    </main>
+  );
 }

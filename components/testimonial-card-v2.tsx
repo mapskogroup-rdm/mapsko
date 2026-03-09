@@ -24,7 +24,7 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = 
         <div className={`relative group p-8 md:p-10 rounded-3xl border-2 ${borderColor} ${bgClass} transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full overflow-hidden`}>
             {/* Quote Icon with Theme Background */}
             <div
-                className="absolute -top-6 left-10 w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 z-10"
+                className="left-10 w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 z-10"
                 style={{ backgroundColor: themeColor }}
             >
                 <svg
@@ -51,7 +51,7 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = 
 
             {/* Author Details with Profile Image */}
             <div className={`mt-8 pt-6 border-t flex items-center gap-4 ${variant === "white" ? "border-sky-100" : "border-black/5"}`}>
-                <div className={`w-14 h-14 rounded-full border-2 ${borderColor} overflow-hidden shrink-0 bg-white`}>
+                {/* <div className={`w-14 h-14 rounded-full border-2 ${borderColor} overflow-hidden shrink-0 bg-white`}>
                     <Image
                         src={imageUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${author}`}
                         alt={author}
@@ -59,7 +59,7 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = 
                         height={100}
                         className="w-full h-full object-cover"
                     />
-                </div>
+                </div> */}
                 <div className="flex flex-col">
                     <h4 className={`text-lg md:text-xl font-bold uppercase tracking-wide ${variant === "white" ? accentColor : textColor}`}>
                         {author}

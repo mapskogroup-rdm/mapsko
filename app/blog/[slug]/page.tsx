@@ -18,29 +18,29 @@ import Link from "next/link";
 const blogPortableTextComponents = {
   block: {
     h1: ({ children }: { children?: React.ReactNode }) => (
-      <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4 text-sky-900 border-b border-sky-100 pb-2">
+      <h1 className="text-2xl md:text-3xl font-bold mt-10 mb-4 text-sky-900 border-b border-sky-100 pb-2">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <h2 className="text-xl md:text-2xl font-bold mt-8 mb-3 text-sky-800">
         {children}
       </h2>
     ),
-    h2: ({ children }: { children?: React.ReactNode }) => (
-      <h3 className="text-xl md:text-2xl font-bold mt-8 mb-3 text-sky-800">
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <h3 className="text-lg md:text-xl font-semibold mt-6 mb-2 text-sky-800">
         {children}
       </h3>
     ),
-    h3: ({ children }: { children?: React.ReactNode }) => (
-      <h4 className="text-lg md:text-xl font-semibold mt-6 mb-2 text-sky-800">
+    h4: ({ children }: { children?: React.ReactNode }) => (
+      <h4 className="text-base md:text-lg font-semibold mt-4 mb-2 text-sky-700">
         {children}
       </h4>
     ),
-    h4: ({ children }: { children?: React.ReactNode }) => (
-      <h5 className="text-base md:text-lg font-semibold mt-4 mb-2 text-sky-700">
+    h5: ({ children }: { children?: React.ReactNode }) => (
+      <h5 className="text-base font-semibold mt-4 mb-2 text-sky-700">
         {children}
       </h5>
-    ),
-    h5: ({ children }: { children?: React.ReactNode }) => (
-      <h6 className="text-base font-semibold mt-4 mb-2 text-sky-700">
-        {children}
-      </h6>
     ),
     h6: ({ children }: { children?: React.ReactNode }) => (
       <h6 className="text-sm font-semibold mt-3 mb-1 text-sky-700 uppercase tracking-wide">

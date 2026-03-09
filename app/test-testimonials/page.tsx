@@ -1,7 +1,7 @@
 "use client";
 
 import TestimonialCardV2 from "@/components/testimonial-card-v2";
-import Logo from "@/assets/icons/mapsko-logo.svg";
+import Logo from "@/assets/icons/mapsko-white-logo.svg";
 import { MarqueeTrack } from "@/components/marquee-track";
 
 const testimonialsRow1 = [
@@ -60,14 +60,14 @@ const testimonialsRow2 = [
 
 export default function TestTestimonials() {
   return (
-    <main className="min-h-screen bg-neutral-50 pb-24">
+    <main className="w-full bg-[#0B6BB8]">
       {/* Header */}
       <section className="w-full py-16 text-center">
         <div className="flex flex-col items-center justify-center space-y-4">
           <Logo className="w-12" />
-          <h1 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
-            What Our <span className="text-green-600">Customers Say</span>
-          </h1>
+          <h2 className="text-sky-700 text-3xl md:text-4xl font-black uppercase tracking-tight">
+            Voices of Satisfaction
+          </h2>
           <div className="w-20 h-1 bg-sky-600 rounded-full" />
         </div>
       </section>

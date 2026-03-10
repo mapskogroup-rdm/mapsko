@@ -12,10 +12,22 @@ import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
 import { buildBlogPostingJsonLd } from "@/lib/jsonld";
 import type { LandingPageSection } from "@/lib/sanity.types";
 import ProjectCard from "@/views/projects/project-updates/project-card";
-import SanityImageComponent from "@/components/sanity-image";
 import Link from "next/link";
 
 const blogPortableTextComponents = {
+  types: {
+    image: ({ value }: { value: any }) => (
+      <div className="my-8 rounded-sm overflow-hidden">
+        <SanityImage
+          image={value}
+          alt={value.alt || "Blog content image"}
+          className="w-full h-auto object-cover"
+          width={800}
+          height={500}
+        />
+      </div>
+    ),
+  },
   block: {
     h1: ({ children }: { children?: React.ReactNode }) => (
       <h1 className="text-2xl md:text-3xl font-bold mt-10 mb-4 text-sky-900 border-b border-sky-100 pb-2">
@@ -360,7 +372,7 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                 )}
                 {section.body && (
                   <div className="prose prose-lg max-w-none prose-headings:text-sky-700 prose-headings:uppercase prose-headings:font-black">
-                    <PortableText value={section.body} />
+                    <PortableText value={section.body} components={blogPortableTextComponents} />
                   </div>
                 )}
               </section>

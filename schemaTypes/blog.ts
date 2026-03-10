@@ -59,7 +59,10 @@ export default defineType({
       title: "Blog Content",
       type: "array",
       group: "main",
-      of: [defineArrayMember({ type: "block" })],
+      of: [
+        defineArrayMember({ type: "block" }),
+        defineArrayMember({ type: "image", options: { hotspot: true } }),
+      ],
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -84,7 +87,11 @@ export default defineType({
           title: "Content Section",
           fields: [
             { name: "heading", type: "string" },
-            { name: "body", type: "array", of: [{ type: "block" }] },
+            {
+              name: "body",
+              type: "array",
+              of: [{ type: "block" }, { type: "image", options: { hotspot: true } }],
+            },
           ],
         },
         {

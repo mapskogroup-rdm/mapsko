@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "@/components/footer/footer";
 import Navigator from "@/components/navigator/navigator";
 import SanityImage from "@/components/sanity-image";
-import HeroSection from "@/views/blog/hero-section";
+import SingleBlogHero from "@/views/blog/single-blog-hero";
 import { fetchBlog } from "@/views/blog/utils/blog-data";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "sanity";
@@ -122,7 +122,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   return (
     <div>
-      <HeroSection />
+      <SingleBlogHero title={blog.title} coverImage={blog.coverImage} />
       <div className="w-full flex justify-center py-5">
         <Navigator
           routes={[
@@ -133,22 +133,12 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       </div>
 
       <div className="common-frame-box py-10">
-        <SanityImage
-          image={blog.coverImage}
-          alt={blog.title}
-          height={560}
-          className="h-[560px] w-full object-cover"
-        />
-
         <div className="py-10 md:py-24">
           <script
             type="application/ld+json"
             suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
           />
-          <h1 className="text-3xl md:text-5xl font-bold pb-10 md:pb-20 md:leading-16 leading-10">
-            {blog.title}
-          </h1>
           <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-sky-900 prose-headings:tracking-tight prose-p:text-neutral-700 prose-p:leading-relaxed">
             <PortableText value={blog.content as PortableTextBlock[]} components={blogPortableTextComponents} />
           </div>

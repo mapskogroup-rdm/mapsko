@@ -190,7 +190,7 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                   )}
                 </div>
                 {section.backgroundImage && (
-                  <SanityImageComponent
+                  <SanityImage
                     image={section.backgroundImage}
                     alt={section.headline || "Hero background"}
                     className="absolute inset-0 w-full h-full object-cover -z-10"
@@ -336,7 +336,7 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                         <div className="mt-auto flex items-center gap-4">
                           {item.avatar && (
                             <div className="w-10 h-10 rounded-full overflow-hidden border border-neutral-200">
-                              <SanityImageComponent
+                              <SanityImage
                                 image={item.avatar}
                                 alt={item.name || "avatar"}
                                 width={40}
@@ -394,7 +394,7 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                       >
                         {item.icon && (
                           <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                            <SanityImageComponent
+                            <SanityImage
                               image={item.icon}
                               alt={item.title || "icon"}
                               width={64}
@@ -432,7 +432,7 @@ const SectionsRenderer = ({ sections }: { sections: LandingPageSection[] }) => {
                       >
                         {item.image && (
                           <div className="aspect-[16/9] overflow-hidden">
-                            <SanityImageComponent
+                            <SanityImage
                               image={item.image}
                               alt={item.title || "image"}
                               width={800}

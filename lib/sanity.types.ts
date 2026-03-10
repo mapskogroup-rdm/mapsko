@@ -182,6 +182,7 @@ export interface LandingPageSection {
   backgroundImage?: Image;
   image?: Image;
   heading?: string;
+  subheading?: string;
   text?: string;
   linkText?: string;
   linkUrl?: string;

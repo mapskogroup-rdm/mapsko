@@ -319,9 +319,14 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
                             </div>
                             <div className="flex flex-col justify-center">
                                 {section.heading && (
-                                    <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-6 uppercase tracking-tight">
+                                    <h3 className="text-3xl md:text-4xl font-black text-sky-700 mb-2 uppercase tracking-tight">
                                         {section.heading}
-                                    </h2>
+                                    </h3>
+                                )}
+                                {section.subheading && (
+                                    <p className="text-xl md:text-2xl font-bold text-sky-800 mb-6 tracking-tight">
+                                        {section.subheading}
+                                    </p>
                                 )}
                                 {section.text && (
                                     <p className="text-neutral-600 leading-relaxed text-lg mb-8">
@@ -348,9 +353,14 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="flex flex-col justify-center order-2 md:order-1">
                                 {section.heading && (
-                                    <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-6 uppercase tracking-tight">
+                                    <h3 className="text-3xl md:text-4xl font-black text-sky-700 mb-2 uppercase tracking-tight">
                                         {section.heading}
-                                    </h2>
+                                    </h3>
+                                )}
+                                {section.subheading && (
+                                    <p className="text-xl md:text-2xl font-bold text-sky-800 mb-6 tracking-tight">
+                                        {section.subheading}
+                                    </p>
                                 )}
                                 {section.text && (
                                     <p className="text-neutral-600 leading-relaxed text-lg mb-8">

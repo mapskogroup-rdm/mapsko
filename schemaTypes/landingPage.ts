@@ -229,6 +229,7 @@ export default defineType({
                     title: "Image Left, Text Right",
                     fields: [
                         { name: "heading", type: "string" },
+                        { name: "subheading", type: "string", title: "Subheading" },
                         { name: "text", type: "text" },
                         { name: "image", type: "image", options: { hotspot: true } },
                         { name: "linkText", type: "string" },
@@ -241,6 +242,7 @@ export default defineType({
                     title: "Image Right, Text Left",
                     fields: [
                         { name: "heading", type: "string" },
+                        { name: "subheading", type: "string", title: "Subheading" },
                         { name: "text", type: "text" },
                         { name: "image", type: "image", options: { hotspot: true } },
                         { name: "linkText", type: "string" },

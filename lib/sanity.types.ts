@@ -174,11 +174,17 @@ export interface LandingPageSection {
     | "ctaSection"
     | "statsSection"
     | "testimonialsSection"
-    | "relatedContentSection";
+    | "relatedContentSection"
+    | "imageLeftTextRight"
+    | "imageRightTextLeft";
   headline?: string;
   subHeadline?: string;
   backgroundImage?: Image;
+  image?: Image;
   heading?: string;
+  text?: string;
+  linkText?: string;
+  linkUrl?: string;
   body?: PortableTextBlock[];
   /** Used by iconBoxes, imageBoxes (icon/image, title, description) and statsSection (value, label, description) */
   items?: {

@@ -302,6 +302,84 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
                     </div>
                 </section>
             );
+        case "imageLeftTextRight":
+            return (
+                <section className="py-24 bg-white">
+                    <div className="common-frame-box">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+                                {section.image && (
+                                    <SanityImage
+                                        image={section.image}
+                                        alt={section.heading || "Section image"}
+                                        width={800}
+                                        className="w-full h-full object-cover"
+                                    />
+                                )}
+                            </div>
+                            <div className="flex flex-col justify-center">
+                                {section.heading && (
+                                    <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-6 uppercase tracking-tight">
+                                        {section.heading}
+                                    </h2>
+                                )}
+                                {section.text && (
+                                    <p className="text-neutral-600 leading-relaxed text-lg mb-8">
+                                        {section.text}
+                                    </p>
+                                )}
+                                {section.linkText && section.linkUrl && (
+                                    <Link
+                                        href={section.linkUrl}
+                                        className="inline-block px-8 py-3 bg-sky-900 text-white font-bold uppercase tracking-wide text-sm hover:bg-sky-800 transition-colors rounded-sm w-fit"
+                                    >
+                                        {section.linkText}
+                                    </Link>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        case "imageRightTextLeft":
+            return (
+                <section className="py-24 bg-[#F9F9F9]">
+                    <div className="common-frame-box">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div className="flex flex-col justify-center order-2 md:order-1">
+                                {section.heading && (
+                                    <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-6 uppercase tracking-tight">
+                                        {section.heading}
+                                    </h2>
+                                )}
+                                {section.text && (
+                                    <p className="text-neutral-600 leading-relaxed text-lg mb-8">
+                                        {section.text}
+                                    </p>
+                                )}
+                                {section.linkText && section.linkUrl && (
+                                    <Link
+                                        href={section.linkUrl}
+                                        className="inline-block px-8 py-3 bg-sky-900 text-white font-bold uppercase tracking-wide text-sm hover:bg-sky-800 transition-colors rounded-sm w-fit"
+                                    >
+                                        {section.linkText}
+                                    </Link>
+                                )}
+                            </div>
+                            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm order-1 md:order-2">
+                                {section.image && (
+                                    <SanityImage
+                                        image={section.image}
+                                        alt={section.heading || "Section image"}
+                                        width={800}
+                                        className="w-full h-full object-cover"
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
         default:
             return (
                 <div className="py-4 text-center text-red-500 border border-red-200 m-4">

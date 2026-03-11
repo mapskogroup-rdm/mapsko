@@ -55,7 +55,7 @@ const GalleryContent = (props: Props) => {
           images.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {images.map((imageItem, idx) => (
-                <div key={imageItem._key || `${selectedProject._id}-${idx}`}>
+                <div key={imageItem._key || `${selectedProject._id}-${idx}`} className="relative group">
                   {imageItem.image && (
                     <SanityImage
                       image={imageItem.image}
@@ -68,6 +68,9 @@ const GalleryContent = (props: Props) => {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   )}
+                  <div className="absolute bottom-0 left-0 right-0 bg-green-600/90 text-white text-xs font-medium uppercase tracking-wider py-1.5 text-center">
+                    Actual Image
+                  </div>
                 </div>
               ))}
             </div>

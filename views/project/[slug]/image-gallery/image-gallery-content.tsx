@@ -25,7 +25,7 @@ const ImageGalleryContent = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {property.imageGallery?.map((imageItem) => (
-          <div key={imageItem._key} className="relative">
+          <div key={imageItem._key} className="relative group">
             {imageItem.image && (
               <SanityImage
                 image={imageItem.image}
@@ -34,6 +34,9 @@ const ImageGalleryContent = () => {
                 className="object-cover md:h-[350px] xl:h-[500px]"
               />
             )}
+            <div className="absolute bottom-0 left-0 right-0 bg-green-600/90 text-white text-xs font-medium uppercase tracking-wider py-1.5 text-center">
+              Actual Image
+            </div>
           </div>
         ))}
       </div>

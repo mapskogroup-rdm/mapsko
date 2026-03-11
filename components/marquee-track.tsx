@@ -44,15 +44,14 @@ export const MarqueeTrack = ({
     // Handle hover - smoothly slow down
     const handleMouseEnter = () => {
       if (animationRef.current) {
-        // Smoothly transition to slower speed
-        animationRef.current.playbackRate = 0.5; // 2x slower
+        // pause entirely on hover
+        animationRef.current.pause();
       }
     };
 
     const handleMouseLeave = () => {
       if (animationRef.current) {
-        // Smoothly return to normal speed
-        animationRef.current.playbackRate = 1;
+        animationRef.current.play();
       }
     };
 

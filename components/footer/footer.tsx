@@ -153,7 +153,7 @@ const Footer = async () => {
                       href={`/project/${project.slug}`}
                       className="hover:underline underline-offset-4"
                     >
-                      Mapsko {project.name}
+                      {project.name.includes("Krishna") ? project.name : `Mapsko ${project.name}`}
                     </Link>
                   </li>
                 ))}

@@ -4,7 +4,6 @@ import Navigator from "@/components/navigator/navigator";
 import FirstSection from "@/views/about-us/corporate-philosophy/first-section";
 import HeroSection from "@/views/about-us/corporate-philosophy/hero-section";
 import SecondSection from "@/views/about-us/corporate-philosophy/second-section";
-import ThirdSection from "@/views/about-us/corporate-philosophy/third-section";
 
 export const metadata = {
   title: "Mapsko Group - Corporate Philosophy & Core Values",
@@ -37,7 +36,6 @@ const Page = () => {
       </div>
       <FirstSection />
       <SecondSection />
-      <ThirdSection />
       <Footer />
     </main>
   );

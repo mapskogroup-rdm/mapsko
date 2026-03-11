@@ -27,6 +27,7 @@ const FirstSection = () => {
           <br />
           Since 3 decades, MAPSKO has consistently set benchmarks in real estate development, delivering landmark townships and commercial spaces in prime locations. Through advanced construction practices, value engineering, and adherence to international quality standards, MAPSKO continues to shape urban living while building a future that is resilient, aspirational, and enduring.
         </span>
+      </div>
     </div>
   );
 };

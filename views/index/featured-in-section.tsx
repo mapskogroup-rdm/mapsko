@@ -32,8 +32,15 @@ const FeaturedInSection = async () => {
                             rel="noopener noreferrer"
                             className="group flex flex-col bg-white border border-neutral-200 hover:shadow-xl transition-all duration-300"
                         >
-                            {/* Publication Logo */}
+                            {/* Heading */}
                             <div className="p-6 pb-0">
+                                <h3 className="text-sky-800 text-lg md:text-xl font-bold line-clamp-2 min-h-[3rem]">
+                                    {item.title}
+                                </h3>
+                            </div>
+
+                            {/* Publication Logo */}
+                            <div className="p-6 pt-3">
                                 <div className="h-10 w-full max-w-[140px] flex items-center">
                                     <SanityImage
                                         image={item.publicationLogo}
@@ -45,7 +52,7 @@ const FeaturedInSection = async () => {
                             </div>
 
                             {/* Cover Image */}
-                            <div className="relative w-full aspect-[16/9] overflow-hidden mt-6">
+                            <div className="relative w-full aspect-[16/9] overflow-hidden">
                                 <SanityImage
                                     image={item.coverImage}
                                     alt={item.title}
@@ -54,11 +61,8 @@ const FeaturedInSection = async () => {
                                 />
                             </div>
 
-                            {/* Content Box */}
-                            <div className="p-6 md:p-8 pt-6 md:pt-6 flex flex-col flex-1">
-                                <h3 className="text-sky-800 text-lg md:text-xl font-bold mb-3 line-clamp-2 min-h-[3rem]">
-                                    {item.title}
-                                </h3>
+                            {/* Text and Button */}
+                            <div className="p-6 md:p-8 flex flex-col flex-1">
                                 <p className="text-neutral-600 text-sm md:text-base line-clamp-3 mb-6 flex-1">
                                     {item.shortDescription}
                                 </p>

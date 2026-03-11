@@ -36,6 +36,8 @@ const SecondSection = async () => {
               >
                 <ProjectDisplayCardV2
                   projectSlider={project}
+                  initialColor="rgba(0,0,0,0.5)"
+                  disableCycle
                 />
               </div>
             ))}

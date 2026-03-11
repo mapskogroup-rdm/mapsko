@@ -1,33 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import Link from "next/link"; // no hooks needed after overlay change
+
 import { ProjectWithSlider } from "@/lib/sanity.types";
 import { SanityImageBackground } from "./sanity-image-background";
 
 type Props = {
   projectSlider: ProjectWithSlider;
-  initialColor: string;
 };
 
-const COLORS = ["#0B6BB8", "#8AC028"];
 
-const ProjectDisplayCardV2 = ({ projectSlider, initialColor }: Props) => {
-  const [currentColor, setCurrentColor] = useState(initialColor);
+
+const ProjectDisplayCardV2 = ({ projectSlider }: Props) => {
+  // fixed black overlay with 50% opacity; no color cycling
+  const overlayColor = "rgba(0,0,0,0.5)";
   const { sliderPhoto, shortAddress, statusText, sliderDescription } = projectSlider;
-
-  useEffect(() => {
-    // Sync with the initialColor if it changes from parent
-    setCurrentColor(initialColor);
-  }, [initialColor]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentColor((prev) => (prev === COLORS[0] ? COLORS[1] : COLORS[0]));
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <SanityImageBackground
@@ -38,7 +25,7 @@ const ProjectDisplayCardV2 = ({ projectSlider, initialColor }: Props) => {
       <div
         className="transition-all duration-1000 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] w-full flex flex-col items-center justify-end p-4 sm:p-6 md:p-8 lg:p-10 opacity-95"
         style={{
-          background: `linear-gradient(to top, ${currentColor} 0%, ${currentColor} 65%, transparent 100%)`,
+          background: `linear-gradient(to top, ${overlayColor} 0%, ${overlayColor} 65%, transparent 100%)`,
         }}
       >
         <span className="text-2xl sm:text-3xl md:text-4xl text-white font-normal uppercase pb-4 sm:pb-6 md:pb-8 lg:pb-10">

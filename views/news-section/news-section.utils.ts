@@ -1,4 +1,4 @@
-import { allNewsQuery, newsBySlugQuery } from "@/lib/sanity.queries";
+import { allNewsQuery, newsBySlugQuery, newsSlugsQuery } from "@/lib/sanity.queries";
 import { client } from "@/lib/sanity.client";
 import { NewsDocument } from "@/lib/sanity.types";
 
@@ -10,4 +10,9 @@ export const getNews = async (): Promise<NewsDocument[]> => {
 export const getNewsBySlug = async (slug: string): Promise<NewsDocument> => {
   const news = await client.fetch(newsBySlugQuery, { slug });
   return news;
+};
+
+export const fetchNewsSlugs = async () => {
+  const slugs = await client.fetch<string[]>(newsSlugsQuery);
+  return slugs.filter(Boolean);
 };

@@ -3,6 +3,7 @@ import {
   blogBySlugQuery,
   blogSlugsQuery,
   allBlogsQuery,
+  landingPageSlugsQuery,
 } from "@/lib/sanity.queries";
 import type { BlogDocument } from "@/lib/sanity.types";
 
@@ -11,6 +12,11 @@ export const fetchBlog = async (slug: string) =>
 
 export const fetchBlogSlugs = async () => {
   const slugs = await client.fetch<string[]>(blogSlugsQuery);
+  return slugs.filter(Boolean);
+};
+
+export const fetchLandingPageSlugs = async () => {
+  const slugs = await client.fetch<string[]>(landingPageSlugsQuery);
   return slugs.filter(Boolean);
 };
 

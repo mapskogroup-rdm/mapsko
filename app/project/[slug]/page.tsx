@@ -1,4 +1,4 @@
-import { fetchProject } from "@/views/project/[slug]/project-data";
+import { fetchProject, fetchProjectSlugs } from "@/views/project/[slug]/project-data";
 import { notFound } from "next/navigation";
 import React from "react";
 import { PropertyDataProvider } from "@/views/project/[slug]/use-property-data";
@@ -13,6 +13,11 @@ import VisualShowcase from "@/views/project/[slug]/index/visual-showcase";
 import type { Metadata, ResolvingMetadata } from "next";
 import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
 import { buildRealEstateJsonLd } from "@/lib/jsonld";
+
+export async function generateStaticParams() {
+  const slugs = await fetchProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },

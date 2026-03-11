@@ -3,7 +3,7 @@ import Footer from "@/components/footer/footer";
 import Navigator from "@/components/navigator/navigator";
 import SanityImage from "@/components/sanity-image";
 import SingleBlogHero from "@/views/blog/single-blog-hero";
-import { fetchBlog } from "@/views/blog/utils/blog-data";
+import { fetchBlog, fetchBlogSlugs } from "@/views/blog/utils/blog-data";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "sanity";
 import { notFound } from "next/navigation";
@@ -13,6 +13,11 @@ import { buildBlogPostingJsonLd } from "@/lib/jsonld";
 import type { LandingPageSection } from "@/lib/sanity.types";
 import ProjectCard from "@/views/projects/project-updates/project-card";
 import Link from "next/link";
+
+export async function generateStaticParams() {
+  const slugs = await fetchBlogSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
 const blogPortableTextComponents = {
   types: {

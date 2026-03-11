@@ -241,6 +241,10 @@ export const allNewsQuery = groq`
   }
 `;
 
+export const newsSlugsQuery = groq`
+  *[_type == "news" && defined(slug.current)][].slug.current
+`;
+
 export const newsBySlugQuery = groq`
   *[_type == "news" && slug.current == $slug][0]{
     _id,
@@ -314,6 +318,10 @@ export const landingPageBySlugQuery = groq`
       }
     }
   }
+`;
+
+export const landingPageSlugsQuery = groq`
+  *[_type == "landingPage" && defined(slug.current)][].slug.current
 `;
 
 export const allFeaturedInQuery = groq`

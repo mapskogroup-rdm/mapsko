@@ -5,9 +5,15 @@ import { landingPageBySlugQuery } from "@/lib/sanity.queries";
 import { LandingPageDocument } from "@/lib/sanity.types";
 import PageBuilder from "@/views/landing-page/page-builder";
 import { absoluteUrl } from "@/lib/seo";
+import { fetchLandingPageSlugs } from "@/views/blog/utils/blog-data";
 
 interface PageProps {
     params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+    const slugs = await fetchLandingPageSlugs();
+    return slugs.map((slug) => ({ slug }));
 }
 
 async function getLandingPage(slug: string): Promise<LandingPageDocument | null> {

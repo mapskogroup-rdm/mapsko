@@ -6,7 +6,12 @@ import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
 import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
-import { getNewsBySlug } from "@/views/news-section/news-section.utils";
+import { getNewsBySlug, fetchNewsSlugs } from "@/views/news-section/news-section.utils";
+
+export async function generateStaticParams() {
+  const slugs = await fetchNewsSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },

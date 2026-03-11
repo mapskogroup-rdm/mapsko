@@ -36,9 +36,6 @@ const SecondSection = async () => {
               >
                 <ProjectDisplayCardV2
                   projectSlider={project}
-                  initialColor={
-                    (index + dupIndex) % 2 === 0 ? "#0B6BB8" : "#8AC028"
-                  }
                 />
               </div>
             ))}

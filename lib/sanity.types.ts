@@ -155,6 +155,7 @@ export interface NewsDocument {
 export interface FeaturedInDocument {
   _id: string;
   title: string;
+  subheading?: string;
   shortDescription: string;
   publicationLogo: Image;
   coverImage: Image;

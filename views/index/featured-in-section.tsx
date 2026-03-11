@@ -39,6 +39,15 @@ const FeaturedInSection = async () => {
                                 </h3>
                             </div>
 
+                            {/* Subheading */}
+                            {item.subheading && (
+                                <div className="px-6 pb-3">
+                                    <p className="text-neutral-500 text-sm md:text-base font-medium">
+                                        {item.subheading}
+                                    </p>
+                                </div>
+                            )}
+
                             {/* Publication Logo */}
                             <div className="p-6 pt-3">
                                 <div className="h-10 w-full max-w-[140px] flex items-center">

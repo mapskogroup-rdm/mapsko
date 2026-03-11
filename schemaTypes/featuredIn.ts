@@ -26,6 +26,11 @@ export default defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: "subheading",
+            title: "Subheading",
+            type: "string",
+        }),
+        defineField({
             name: "shortDescription",
             title: "Subtext",
             type: "text",

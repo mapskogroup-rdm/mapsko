@@ -328,6 +328,7 @@ export const allFeaturedInQuery = groq`
   *[_type == "featuredIn"] | order(rankingIndex asc, _createdAt desc){
     _id,
     title,
+    subheading,
     shortDescription,
     publicationLogo,
     coverImage,

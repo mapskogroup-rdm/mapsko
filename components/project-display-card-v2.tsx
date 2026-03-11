@@ -13,7 +13,7 @@ type Props = {
 
 const COLORS = ["#0B6BB8", "#8AC028"];
 
-const ProjectDisplayCardV2 = ({ projectSlider, initialColor }: Props) => {
+const ProjectDisplayCardV2 = ({ projectSlider, initialColor, disableCycle }: Props) => {
   const [currentColor, setCurrentColor] = useState(initialColor);
   const { sliderPhoto, shortAddress, statusText, sliderDescription } = projectSlider;
 

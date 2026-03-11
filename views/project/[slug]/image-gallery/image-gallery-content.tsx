@@ -34,8 +34,8 @@ const ImageGalleryContent = () => {
                 className="object-cover md:h-[350px] xl:h-[500px]"
               />
             )}
-            <div className="absolute bottom-0 left-0 right-0 bg-green-600/90 text-white text-xs font-medium uppercase tracking-wider py-1.5 text-center">
-              Actual Image
+            <div className="absolute bottom-0 left-0 right-0 bg-[#8ac028]/90 text-white text-[18px] font-medium tracking-wide py-2 text-center">
+              Actual image
             </div>
           </div>
         ))}

@@ -43,14 +43,6 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
         case "hero":
             return (
                 <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-white text-center overflow-hidden">
-                    <div className="z-10 px-4 common-frame-box">
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 uppercase tracking-tight leading-none">
-                            {section.headline}
-                        </h1>
-                        <p className="text-xl md:text-2xl max-w-3xl mx-auto font-medium opacity-90">
-                            {section.subHeadline}
-                        </p>
-                    </div>
                     {section.backgroundImage && (
                         <SanityImage
                             image={section.backgroundImage}
@@ -67,9 +59,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
             return (
                 <section className={`${sectionClass} px-4 max-w-5xl mx-auto`}>
                     {section.heading && (
-                        <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
+                        <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
                             {section.heading}
-                        </h2>
+                        </h1>
                     )}
                     <div className="prose prose-lg max-w-none prose-headings:text-sky-700 prose-headings:uppercase prose-headings:font-black">
                         <PortableText value={section.body || []} />
@@ -81,9 +73,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
+                            <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                             {section.items?.map((item, idx) => (
@@ -93,7 +85,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                                             <SanityImage image={item.icon} alt={item.title || "icon"} width={64} height={64} className="w-full h-full object-contain" />
                                         </div>
                                     )}
-                                    <h3 className="text-xl font-black text-sky-700 mb-4 uppercase">{item.title}</h3>
+                                    <h2 className="text-xl font-black text-sky-700 mb-4 uppercase">{item.title}</h2>
                                     <p className="text-neutral-600 leading-relaxed font-bold">{item.description}</p>
                                 </div>
                             ))}
@@ -106,9 +98,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
+                            <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {section.items?.map((item, idx) => (
@@ -119,7 +111,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                                         </div>
                                     )}
                                     <div className="p-8 text-center md:text-left">
-                                        <h3 className="text-2xl font-black text-sky-700 mb-4 uppercase tracking-tighter">{item.title}</h3>
+                                        <h2 className="text-2xl font-black text-sky-700 mb-4 uppercase tracking-tighter">{item.title}</h2>
                                         <p className="text-neutral-600 leading-relaxed text-lg font-bold">{item.description}</p>
                                     </div>
                                 </div>
@@ -133,9 +125,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
+                            <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                             {section.projects?.map((project) => (
@@ -157,14 +149,14 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={sectionClass}>
                     <div className="common-frame-box max-w-4xl mx-auto">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
+                            <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="space-y-6">
                             {section.items?.map((item, idx) => (
                                 <div key={item._key || idx} className="border border-neutral-200 rounded-sm p-5 md:p-6">
-                                    <h3 className="text-lg md:text-xl font-bold text-sky-800 mb-3">{(item as any).question}</h3>
+                                    <h2 className="text-lg md:text-xl font-bold text-sky-800 mb-3">{(item as any).question}</h2>
                                     <div className="prose max-w-none text-neutral-700">
                                         <PortableText value={(item as any).answer || []} />
                                     </div>
@@ -182,7 +174,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={`${sectionClass} ${isDark ? "text-white" : "text-sky-900"}`}>
                     <div className="common-frame-box max-w-4xl mx-auto text-center">
                         {section.eyebrow && <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-3 opacity-80">{section.eyebrow}</p>}
-                        {section.headline && <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase tracking-tight">{section.headline}</h2>}
+                        {section.heading && <h1 className="text-3xl md:text-4xl font-black mb-4 uppercase tracking-tight">{section.headline}</h1>}
                         {section.subtext && <p className={isDark ? "text-sky-100 mb-8 max-w-2xl mx-auto" : "text-sky-800 mb-8 max-w-2xl mx-auto"}>{section.subtext}</p>}
                         {section.buttonLabel && section.buttonHref && (
                             <Link
@@ -205,9 +197,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={`${sectionClass} text-white`}>
                     <div className="common-frame-box">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black mb-12 text-center uppercase tracking-tight text-sky-300">
+                            <h1 className="text-3xl md:text-4xl font-black mb-12 text-center uppercase tracking-tight text-sky-300">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
                             {section.items?.map((item, idx) => (
@@ -228,9 +220,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
+                            <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {section.testimonials?.map((item, idx) => (
@@ -263,14 +255,14 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                 <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
-                            <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-12 text-center uppercase tracking-tight">
+                            <h1 className="text-3xl md:text-4xl font-black text-sky-700 mb-12 text-center uppercase tracking-tight">
                                 {section.heading}
-                            </h2>
+                            </h1>
                         )}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                             {section.relatedBlogs && section.relatedBlogs.length > 0 && (
                                 <div>
-                                    <h3 className="text-lg font-bold text-sky-800 mb-6 uppercase tracking-[0.18em]">Related Articles</h3>
+                                    <h2 className="text-lg font-bold text-sky-800 mb-6 uppercase tracking-[0.18em]">Related Articles</h2>
                                     <div className="space-y-4">
                                         {section.relatedBlogs.map((blog) => (
                                             <Link
@@ -290,7 +282,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                             )}
                             {section.relatedProjects && section.relatedProjects.length > 0 && (
                                 <div>
-                                    <h3 className="text-lg font-bold text-sky-800 mb-6 uppercase tracking-[0.18em]">Featured Projects</h3>
+                                    <h2 className="text-lg font-bold text-sky-800 mb-6 uppercase tracking-[0.18em]">Featured Projects</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         {section.relatedProjects.map((project) => (
                                             <ProjectCard
@@ -326,9 +318,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                             </div>
                             <div className="flex flex-col justify-center">
                                 {section.heading && (
-                                    <h3 className="text-3xl md:text-4xl font-black text-sky-700 mb-2 uppercase tracking-tight">
+                                    <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-2 uppercase tracking-tight">
                                         {section.heading}
-                                    </h3>
+                                    </h2>
                                 )}
                                 {section.subheading && (
                                     <p className="text-xl md:text-2xl font-bold text-sky-800 mb-6 tracking-tight">
@@ -360,9 +352,9 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="flex flex-col justify-center order-2 md:order-1">
                                 {section.heading && (
-                                    <h3 className="text-3xl md:text-4xl font-black text-sky-700 mb-2 uppercase tracking-tight">
+                                    <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-2 uppercase tracking-tight">
                                         {section.heading}
-                                    </h3>
+                                    </h2>
                                 )}
                                 {section.subheading && (
                                     <p className="text-xl md:text-2xl font-bold text-sky-800 mb-6 tracking-tight">

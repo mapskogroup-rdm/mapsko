@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!page) return {};
 
     return {
-        title: page.seo?.metaTitle || `${page.title} | Mapsko Group`,
+        title: page.seo?.metaTitle || page.title,
         description: page.seo?.metaDescription,
         alternates: {
             canonical: page.seo?.canonical || absoluteUrl(`/${slug}`),

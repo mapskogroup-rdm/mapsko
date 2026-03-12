@@ -11,7 +11,7 @@ type Props = {
 const NextProjectCard = ({ title, location, href, cardColor }: Props) => {
   return (
     <div
-      style={{ backgroundColor: cardColor }}
+      style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
       className="p-12 flex flex-col items-center justify-center"
     >
       <Logo className="w-10 sm:w-12 md:w-14" />

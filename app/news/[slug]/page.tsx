@@ -23,7 +23,7 @@ export async function generateMetadata(
   if (!news) {
     return applyPageDefaults(
       {
-        title: "News | Mapsko",
+        title: "News",
         alternates: { canonical: absoluteUrl(`/news/${slug}`) },
         robots: { index: false, follow: false },
       },

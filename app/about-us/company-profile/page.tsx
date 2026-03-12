@@ -6,7 +6,7 @@ import HeroSection from "@/views/about-us/company-profile/hero-section/hero-sect
 import SecondSection from "@/views/about-us/company-profile/second-section/second-section";
 
 export const metadata = {
-  title: "Mapsko Group - Real Estate Company Profile & Legacy",
+  title: "Real Estate Company Profile & Legacy",
   description:
     "Mapsko Group delivers premium residential & commercial projects in Gurgaon & Delhi-NCR with quality, innovation & trusted expertise.",
   alternates: {

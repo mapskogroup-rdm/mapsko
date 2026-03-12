@@ -85,7 +85,7 @@ export async function generateMetadata(
   if (!blog) {
     return applyPageDefaults(
       {
-        title: "Blogs | Mapsko",
+        title: "Blogs",
         alternates: { canonical: absoluteUrl(`/blog/${slug}`) },
         robots: { index: false, follow: false },
       },

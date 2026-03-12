@@ -6,7 +6,7 @@ import CareerForm from "@/views/career/career-form/career-form";
 import Footer from "@/components/footer/footer";
 
 export const metadata = {
-  title: "Mapsko Careers - Jobs, Culture & Work Opportunities",
+  title: "Careers - Jobs, Culture & Work Opportunities",
   description:
     "Explore careers at Mapsko Group, current job openings, company culture and opportunities to grow in the real estate industry.",
   alternates: {

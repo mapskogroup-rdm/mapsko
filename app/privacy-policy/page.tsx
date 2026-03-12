@@ -4,7 +4,7 @@ import Navigator from "@/components/navigator/navigator";
 import HeroSection from "@/views/privacy-policy/hero-section";
 
 export const metadata = {
-  title: "Privacy Policy & Disclaimer | Mapsko",
+  title: "Privacy Policy & Disclaimer",
   description:
     "Read Mapsko’s privacy policy and disclaimer covering how we collect, use, and protect your personal information.",
   alternates: {

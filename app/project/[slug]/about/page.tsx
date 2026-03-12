@@ -17,7 +17,7 @@ export async function generateMetadata(
   if (!project) {
     return applyPageDefaults(
       {
-        title: "Project | Mapsko",
+        title: "Project",
         alternates: { canonical: absoluteUrl(`/project/${slug}/about`) },
         robots: { index: false, follow: false },
       },

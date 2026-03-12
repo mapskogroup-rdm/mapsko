@@ -115,7 +115,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                                 <div key={item._key || idx} className="group overflow-hidden rounded-sm border border-neutral-100 shadow-sm bg-[#FCFCFC]">
                                     {item.image && (
                                         <div className="aspect-[16/9] overflow-hidden">
-                                            <SanityImage image={item.image} alt={item.title || "image"} width={800} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                            <SanityImage image={item.image} alt={item.title || "image"} width={800} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                                         </div>
                                     )}
                                     <div className="p-8 text-center md:text-left">
@@ -320,7 +320,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                                         image={section.image}
                                         alt={section.heading || "Section image"}
                                         width={800}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain"
                                     />
                                 )}
                             </div>
@@ -389,7 +389,7 @@ const SectionRenderer = ({ section, index }: { section: LandingPageSection; inde
                                         image={section.image}
                                         alt={section.heading || "Section image"}
                                         width={800}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain"
                                     />
                                 )}
                             </div>

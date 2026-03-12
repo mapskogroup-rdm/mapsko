@@ -6,7 +6,7 @@ import HeroSection from "@/views/ready-to-move-in/hero-section";
 import ReadyToMoveInProperties from "@/views/ready-to-move-in/ready-to-move-in-properties";
 
 export const metadata = {
-  title: "Ready to Move in Properties",
+  title: "Ready to Move in Properties | Mapsko",
   description:
     "Find ready to move in properties by Mapsko Group in Gurgaon and Delhi NCR, completed flats and homes you can move into without delay.",
   alternates: {

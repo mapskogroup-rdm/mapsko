@@ -5,7 +5,7 @@ import HeroSection from "@/views/project/[slug]/video-gallery/hero-section";
 import VideoGalleryContent from "@/views/project/[slug]/video-gallery/video-gallery-content";
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
-import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
+import { absoluteUrl, applyContentPageDefaults, toOgImage } from "@/lib/seo";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
@@ -15,7 +15,7 @@ export async function generateMetadata(
   const project = await fetchProject(slug);
 
   if (!project) {
-    return applyPageDefaults(
+    return applyContentPageDefaults(
       {
         title: "Project",
         alternates: {
@@ -36,7 +36,7 @@ export async function generateMetadata(
     toOgImage(project.primaryCoverPhoto, { alt: project.name }) ||
     toOgImage(project.primaryPropertyPhoto, { alt: project.name });
 
-  return applyPageDefaults(
+  return applyContentPageDefaults(
     {
       title,
       description,

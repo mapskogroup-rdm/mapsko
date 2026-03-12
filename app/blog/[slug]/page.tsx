@@ -8,7 +8,7 @@ import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "sanity";
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
-import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
+import { absoluteUrl, applyContentPageDefaults, toOgImage } from "@/lib/seo";
 import { buildBlogPostingJsonLd } from "@/lib/jsonld";
 import type { LandingPageSection } from "@/lib/sanity.types";
 import ProjectCard from "@/views/projects/project-updates/project-card";
@@ -83,7 +83,7 @@ export async function generateMetadata(
   const blog = await fetchBlog(slug);
 
   if (!blog) {
-    return applyPageDefaults(
+    return applyContentPageDefaults(
       {
         title: "Blogs",
         alternates: { canonical: absoluteUrl(`/blog/${slug}`) },
@@ -93,7 +93,7 @@ export async function generateMetadata(
     );
   }
 
-  return applyPageDefaults(
+  return applyContentPageDefaults(
     {
       title: blog.title,
       description: blog.shortDescription,

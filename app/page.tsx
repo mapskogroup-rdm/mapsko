@@ -2,7 +2,7 @@ import IndexRoute from "@/views/index/index-route";
 import { absoluteUrl, toOgImage } from "@/lib/seo";
 
 export const metadata = {
-  title: "Premium Real Estate Developer in Gurgaon | Mapsko",
+  title: "Premium Real Estate Developer in Gurgaon",
   description:
     "Mapsko Group is a leading real estate developer in Gurgaon and across NCR, delivering luxury homes, plots and commercial properties backed by Reaching 30 years of trust.",
   alternates: {

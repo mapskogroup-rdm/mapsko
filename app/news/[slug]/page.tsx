@@ -5,7 +5,7 @@ import HeroSection from "@/views/news-section/[slug]/hero-section";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
-import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
+import { absoluteUrl, applyContentPageDefaults, toOgImage } from "@/lib/seo";
 import { getNewsBySlug, fetchNewsSlugs } from "@/views/news-section/news-section.utils";
 
 export async function generateStaticParams() {
@@ -21,7 +21,7 @@ export async function generateMetadata(
   const news = await getNewsBySlug(slug);
 
   if (!news) {
-    return applyPageDefaults(
+    return applyContentPageDefaults(
       {
         title: "News",
         alternates: { canonical: absoluteUrl(`/news/${slug}`) },
@@ -31,7 +31,7 @@ export async function generateMetadata(
     );
   }
 
-  return applyPageDefaults(
+  return applyContentPageDefaults(
     {
       title: news.title,
       description: news.shortDescription,

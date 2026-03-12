@@ -11,7 +11,7 @@ import Footer from "@/components/footer/footer";
 import FloorPlansIndex from "@/views/project/[slug]/index/floor-plans-index";
 import VisualShowcase from "@/views/project/[slug]/index/visual-showcase";
 import type { Metadata, ResolvingMetadata } from "next";
-import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
+import { absoluteUrl, applyContentPageDefaults, toOgImage } from "@/lib/seo";
 import { buildRealEstateJsonLd } from "@/lib/jsonld";
 
 export async function generateStaticParams() {
@@ -27,7 +27,7 @@ export async function generateMetadata(
   const project = await fetchProject(slug);
 
   if (!project) {
-    return applyPageDefaults(
+    return applyContentPageDefaults(
       {
         title: "Project",
         alternates: { canonical: absoluteUrl(`/project/${slug}`) },
@@ -54,7 +54,7 @@ export async function generateMetadata(
       alt: project.name,
     });
 
-  return applyPageDefaults(
+  return applyContentPageDefaults(
     {
       title,
       description,

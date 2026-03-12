@@ -24,13 +24,41 @@ export const absoluteUrl = (path: string) => {
 };
 
 export const buildTitle = (pageTitle?: string) =>
-  pageTitle ? pageTitle : DEFAULT_SITE_NAME;
+  pageTitle ? `${pageTitle} | ${DEFAULT_SITE_NAME}` : DEFAULT_SITE_NAME;
+
+/**
+ * Build title for content pages (blogs, projects, landing pages)
+ * without appending site name
+ */
+export const buildContentTitle = (pageTitle?: string) =>
+  pageTitle || DEFAULT_SITE_NAME;
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
     default: DEFAULT_SITE_NAME,
-    template: "%s",
+    template: `%s | ${DEFAULT_SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: DEFAULT_SITE_NAME,
+    title: DEFAULT_SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
+
+/**
+ * Metadata for content pages (blogs, projects, landing pages)
+ * No template suffix to avoid appending site name
+ */
+export const contentMetadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: DEFAULT_SITE_NAME,
   },
   description: DEFAULT_DESCRIPTION,
   openGraph: {
@@ -70,6 +98,29 @@ export const applyPageDefaults = (
   parent?: ResolvingMetadata
 ): Metadata => {
   const base: Metadata = { ...baseMetadata, ...parent };
+  return {
+    ...base,
+    ...meta,
+    openGraph: {
+      ...base.openGraph,
+      ...meta.openGraph,
+    },
+    twitter: {
+      ...base.twitter,
+      ...meta.twitter,
+    },
+  };
+};
+
+/**
+ * Apply defaults for content pages (blogs, projects, landing pages)
+ * Does not include template suffix to prevent appending site name
+ */
+export const applyContentPageDefaults = (
+  meta: Metadata,
+  parent?: ResolvingMetadata
+): Metadata => {
+  const base: Metadata = { ...contentMetadata, ...parent };
   return {
     ...base,
     ...meta,

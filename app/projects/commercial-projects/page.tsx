@@ -5,7 +5,7 @@ import FirstSection from "@/views/projects/commercial-projects/first-section/fir
 import Footer from "@/components/footer/footer";
 
 export const metadata = {
-  title: "Commercial Projects in Gurgaon & Delhi NCR | Mapsko",
+  title: "Commercial Projects in Gurgaon & Delhi NCR",
   description:
     "Explore commercial projects by Mapsko Group in Gurgaon and across NCR, offering office and retail spaces in well-connected locations.",
   alternates: {

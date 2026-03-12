@@ -22,8 +22,8 @@ const PageBuilder = ({ data }: PageBuilderProps) => {
             </div>
 
             <main className="flex-1">
-                {data.sections?.map((section) => (
-                    <SectionRenderer key={section._key} section={section} />
+                {data.sections?.map((section, idx) => (
+                    <SectionRenderer key={section._key} section={section} index={idx} />
                 ))}
             </main>
 
@@ -32,7 +32,13 @@ const PageBuilder = ({ data }: PageBuilderProps) => {
     );
 };
 
-const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
+const SectionRenderer = ({ section, index }: { section: LandingPageSection; index: number }) => {
+    // determine background and padding for non-hero sections
+    const sectionClass =
+        section._type === "hero"
+            ? ""
+            : `py-[60px] ${index % 2 === 0 ? "bg-[#f9f9f9]" : "bg-[#ffffff]"}`;
+
     switch (section._type) {
         case "hero":
             return (
@@ -59,7 +65,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "contentSection":
             return (
-                <section className="py-20 px-4 max-w-5xl mx-auto">
+                <section className={`${sectionClass} px-4 max-w-5xl mx-auto`}>
                     {section.heading && (
                         <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
                             {section.heading}
@@ -72,7 +78,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "iconBoxes":
             return (
-                <section className="py-24 bg-[#F9F9F9]">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
@@ -97,7 +103,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "imageBoxes":
             return (
-                <section className="py-24 bg-white">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
@@ -124,7 +130,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "projectSection":
             return (
-                <section className="py-24 bg-[#F9F9F9]">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
@@ -148,7 +154,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "faqSection":
             return (
-                <section className="py-24 bg-white">
+                <section className={sectionClass}>
                     <div className="common-frame-box max-w-4xl mx-auto">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-10 text-center uppercase tracking-tight">
@@ -171,8 +177,9 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
         case "ctaSection": {
             const variant = section.variant || "dark";
             const isDark = variant === "dark";
+            // padding and alternating background handled by sectionClass
             return (
-                <section className={isDark ? "py-16 bg-sky-900 text-white" : "py-16 bg-sky-50 text-sky-900"}>
+                <section className={`${sectionClass} ${isDark ? "text-white" : "text-sky-900"}`}>
                     <div className="common-frame-box max-w-4xl mx-auto text-center">
                         {section.eyebrow && <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-3 opacity-80">{section.eyebrow}</p>}
                         {section.headline && <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase tracking-tight">{section.headline}</h2>}
@@ -195,7 +202,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
         }
         case "statsSection":
             return (
-                <section className="py-24 bg-[#050816] text-white">
+                <section className={`${sectionClass} text-white`}>
                     <div className="common-frame-box">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black mb-12 text-center uppercase tracking-tight text-sky-300">
@@ -218,7 +225,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "testimonialsSection":
             return (
-                <section className="py-24 bg-[#F9F9F9]">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-16 text-center uppercase tracking-tight">
@@ -253,7 +260,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "relatedContentSection":
             return (
-                <section className="py-24 bg-white">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         {section.heading && (
                             <h2 className="text-3xl md:text-4xl font-black text-sky-700 mb-12 text-center uppercase tracking-tight">
@@ -304,7 +311,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "imageLeftTextRight":
             return (
-                <section className="py-24 bg-white">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
@@ -348,7 +355,7 @@ const SectionRenderer = ({ section }: { section: LandingPageSection }) => {
             );
         case "imageRightTextLeft":
             return (
-                <section className="py-24 bg-[#F9F9F9]">
+                <section className={sectionClass}>
                     <div className="common-frame-box">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="flex flex-col justify-center order-2 md:order-1">

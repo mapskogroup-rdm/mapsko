@@ -24,13 +24,13 @@ export const absoluteUrl = (path: string) => {
 };
 
 export const buildTitle = (pageTitle?: string) =>
-  pageTitle ? `${pageTitle} | ${DEFAULT_SITE_NAME}` : DEFAULT_SITE_NAME;
+  pageTitle ? pageTitle : DEFAULT_SITE_NAME;
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
     default: DEFAULT_SITE_NAME,
-    template: `%s | ${DEFAULT_SITE_NAME}`,
+    template: "%s",
   },
   description: DEFAULT_DESCRIPTION,
   openGraph: {

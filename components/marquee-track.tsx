@@ -20,6 +20,8 @@ export const MarqueeTrack = ({
     const container = containerRef.current;
     if (!track || !container) return;
 
+    const DURATION = 60000; // 60s in milliseconds
+
     // Create animation: rtl = move left, ltr = move right
     const keyframes =
       direction === "rtl"
@@ -33,7 +35,7 @@ export const MarqueeTrack = ({
           ];
 
     const animationOptions: KeyframeAnimationOptions = {
-      duration: 60000, // 60s in milliseconds
+      duration: DURATION,
       iterations: Infinity,
       easing: "linear",
     };
@@ -41,26 +43,124 @@ export const MarqueeTrack = ({
     const animation = track.animate(keyframes, animationOptions);
     animationRef.current = animation;
 
-    // Handle hover - smoothly slow down
+    let isDragging = false;
+    let startX = 0;
+    let startScrollTime = 0;
+    let hasDragged = false; // To prevent click events if we dragged
+
+    // Handle hover
     const handleMouseEnter = () => {
-      if (animationRef.current) {
-        // pause entirely on hover
+      if (!isDragging && animationRef.current) {
         animationRef.current.pause();
       }
     };
 
     const handleMouseLeave = () => {
-      if (animationRef.current) {
+      if (!isDragging && animationRef.current) {
         animationRef.current.play();
       }
     };
 
+    // Handle Dragging
+    const handlePointerDown = (e: PointerEvent) => {
+      if (!animationRef.current) return;
+      isDragging = true;
+      hasDragged = false;
+      startX = e.clientX;
+      startScrollTime = animationRef.current.currentTime as number;
+      
+      animationRef.current.pause();
+      container.style.cursor = "grabbing";
+    };
+
+    const handlePointerMove = (e: PointerEvent) => {
+      if (!isDragging || !animationRef.current || !track) return;
+      
+      const dx = e.clientX - startX;
+      
+      // If movement is very small, don't consider it a drag yet (allow clicks)
+      if (Math.abs(dx) > 5) {
+        hasDragged = true;
+      }
+      
+      if (!hasDragged) return;
+      
+      // Prevent text selection while dragging
+      e.preventDefault();
+      
+      // Calculate time per pixel.
+      // -50% translation represents DURATION
+      // Therefore, track.scrollWidth / 2 represents DURATION
+      const halfWidth = track.scrollWidth / 2;
+      const timePerPixel = DURATION / halfWidth;
+      
+      let timeDelta = dx * timePerPixel;
+      
+      // For RTL, moving mouse right (dx > 0) means we want to show things to the left
+      // which corresponds to moving backwards in the animation (smaller time).
+      if (direction === "rtl") {
+        timeDelta = -timeDelta;
+      }
+
+      let newTime = startScrollTime + timeDelta;
+      
+      // Wrap around seamlessly
+      if (newTime < 0) {
+        newTime = (newTime % DURATION) + DURATION;
+      }
+      if (newTime >= DURATION) {
+        newTime = newTime % DURATION;
+      }
+      
+      animationRef.current.currentTime = newTime;
+    };
+
+    const handlePointerUp = (e: PointerEvent) => {
+      if (!isDragging) return;
+      isDragging = false;
+      container.style.cursor = "grab";
+      
+      // Resume if we are not hovering anymore
+      if (!container.matches(':hover')) {
+        animationRef.current?.play();
+      }
+    };
+
+    // Capture click phase to prevent link navigation if we actually dragged
+    const handleClick = (e: MouseEvent) => {
+      if (hasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    // Apply styles for dragging
+    container.style.cursor = "grab";
+    container.style.userSelect = "none";
+    container.style.touchAction = "pan-y"; // allow vertical scroll
+
     container.addEventListener("mouseenter", handleMouseEnter);
     container.addEventListener("mouseleave", handleMouseLeave);
+    
+    container.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointermove", handlePointerMove, { passive: false });
+    window.addEventListener("pointerup", handlePointerUp);
+    window.addEventListener("pointercancel", handlePointerUp);
+    
+    // Use capture phase for click to stop links from triggering
+    container.addEventListener("click", handleClick, true);
 
     return () => {
       container.removeEventListener("mouseenter", handleMouseEnter);
       container.removeEventListener("mouseleave", handleMouseLeave);
+      
+      container.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerup", handlePointerUp);
+      window.removeEventListener("pointercancel", handlePointerUp);
+      
+      container.removeEventListener("click", handleClick, true);
+
       if (animationRef.current) {
         animationRef.current.cancel();
       }
@@ -70,7 +170,7 @@ export const MarqueeTrack = ({
   return (
     <div
       ref={containerRef}
-      className={`mapsko-marquee mapsko-marquee--${direction} text-white text-center`}
+      className={`mapsko-marquee mapsko-marquee--${direction} text-white text-center overflow-hidden`}
     >
       <div
         ref={trackRef}

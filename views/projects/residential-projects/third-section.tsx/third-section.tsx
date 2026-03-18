@@ -15,11 +15,13 @@ const ThirdSection = async (props: Props) => {
   const residentialProjects = projects.filter(
     (project) => {
       const isResidential = project.projectType === "residential";
-      const slug = project.slug?.toLowerCase() || "";
-      const name = project.name?.toLowerCase() || "";
-      const isMountVille = slug.includes("mount-ville") || slug.includes("mountville") || name.includes("mount ville");
+      // This section should ideally only show completed projects based on its title "Built. Handed Over. Cherished."
+      // But user requested to "put back mount ville in the grid". Mount Ville is typically "ongoing".
+      // So we will just show ALL residential projects here (which includes Mount Ville) 
+      // without filtering out Mount Ville specifically.
+      // If dynamic filtering is needed later, we can check project.projectStatus === 'completed'.
       
-      return isResidential && !isMountVille;
+      return isResidential;
     }
   );
 

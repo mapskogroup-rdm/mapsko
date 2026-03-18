@@ -20,7 +20,7 @@ const SecondSection = async () => {
       const isResidential = project.projectType === "residential";
       const slug = project.slug?.toLowerCase() || "";
       const name = project.name?.toLowerCase() || "";
-      const isMountVille = slug.includes("mount-ville") || slug.includes("mountville") || name.includes("mount ville");
+      const isMountVille = slug.includes("mount-ville") || slug.includes("mountville") || name.includes("mount ville") || slug.includes("mapsko-mount-ville");
       
       return isResidential && !isMountVille;
     }

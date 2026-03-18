@@ -121,7 +121,6 @@ export const projectsWithPropertyImageQuery = groq`
     "projectStatus": projectStatus
   }
 `;
-`;
 
 export const projectsByStatusQuery = groq`
   *[_type == "project" && projectStatus == $status && defined(propertyLogo) && defined(slug.current)]{

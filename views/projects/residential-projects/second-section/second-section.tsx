@@ -16,7 +16,14 @@ const SecondSection = async () => {
 
   // Filter for residential and exclude Mount Ville specifically
   const filteredProjects = projects.filter(
-    (project) => project.projectType === "residential" && project.slug !== "mapsko-mount-ville"
+    (project) => {
+      const isResidential = project.projectType === "residential";
+      const slug = project.slug?.toLowerCase() || "";
+      const name = project.name?.toLowerCase() || "";
+      const isMountVille = slug.includes("mount-ville") || slug.includes("mountville") || name.includes("mount ville");
+      
+      return isResidential && !isMountVille;
+    }
   );
 
   if (filteredProjects.length === 0) {

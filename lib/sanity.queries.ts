@@ -117,8 +117,10 @@ export const projectsWithPropertyImageQuery = groq`
     name,
     "slug": slug.current,
     propertyImageWithLogo,
-    projectType
+    projectType,
+    "projectStatus": projectStatus
   }
+`;
 `;
 
 export const projectsByStatusQuery = groq`

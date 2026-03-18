@@ -105,6 +105,7 @@ export interface ProjectWithPropertyImage {
   slug: string;
   propertyImageWithLogo: Image;
   projectType: "residential" | "commercial";
+  projectStatus?: "ongoing" | "completed" | "upcoming";
 }
 
 export interface ProjectUpdateItem {

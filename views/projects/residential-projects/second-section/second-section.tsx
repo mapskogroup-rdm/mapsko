@@ -3,6 +3,7 @@ import { client } from "@/lib/sanity.client";
 import { ProjectWithSlider } from "@/lib/sanity.types";
 import { projectsWithSliderQuery } from "@/lib/sanity.queries";
 import ProjectDisplayCardV2 from "@/components/project-display-card-v2";
+import { MarqueeTrack } from "@/components/marquee-track";
 
 const SecondSection = async () => {
   const projects = await client.fetch<ProjectWithSlider[]>(
@@ -13,9 +14,14 @@ const SecondSection = async () => {
     return null;
   }
 
+  // Filter for residential and exclude Mount Ville specifically
   const filteredProjects = projects.filter(
-    (project) => project.projectType === "residential"
+    (project) => project.projectType === "residential" && project.slug !== "mapsko-mount-ville"
   );
+
+  if (filteredProjects.length === 0) {
+    return null;
+  }
 
   return (
     <div className="pt-6 sm:pt-8 md:pt-12 lg:pt-16 xl:pt-20">
@@ -29,16 +35,24 @@ const SecondSection = async () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 *:w-full text-white text-center">
-        {filteredProjects.map((project, index) => (
-          <ProjectDisplayCardV2
-            key={project._id}
-            projectSlider={project}
-            initialColor="rgba(0,0,0,0.5)"
-            disableCycle
-          />
+      <MarqueeTrack direction="rtl">
+        {[0, 1].map((dupIndex) => (
+          <div key={dupIndex} className="flex flex-nowrap items-stretch">
+            {filteredProjects.map((project, index) => (
+              <div
+                key={`${dupIndex}-${project._id}`}
+                className="shrink-0 w-[85vw] sm:w-[420px] md:w-[460px] xl:w-[calc((100vw-3rem)/3)]"
+              >
+                <ProjectDisplayCardV2
+                  projectSlider={project}
+                  initialColor="rgba(0,0,0,0.5)"
+                  disableCycle
+                />
+              </div>
+            ))}
+          </div>
         ))}
-      </div>
+      </MarqueeTrack>
     </div>
   );
 };

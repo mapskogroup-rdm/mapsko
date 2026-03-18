@@ -46,6 +46,14 @@ const Footer = async () => {
     (p) => p.projectType === "commercial",
   );
 
+  const formatProjectName = (name: string) => {
+    const cleanName = name.replace(/^Mapsko\s+/i, "");
+    if (cleanName.includes("Krishna") || cleanName.includes("Apra")) {
+      return cleanName;
+    }
+    return `Mapsko ${cleanName}`;
+  };
+
   return (
     <footer className="bg-[#0B6BB8] text-white">
       <ImageBackground
@@ -136,7 +144,7 @@ const Footer = async () => {
                       href={`/project/${project.slug}`}
                       className="hover:underline underline-offset-4"
                     >
-                      Mapsko {project.name}
+                      {formatProjectName(project.name)}
                     </Link>
                   </li>
                 ))}
@@ -153,7 +161,7 @@ const Footer = async () => {
                       href={`/project/${project.slug}`}
                       className="hover:underline underline-offset-4"
                     >
-                      {project.name.includes("Krishna") ? project.name : `Mapsko ${project.name}`}
+                      {formatProjectName(project.name)}
                     </Link>
                   </li>
                 ))}

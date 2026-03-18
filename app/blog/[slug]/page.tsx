@@ -72,6 +72,26 @@ const blogPortableTextComponents = {
         {children}
       </blockquote>
     ),
+    list: {
+      bullet: ({ children }: { children?: React.ReactNode }) => (
+        <ul className="list-disc pl-5 my-4 space-y-2 text-neutral-700 leading-relaxed marker:text-sky-700">
+          {children}
+        </ul>
+      ),
+      number: ({ children }: { children?: React.ReactNode }) => (
+        <ol className="list-decimal pl-5 my-4 space-y-2 text-neutral-700 leading-relaxed marker:text-sky-700">
+          {children}
+        </ol>
+      ),
+    },
+    listItem: {
+      bullet: ({ children }: { children?: React.ReactNode }) => (
+        <li className="pl-1">{children}</li>
+      ),
+      number: ({ children }: { children?: React.ReactNode }) => (
+        <li className="pl-1">{children}</li>
+      ),
+    },
   },
 };
 

@@ -5,8 +5,14 @@ import Logo from "@/assets/icons/mapsko-logo.svg";
 import SanityImage from "@/components/sanity-image";
 import Link from "next/link";
 
-const FeaturedInSection = async () => {
-    const featuredInItems = await client.fetch<FeaturedInDocument[]>(allFeaturedInQuery);
+interface Props {
+    limit?: number;
+    showViewAll?: boolean;
+}
+
+const FeaturedInSection = async ({ limit, showViewAll }: Props = {}) => {
+    const data = await client.fetch<FeaturedInDocument[]>(allFeaturedInQuery);
+    const featuredInItems = limit ? data.slice(0, limit) : data;
 
     if (!featuredInItems || featuredInItems.length === 0) return null;
 
@@ -39,15 +45,6 @@ const FeaturedInSection = async () => {
                                 </h3>
                             </div>
 
-                            {/* Subheading */}
-                            {item.subheading && (
-                                <div className="px-6 pb-3">
-                                    <p className="text-neutral-500 text-sm md:text-base font-medium">
-                                        {item.subheading}
-                                    </p>
-                                </div>
-                            )}
-
                             {/* Publication Logo */}
                             <div className="p-6 pt-3">
                                 <div className="h-10 w-full max-w-[140px] flex items-center">
@@ -61,7 +58,7 @@ const FeaturedInSection = async () => {
                             </div>
 
                             {/* Cover Image */}
-                            <div className="relative w-full aspect-[16/9] overflow-hidden">
+                            <div className="relative w-full aspect-[2/1] overflow-hidden">
                                 <SanityImage
                                     image={item.coverImage}
                                     alt={item.title}
@@ -72,6 +69,12 @@ const FeaturedInSection = async () => {
 
                             {/* Text and Button */}
                             <div className="p-6 md:p-8 flex flex-col flex-1">
+                                {/* Subheading */}
+                                {item.subheading && (
+                                    <p className="text-neutral-500 text-sm md:text-base font-semibold mb-2">
+                                        {item.subheading}
+                                    </p>
+                                )}
                                 <p className="text-neutral-600 text-sm md:text-base line-clamp-3 mb-6 flex-1">
                                     {item.shortDescription}
                                 </p>
@@ -93,6 +96,17 @@ const FeaturedInSection = async () => {
                         </Link>
                     ))}
                 </div>
+
+                {showViewAll && (
+                    <div className="mt-12 text-center">
+                        <Link
+                            href="/featured-in"
+                            className="inline-block bg-sky-700 hover:bg-sky-800 text-white font-semibold py-3 px-8 transition-colors duration-300"
+                        >
+                            View All
+                        </Link>
+                    </div>
+                )}
             </div>
         </section>
     );

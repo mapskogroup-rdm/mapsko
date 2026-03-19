@@ -9,7 +9,7 @@ import FifthSection from "./fifth-section/fifth-section";
 import SixthSection from "./sixth-section/sixth-section";
 import Footer from "@/components/footer/footer";
 import ParallaxWindow from "@/components/parallax-window";
-import NewsSection from "../news-section/news-section";
+import LatestNewsCTA from "./latest-news-cta";
 import FeaturedInSection from "./featured-in-section";
 
 const IndexRoute = () => {
@@ -27,8 +27,8 @@ const IndexRoute = () => {
       {/* FourthSection (Key Benefits) hidden per request */}
 
       <FifthSection />
-      <NewsSection />
-      <FeaturedInSection />
+      <LatestNewsCTA />
+      <FeaturedInSection limit={3} showViewAll={true} />
       <Footer />
     </main>
   );

@@ -18,7 +18,7 @@ const SecondSection = () => {
               Built on decades of vision, commitment, and entrepreneurial excellence, MAPSKO&apos;s journey reflects a seamless transition from a strong foundation to progressive leadership. The group continues to evolve with a forward-looking approach, guided by experience, strategic insight, and a clear focus on long-term growth.
               <br />
               <br />
-              With deep-rooted expertise in real estate since the late 1990s, MAPSKO has emerged as a trusted force in North India&apos;s development landscape. Over the years, the group has successfully delivered nearly <strong>22+ residential and commercial projects</strong> across North India, contributing significantly to urban transformation. This legacy of consistency, innovation, and execution excellence continues to drive MAPSKO&apos;s expansion and industry leadership.
+              With deep-rooted expertise in real estate since the late 1990s, MAPSKO has emerged as a trusted force in North India&apos;s development landscape. Over the years, the group has successfully delivered nearly <strong>23+ residential and commercial projects</strong> across North India, contributing significantly to urban transformation. This legacy of consistency, innovation, and execution excellence continues to drive MAPSKO&apos;s expansion and industry leadership.
             </p>
           </div>
         </div>

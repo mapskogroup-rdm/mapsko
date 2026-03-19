@@ -38,13 +38,13 @@ const Footer = async () => {
     projectsForFooterQuery,
   );
 
-  const residentialProjects = projects.filter(
-    (p) => p.projectType === "residential",
-  );
+  const residentialProjects = projects
+    .filter((p: ProjectFooterItem) => p.projectType === "residential")
+    .sort((a: ProjectFooterItem, b: ProjectFooterItem) => (a.rankingIndex ?? 999) - (b.rankingIndex ?? 999));
 
-  const commercialProjects = projects.filter(
-    (p) => p.projectType === "commercial",
-  );
+  const commercialProjects = projects
+    .filter((p: ProjectFooterItem) => p.projectType === "commercial")
+    .sort((a: ProjectFooterItem, b: ProjectFooterItem) => (a.rankingIndex ?? 999) - (b.rankingIndex ?? 999));
 
   const formatProjectName = (name: string) => {
     const cleanName = name.replace(/^Mapsko\s+/i, "");

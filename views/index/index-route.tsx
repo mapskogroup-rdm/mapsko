@@ -27,8 +27,8 @@ const IndexRoute = () => {
       {/* FourthSection (Key Benefits) hidden per request */}
 
       <FifthSection />
-      <LatestNewsCTA />
       <FeaturedInSection limit={3} showViewAll={true} />
+      <LatestNewsCTA />
       <Footer />
     </main>
   );

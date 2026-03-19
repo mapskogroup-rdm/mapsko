@@ -2,6 +2,8 @@ import { absoluteUrl, toOgImage } from "@/lib/seo";
 import Navigator from "@/components/navigator/navigator";
 import Footer from "@/components/footer/footer";
 import FeaturedInSection from "@/views/index/featured-in-section";
+import Image from "next/image";
+import TOIImage from "./Mapsko TOI.jpeg";
 
 export const metadata = {
   title: "Featured In | Mapsko",
@@ -27,7 +29,11 @@ const Page = () => {
           ]}
         />
       </div>
-      <FeaturedInSection />
+      <FeaturedInSection>
+          <div className="group flex flex-col bg-white border border-neutral-200 hover:shadow-xl transition-all duration-300 w-full h-full p-2 items-center justify-center">
+             <Image src={TOIImage} alt="Mapsko Times of India Feature" className="w-full h-auto object-contain cursor-pointer transition-transform duration-500 hover:scale-[1.02]" placeholder="blur" />
+          </div>
+      </FeaturedInSection>
       <Footer />
     </main>
   );

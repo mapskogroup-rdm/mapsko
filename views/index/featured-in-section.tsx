@@ -4,13 +4,15 @@ import { FeaturedInDocument } from "@/lib/sanity.types";
 import Logo from "@/assets/icons/mapsko-logo.svg";
 import SanityImage from "@/components/sanity-image";
 import Link from "next/link";
+import React from "react";
 
 interface Props {
     limit?: number;
     showViewAll?: boolean;
+    children?: React.ReactNode;
 }
 
-const FeaturedInSection = async ({ limit, showViewAll }: Props = {}) => {
+const FeaturedInSection = async ({ limit, showViewAll, children }: Props = {}) => {
     const data = await client.fetch<FeaturedInDocument[]>(allFeaturedInQuery);
     const featuredInItems = limit ? data.slice(0, limit) : data;
 
@@ -95,6 +97,7 @@ const FeaturedInSection = async ({ limit, showViewAll }: Props = {}) => {
                             </div>
                         </Link>
                     ))}
+                    {children}
                 </div>
 
                 {showViewAll && (

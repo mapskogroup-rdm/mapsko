@@ -75,7 +75,7 @@ export const projectBySlugQuery = groq`
 `;
 
 export const galleryImagesQuery = groq`
-  *[_type == "project" && defined(imageGallery)]{
+  *[_type == "project" && defined(imageGallery)] | order(rankingIndex asc, name asc){
     _id,
     name,
     "slug": slug.current,
@@ -112,7 +112,7 @@ export const projectsForFooterQuery = groq`
 `;
 
 export const projectsWithPropertyImageQuery = groq`
-  *[_type == "project" && defined(propertyImageWithLogo) && defined(slug.current)]{
+  *[_type == "project" && defined(propertyImageWithLogo) && defined(slug.current)] | order(rankingIndex asc, name asc){
     _id,
     name,
     "slug": slug.current,
@@ -123,7 +123,7 @@ export const projectsWithPropertyImageQuery = groq`
 `;
 
 export const projectsByStatusQuery = groq`
-  *[_type == "project" && projectStatus == $status && defined(propertyLogo) && defined(slug.current)]{
+  *[_type == "project" && projectStatus == $status && defined(propertyLogo) && defined(slug.current)] | order(rankingIndex asc, name asc){
     _id,
     name,
     "slug": slug.current,

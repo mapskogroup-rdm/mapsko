@@ -9,7 +9,7 @@ const points = [
   {
     icon: BuildingIcon,
     label: "Delivered /n Projects",
-    value: "22+",
+    value: "23+",
   },
   {
     icon: G183Icon,
@@ -46,7 +46,7 @@ const FirstSection = () => {
             </p>
             <p>
               With a legacy rooted in real estate since the late 1990s, we have
-              been the driving force behind nearly 22+ delivered
+              been the driving force behind nearly 23+ delivered
               projects across Delhi and the NCR.
             </p>
             <p>

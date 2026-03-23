@@ -12,7 +12,13 @@ const DEFAULT_DESCRIPTION =
  */
 export const getSiteUrl = () => {
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  const base = envUrl && envUrl.length > 0 ? envUrl : "http://localhost:3000";
+  if (envUrl && envUrl.length > 0) {
+    return envUrl.endsWith("/") ? envUrl.slice(0, -1) : envUrl;
+  }
+  const base =
+    process.env.NODE_ENV === "production"
+      ? "https://www.mapskogroup.com"
+      : "http://localhost:3000";
   return base.endsWith("/") ? base.slice(0, -1) : base;
 };
 

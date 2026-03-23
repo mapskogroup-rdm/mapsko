@@ -30,10 +30,11 @@ const SanityImage = ({
   className,
   ...restImageProps
 }: Props & RestImageProps) => {
-  const { calculatedWidth, calculatedHeight, imageUrl } = useMemo(() => {
+  const { calculatedWidth, calculatedHeight, imageUrl, isSVG } = useMemo(() => {
     try {
       // Type assertion needed because Sanity Image type may not exactly match SanityImageSource
       const dimensions = getImageDimensions(image as any as SanityImageSource);
+      const isSVGAsset = image.asset?._ref?.includes("-svg") || false;
       const aspectRatio = dimensions.aspectRatio;
 
       let finalWidth: number;
@@ -65,6 +66,17 @@ const SanityImage = ({
       }
 
       let builder = urlBuilder;
+      
+      // For SVGs, we skip transformations to avoid broken URLs
+      if (isSVGAsset) {
+        return {
+          calculatedWidth: finalWidth,
+          calculatedHeight: finalHeight,
+          imageUrl: builder.url() || "",
+          isSVG: true,
+        };
+      }
+
       if (width && !height) {
         // Only width provided - use fit('max') to maintain aspect ratio
         builder = builder.width(finalWidth).fit("max");
@@ -80,6 +92,7 @@ const SanityImage = ({
         calculatedWidth: finalWidth,
         calculatedHeight: finalHeight,
         imageUrl: builder.url() || "",
+        isSVG: false,
       };
     } catch (error) {
       // Fallback to defaults if dimension extraction fails
@@ -93,6 +106,7 @@ const SanityImage = ({
             ?.width(fallbackWidth)
             .height(fallbackHeight)
             .url() || "",
+        isSVG: false,
       };
     }
   }, [image, width, height]);
@@ -105,6 +119,7 @@ const SanityImage = ({
       height={calculatedHeight}
       style={style}
       className={className}
+      unoptimized={isSVG}
       {...restImageProps}
     />
   );

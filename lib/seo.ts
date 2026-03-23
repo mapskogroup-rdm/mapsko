@@ -12,13 +12,18 @@ const DEFAULT_DESCRIPTION =
  */
 export const getSiteUrl = () => {
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (envUrl && envUrl.length > 0) {
-    return envUrl.endsWith("/") ? envUrl.slice(0, -1) : envUrl;
+
+  // In production, we strictly want the main domain unless explicitly overridden
+  // with something that isn't a Vercel preview/default URL.
+  if (process.env.NODE_ENV === "production") {
+    if (envUrl && envUrl.length > 0 && !envUrl.includes("vercel.app")) {
+      return envUrl.endsWith("/") ? envUrl.slice(0, -1) : envUrl;
+    }
+    return "https://www.mapskogroup.com";
   }
-  const base =
-    process.env.NODE_ENV === "production"
-      ? "https://www.mapskogroup.com"
-      : "http://localhost:3000";
+
+  // For development (NODE_ENV !== "production")
+  const base = envUrl && envUrl.length > 0 ? envUrl : "http://localhost:3000";
   return base.endsWith("/") ? base.slice(0, -1) : base;
 };
 

@@ -7,7 +7,7 @@ import GalleryContent from "@/views/gallery/gallery-content";
 import { fetchProjectsGallery } from "@/views/gallery/projects-gallery-data";
 
 export const metadata = {
-  title: "Gallery - Visual Showcase of Projects | Mapsko",
+  title: "Mapsko Gallery – Visual Showcase of Projects",
   description:
     "Explore the Mapsko Gallery, images of residential and commercial projects, architecture, amenities and real life views of developments across Delhi‑NCR.",
   alternates: {

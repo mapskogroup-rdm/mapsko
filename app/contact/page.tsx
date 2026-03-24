@@ -7,7 +7,7 @@ import ContactForm from "@/views/contact/contact-form/contact-form";
 import ThirdSection from "@/views/contact/third-section/third-section";
 
 export const metadata = {
-  title: "Contact - Get in Touch for Enquiries | Mapsko",
+  title: "Contact Mapsko Group – Get in Touch for Enquiries",
   description:
     "Contact Mapsko Group for sales, support or general enquiries. Reach us by phone, email, or visit our office in Gurgaon for assistance.",
   alternates: {

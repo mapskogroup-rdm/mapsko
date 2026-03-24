@@ -6,7 +6,7 @@ import HeroSection from "@/views/projects/project-updates/hero-section";
 import OngoingProjects from "@/views/projects/project-updates/ongoing-projects";
 
 export const metadata = {
-  title: "Project Updates | Mapsko",
+  title: "Project Updates – Mapsko Group Developments",
   description:
     "Stay updated with the latest project progress from Mapsko Group, including construction status, milestones and development news across ongoing properties.",
   alternates: {

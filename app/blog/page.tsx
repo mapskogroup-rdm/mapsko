@@ -6,9 +6,9 @@ import HeroSection from "@/views/blog/hero-section";
 import { fetchAllBlogs } from "@/views/blog/utils/blog-data";
 
 export const metadata = {
-  title: "Blog - News, Project Updates & Insights | Mapsko",
+  title: "Mapsko Group Blog – News, Project Updates & Insights",
   description:
-    "Read the Mapsko Group blog for latest real estate news, project updates and property insights, including investment tips and updates from Delhi-NCR projects.",
+    "Read the Mapsko Group blog for latest real estate news, project updates and property insights, including investment tips and updates from Delhi‑NCR projects.",
   alternates: {
     canonical: absoluteUrl("/blog"),
   },

@@ -1,18 +1,39 @@
-import { ImageBackground } from "@/components/image-background";
 import Navbar from "@/components/navbar/navbar";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+const videos = [
+  "/assets/banner-video.webm",
+  "/assets/banner video 1.webm",
+  "/assets/banner video 2.webm",
+];
 
 const HeroSection = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+
+  const handleVideoEnd = () => {
+    setCurrentVideo((prev: number) => (prev + 1) % videos.length);
+  };
+
   return (
-    <div style={{ position: "relative" }} className={""}>
-      <video
-        src="/assets/banner-video.webm"
-        autoPlay
-        muted
-        loop
-        className="w-full h-full object-cover absolute top-0 left-0 right-0 bottom-0 z-0"
-      />
+    <div style={{ position: "relative" }} className="overflow-hidden">
+      {/* Background Videos with Cross-fade */}
+      <div className="absolute inset-0 z-0">
+        {videos.map((src, index) => (
+          <video
+            key={src}
+            src={src}
+            autoPlay
+            muted
+            playsInline
+            onEnded={handleVideoEnd}
+            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-[2000ms] ease-in-out ${
+              index === currentVideo ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            }`}
+            style={{ zIndex: index === currentVideo ? 1 : 0 }}
+          />
+        ))}
+      </div>
 
       <div
         style={{
@@ -22,7 +43,7 @@ const HeroSection = () => {
           right: 0,
           bottom: 0,
           backgroundColor: "black",
-          opacity: 0.7,
+          opacity: 0.6,
           zIndex: 1,
         }}
       />
@@ -31,16 +52,16 @@ const HeroSection = () => {
         <div className="w-screen h-screen flex items-center justify-between flex-col text-white px-4 sm:px-6">
           <Navbar />
           <div className="text-center px-4 sm:px-6 mx-auto">
-            <h1 className="text-2xl lg:text-5xl leading-tight">
+            <h1 className="text-2xl lg:text-5xl leading-tight font-bold">
               BUILDING DREAMS, CREATING LEGACIES
             </h1>
-            <p className="text-base lg:text-2xl">
+            <p className="text-base lg:text-2xl mt-2 font-medium">
               Premium Real Estate Excellence
             </p>
 
             <Link
               href="/projects/project-updates"
-              className="flex w-fit mx-auto border border-white hover:bg-white hover:text-black cursor-pointer transition-all duration-300 py-3 px-6 lg:py-4 lg:px-8 mt-6 lg:mt-10 text-sm lg:text-base"
+              className="flex w-fit mx-auto border border-white hover:bg-white hover:text-black cursor-pointer transition-all duration-300 py-3 px-6 lg:py-4 lg:px-8 mt-6 lg:mt-10 text-sm lg:text-base font-semibold tracking-wide"
             >
               Explore Our Projects
             </Link>
@@ -64,18 +85,6 @@ const HeroSection = () => {
         </div>
       </div>
     </div>
-    // <ImageBackground
-    //   preload
-    //   loading="eager"
-    //   fetchPriority="high"
-    //   overlayOpacity={0.6}
-    //   src="/assets/landing-hero.png"
-    //   alt="landing-hero"
-    //   width={1000}
-    //   height={1000}
-    // >
-
-    // </ImageBackground>
   );
 };
 

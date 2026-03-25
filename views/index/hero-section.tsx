@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/navbar/navbar";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const videos = [
   "/assets/banner-video.webm",
@@ -12,10 +12,28 @@ const videos = [
 
 const HeroSection = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  const handleVideoEnd = () => {
-    setCurrentVideo((prev: number) => (prev + 1) % videos.length);
-  };
+  // Whenever the active index changes, reset & play the new video
+  useEffect(() => {
+    videos.forEach((_, i) => {
+      const el = videoRefs.current[i];
+      if (!el) return;
+      if (i === currentVideo) {
+        el.currentTime = 0;
+        el.play().catch(() => {});
+      } else {
+        el.pause();
+        el.currentTime = 0;
+      }
+    });
+  }, [currentVideo]);
+
+  const goNext = () =>
+    setCurrentVideo((prev) => (prev + 1) % videos.length);
+
+  const goPrev = () =>
+    setCurrentVideo((prev) => (prev - 1 + videos.length) % videos.length);
 
   return (
     <div style={{ position: "relative" }} className="overflow-hidden">
@@ -24,19 +42,20 @@ const HeroSection = () => {
         {videos.map((src, index) => (
           <video
             key={src}
+            ref={(el) => { videoRefs.current[index] = el; }}
             src={src}
-            autoPlay
             muted
             playsInline
-            onEnded={handleVideoEnd}
-            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-[2000ms] ease-in-out ${
-              index === currentVideo ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            onEnded={goNext}
+            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-[1500ms] ease-in-out ${
+              index === currentVideo ? "opacity-100" : "opacity-0"
             }`}
             style={{ zIndex: index === currentVideo ? 1 : 0 }}
           />
         ))}
       </div>
 
+      {/* Dark Overlay */}
       <div
         style={{
           position: "absolute",
@@ -45,12 +64,46 @@ const HeroSection = () => {
           right: 0,
           bottom: 0,
           backgroundColor: "black",
-          opacity: 0.6,
-          zIndex: 1,
+          opacity: 0.55,
+          zIndex: 2,
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 2 }}>
+      {/* Arrow Navigation */}
+      <button
+        onClick={goPrev}
+        aria-label="Previous video"
+        className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-white/60 bg-black/30 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 cursor-pointer"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18l-6-6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      <button
+        onClick={goNext}
+        aria-label="Next video"
+        className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-white/60 bg-black/30 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 cursor-pointer"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18l6-6-6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {/* Dot Indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {videos.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentVideo(index)}
+            aria-label={`Go to video ${index + 1}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              index === currentVideo ? "bg-white scale-125" : "bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+
+      <div style={{ position: "relative", zIndex: 3 }}>
         <div className="w-screen h-screen flex items-center justify-between flex-col text-white px-4 sm:px-6">
           <Navbar />
           <div className="text-center px-4 sm:px-6 mx-auto">
@@ -91,3 +144,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

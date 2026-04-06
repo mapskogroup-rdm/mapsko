@@ -20,7 +20,7 @@ const ProjectDisplayCardV2 = ({ projectSlider }: Props) => {
       <SanityImageBackground
         image={projectSlider.sliderPhoto}
         alt={projectSlider.name}
-        className="w-full cursor-pointer h-[500px] sm:h-[600px] md:h-[700px] lg:h-[850px]"
+        className="w-full cursor-pointer aspect-[48/85]"
       />
     </Link>
   );

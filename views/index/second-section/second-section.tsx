@@ -32,7 +32,7 @@ const SecondSection = async () => {
             {projects.map((project, index) => (
               <div
                 key={`${dupIndex}-${project._id}`}
-                className="shrink-0 w-[85vw] sm:w-[420px] md:w-[460px] xl:w-[calc((100vw-3rem)/3)]"
+                className="shrink-0 w-[85vw] sm:w-[340px] md:w-[360px] lg:w-[380px] xl:w-[400px] 2xl:w-[420px]"
               >
                 <ProjectDisplayCardV2
                   projectSlider={project}

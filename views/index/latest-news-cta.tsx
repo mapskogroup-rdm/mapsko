@@ -19,7 +19,7 @@ const LatestNewsCTA = () => {
 
                     <div className="relative z-10 max-w-2xl">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">
-                            Latest News.
+                            Latest News
                         </h2>
                         <p className="text-base md:text-lg lg:text-xl text-sky-50 font-light mb-10 max-w-lg leading-relaxed">
                             Stay informed with the latest updates and insights from Infra News.

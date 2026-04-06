@@ -17,7 +17,7 @@ const JobsCta = () => {
 
           <div className="relative z-10 max-w-2xl">
             <h2 className="mb-4 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-              Jobs.
+              Vacancy.
             </h2>
             <p className="mb-10 max-w-lg text-base font-light leading-relaxed text-sky-50 md:text-lg lg:text-xl">
               Explore current openings at MAPSKO and find the role that fits

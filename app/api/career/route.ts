@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 // Required env: RESEND_API_KEY
-// Optional env: RESEND_FROM (e.g., "Careers <careers@yourdomain.com>")
+// Optional env: RESEND_FROM (e.g., "Career <careers@yourdomain.com>")
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const RECIPIENT = "hr@mapskogroup.com";
-const DEFAULT_FROM = "Careers <onboarding@resend.dev>";
+const DEFAULT_FROM = "Career <onboarding@resend.dev>";
 
 const requiredFields = [
   "firstName",

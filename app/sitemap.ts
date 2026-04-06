@@ -14,6 +14,7 @@ const staticRoutes = [
   "/ready-to-move-in",
   "/contact",
   "/career",
+  "/career/jobs",
   "/privacy-policy",
   "/blog",
 ];

@@ -21,10 +21,10 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = 
     const textColor = variant === "white" ? "text-neutral-800" : isEven ? "text-sky-900" : "text-lime-900";
 
     return (
-        <div className={`relative group p-8 md:p-10 rounded-3xl border-2 ${borderColor} ${bgClass} transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full overflow-hidden`}>
+        <div className={`relative group p-6 md:p-7 rounded-3xl border-2 ${borderColor} ${bgClass} transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full overflow-hidden`}>
             {/* Quote Icon with Theme Background */}
             <div
-                className="left-10 w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 z-10"
+                className="left-10 w-11 h-11 rounded-2xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 z-10"
                 style={{ backgroundColor: themeColor }}
             >
                 <svg
@@ -43,14 +43,14 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = 
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 mt-4">
-                <p className={`${textColor} text-lg md:text-xl font-medium leading-relaxed italic`}>
+            <div className="flex-1 mt-3">
+                <p className={`${textColor} text-base md:text-lg font-medium leading-relaxed italic`}>
                     "{text}"
                 </p>
             </div>
 
             {/* Author Details with Profile Image */}
-            <div className={`mt-8 pt-6 border-t flex items-center gap-4 ${variant === "white" ? "border-sky-100" : "border-black/5"}`}>
+            <div className={`mt-6 pt-4 border-t flex items-center gap-4 ${variant === "white" ? "border-sky-100" : "border-black/5"}`}>
                 {/* <div className={`w-14 h-14 rounded-full border-2 ${borderColor} overflow-hidden shrink-0 bg-white`}>
                     <Image
                         src={imageUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${author}`}
@@ -61,7 +61,7 @@ const TestimonialCardV2 = ({ text, author, position, imageUrl, index, variant = 
                     />
                 </div> */}
                 <div className="flex flex-col">
-                    <h4 className={`text-lg md:text-xl font-bold uppercase tracking-wide ${variant === "white" ? accentColor : textColor}`}>
+                    <h4 className={`text-base md:text-lg font-bold uppercase tracking-wide ${variant === "white" ? accentColor : textColor}`}>
                         {author}
                     </h4>
                     {position && (

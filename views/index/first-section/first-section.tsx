@@ -18,8 +18,8 @@ const points = [
   },
   {
     icon: PlotTwoIcon,
-    label: "Crore Square Feet Delivered",
-    value: "1.1",
+    label: "Cr Square Feet Delivered",
+    value: "1.01",
   },
   {
     icon: HappyFamiliesIcon,

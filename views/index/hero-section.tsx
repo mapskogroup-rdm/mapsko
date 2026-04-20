@@ -127,10 +127,10 @@ const HeroSection = () => {
                 <span className="font-bold">23+</span> Delivered Projects
               </p>
               <p className="text-center sm:text-left">
-                ISO 9001:2000 Certified
+                <span className="font-bold">ISO 9001:2000</span> Certified
               </p>
               <p className="text-center sm:text-left">
-                <span className="font-bold">Reaching 30 years</span> Legacy
+                Reaching <span className="font-bold">30 years</span> Legacy
               </p>
               <p className="text-center sm:text-left">
                 <span className="font-bold">10,000+ </span>Happy Families

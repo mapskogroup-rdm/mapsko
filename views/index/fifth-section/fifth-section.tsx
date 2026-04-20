@@ -61,7 +61,7 @@ import TestimonialCardV2 from "@/components/testimonial-card-v2";
 import Logo from "@/assets/icons/mapsko-white-logo.svg";
 import { MarqueeTrack } from "@/components/marquee-track";
 
-const testimonialsRow1 = [
+const testimonials = [
   {
     author: "Vikram Taneja",
     text: "Loved Mapsko Casabella, Sector 82 Gurgaon. Green surroundings, clean environment, great amenities, and excellent connectivity. Chose a ready-to-move 3BHK with complete legal clarity.",
@@ -88,7 +88,6 @@ const testimonialsRow1 = [
   },
 ];
 
-const testimonialsRow2 = [
   {
     author: "Gaurav Khurana",
     text: "Among the few mid-size builders delivering quality projects. Though slightly delayed, construction quality is good. My two Gurgaon investments still feel worthwhile.",
@@ -131,41 +130,17 @@ export default function TestTestimonials() {
         </div>
       </section>
 
-      {/* Row 1: Slides LEFT (rtl) - 6 testimonials */}
       <section className="w-full overflow-hidden">
         <MarqueeTrack direction="rtl">
           {[0, 1].map((dupIndex) => (
-            <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">
-              {testimonialsRow1.map((item, index) => (
+            <div key={dupIndex} className="flex flex-nowrap gap-5 pr-5 py-5">
+              {testimonials.map((item, index) => (
                 <div
-                  key={`r1-${dupIndex}-${index}`}
+                  key={`t-${dupIndex}-${index}`}
                   className="w-[90vw] sm:w-[400px] md:w-[420px] lg:w-[380px] xl:w-[420px] shrink-0"
                 >
                   <TestimonialCardV2
                     index={index}
-                    author={item.author}
-                    text={item.text}
-                    variant="white"
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </MarqueeTrack>
-      </section>
-
-      {/* Row 2: Slides RIGHT (ltr) - 6 testimonials */}
-      <section className="w-full overflow-hidden">
-        <MarqueeTrack direction="ltr">
-          {[0, 1].map((dupIndex) => (
-            <div key={dupIndex} className="flex flex-nowrap gap-6 pr-6 py-6">
-              {testimonialsRow2.map((item, index) => (
-                <div
-                  key={`r2-${dupIndex}-${index}`}
-                  className="w-[90vw] sm:w-[400px] md:w-[420px] lg:w-[380px] xl:w-[420px] shrink-0"
-                >
-                  <TestimonialCardV2
-                    index={index + 6}
                     author={item.author}
                     text={item.text}
                     variant="white"

@@ -172,7 +172,7 @@ const Footer = async () => {
       </ImageBackground>
 
       <div className="bg-[#8AC028] flex justify-center gap-2 text-white text-center text-xs sm:text-sm md:text-base py-3 md:py-4 px-4">
-        <p>© 2025 Mapsko Group Pvt. Ltd. | All Rights Reserved. |</p>
+        <p>© 2026 Mapsko Group Pvt. Ltd. | All Rights Reserved. |</p>
         <Link href={"/privacy-policy"}>Privacy Policy & Disclaimer</Link> |
         <Link href={"https://www.reddashmedia.com"} target="_blank">
           Powered by Red Dash Media

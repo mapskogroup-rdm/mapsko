@@ -86,8 +86,6 @@ const testimonials = [
     author: "Abhinav Mishra",
     text: "Stunning sunset and panoramic Gurgaon views from the top floor. Living here feels amazing and truly special every single day.",
   },
-];
-
   {
     author: "Gaurav Khurana",
     text: "Among the few mid-size builders delivering quality projects. Though slightly delayed, construction quality is good. My two Gurgaon investments still feel worthwhile.",

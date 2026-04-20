@@ -39,19 +39,19 @@ const FirstSection = () => {
 
           <div className="space-y-3 sm:space-y-3 md:space-y-4 text-neutral-500 text-sm sm:text-base md:text-lg font-light pt-3 sm:pt-4 md:pt-5">
             <p>
-              MAPSKO is a pioneering and growing name in the real estate
-              industry, echoing its position among the top-notch developers.
-              Empowered with world-class structures and services, MAPSKO is
-              India's blossoming real estate developer.
+              MAPSKO Group stands among the emerging leaders in Delhi-NCR&apos;s
+              real estate landscape, with a legacy that spans over two
+              decades.
             </p>
             <p>
-              With a legacy rooted in real estate since the late 1990s, we have
-              been the driving force behind nearly 23+ delivered
-              projects across Delhi and the NCR.
+              Since the late 1990s, the group has delivered 23+ developments,
+              defined by strong execution, thoughtful planning, and enduring
+              value.
             </p>
             <p>
-              Our commitment to excellence underscores exponential growth and
-              establishes us as trailblazers in the industry.
+              This consistent delivery has established MAPSKO as a trusted
+              name, shaping spaces that balance design, functionality, and
+              long-term relevance.
             </p>
           </div>
         </div>

@@ -19,14 +19,15 @@ export const sanityConfig = {
 export const client = createClient(sanityConfig);
 
 const originalFetch = client.fetch.bind(client);
-client.fetch = (async function fetchWrapper(...args: any[]) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+client.fetch = (async function fetchWrapper(this: unknown, ...args: [query: string, ...rest: unknown[]]) {
   try {
-    return await originalFetch(...args);
+    return await (originalFetch as (...a: typeof args) => Promise<unknown>)(...args);
   } catch (err) {
     console.warn("Sanity query failed. Returning fallback empty state.", err);
     return [];
   }
-} as any);
+} as typeof client.fetch);
 
 export type SanityClientType = typeof client;
 

@@ -34,9 +34,9 @@ const socialLinks = [
 ];
 
 const Footer = async () => {
-  const projects = await client.fetch<ProjectFooterItem[]>(
+  const projects = (await client.fetch<ProjectFooterItem[]>(
     projectsForFooterQuery,
-  );
+  )) || [];
 
   const residentialProjects = projects
     .filter((p: ProjectFooterItem) => p.projectType === "residential")

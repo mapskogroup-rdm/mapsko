@@ -10,7 +10,7 @@ const SecondSection = async () => {
     projectsWithSliderQuery
   );
 
-  if (projects.length === 0) {
+  if (!projects || projects.length === 0) {
     return null;
   }
 

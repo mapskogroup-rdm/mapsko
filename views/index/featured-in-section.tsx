@@ -13,7 +13,7 @@ interface Props {
 }
 
 const FeaturedInSection = async ({ limit, showViewAll, children }: Props = {}) => {
-    const data = await client.fetch<FeaturedInDocument[]>(allFeaturedInQuery);
+    const data = (await client.fetch<FeaturedInDocument[]>(allFeaturedInQuery)) || [];
     const featuredInItems = limit ? data.slice(0, limit) : data;
 
     if (!featuredInItems || featuredInItems.length === 0) return null;

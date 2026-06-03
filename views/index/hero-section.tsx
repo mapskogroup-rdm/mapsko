@@ -5,9 +5,10 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 
 const videos = [
-  "/assets/banner-video.webm",
-  "/assets/banner video 1.webm",
-  "/assets/banner video 2.webm",
+  "/assets/banner video 1.mp4",
+  "/assets/banner video 2.mp4",
+  "/assets/Banner video (3).mp4",
+  "/assets/Banner video (4).mp4",
 ];
 
 const HeroSection = () => {

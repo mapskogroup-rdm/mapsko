@@ -43,7 +43,11 @@ const NewsSection = async ({ asH1 }: Props = {}) => {
                   height={315}
                   className="w-full object-cover"
                 />
-                <h3 className="text-lg font-bold">{item.title}</h3>
+                {asH1 ? (
+                  <h2 className="text-lg font-bold">{item.title}</h2>
+                ) : (
+                  <h3 className="text-lg font-bold">{item.title}</h3>
+                )}
                 <p className="text-sm text-gray-500">{item.shortDescription}</p>
               </Link>
             );

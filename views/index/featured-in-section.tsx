@@ -49,9 +49,15 @@ const FeaturedInSection = async ({ limit, showViewAll, children, asH1 }: Props =
                         >
                             {/* Heading */}
                             <div className="p-6 pb-0">
-                                <h3 className="text-sky-800 text-lg md:text-xl font-bold line-clamp-2 min-h-[3rem]">
-                                    {item.title}
-                                </h3>
+                                {asH1 ? (
+                                    <h2 className="text-sky-800 text-lg md:text-xl font-bold line-clamp-2 min-h-[3rem]">
+                                        {item.title}
+                                    </h2>
+                                ) : (
+                                    <h3 className="text-sky-800 text-lg md:text-xl font-bold line-clamp-2 min-h-[3rem]">
+                                        {item.title}
+                                    </h3>
+                                )}
                             </div>
 
                             {/* Publication Logo */}

@@ -71,6 +71,8 @@ export interface ProjectDocument {
   videos?: VideoItem[];
   videosMetaTitle?: string;
   videosMetaDescription?: string;
+  contactMetaTitle?: string;
+  contactMetaDescription?: string;
   sliderPhoto?: Image;
   shortAddress?: string;
   statusText?: string;

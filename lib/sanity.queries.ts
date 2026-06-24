@@ -64,6 +64,8 @@ export const projectBySlugQuery = groq`
     },
     videosMetaTitle,
     videosMetaDescription,
+    contactMetaTitle,
+    contactMetaDescription,
     sliderPhoto,
     shortAddress,
     statusText,

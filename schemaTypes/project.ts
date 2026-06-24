@@ -12,6 +12,7 @@ export default defineType({
     { name: "floorPlans", title: "Floor Plans" },
     { name: "imageGallery", title: "Image Gallery" },
     { name: "videos", title: "Videos" },
+    { name: "contact", title: "Contact" },
     { name: "sliderCard", title: "Slider Card" },
     { name: "other", title: "Other" },
   ],
@@ -404,6 +405,22 @@ export default defineType({
       type: "text",
       group: "videos",
       description: "SEO meta description for the videos page",
+    }),
+
+    // Contact Page
+    defineField({
+      name: "contactMetaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "contact",
+      description: "SEO meta title for the contact page",
+    }),
+    defineField({
+      name: "contactMetaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "contact",
+      description: "SEO meta description for the contact page",
     }),
 
     // Slider Card

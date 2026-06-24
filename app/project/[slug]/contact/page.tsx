@@ -29,7 +29,9 @@ export async function generateMetadata(
   }
 
   const canonical = absoluteUrl(`/project/${project.slug}/contact`);
+  const title = project.contactMetaTitle ?? `${project.name} | Contact`;
   const description =
+    project.contactMetaDescription ??
     "Contact the Mapsko team for this project—book site visits, request pricing, and get expert assistance.";
   const ogImage =
     toOgImage(project.primaryCoverPhoto, { alt: project.name }) ||
@@ -37,7 +39,7 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: `${project.name} | Contact`,
+      title,
       description,
       alternates: { canonical },
       openGraph: {

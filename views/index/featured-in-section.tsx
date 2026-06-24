@@ -10,9 +10,10 @@ interface Props {
     limit?: number;
     showViewAll?: boolean;
     children?: React.ReactNode;
+    asH1?: boolean;
 }
 
-const FeaturedInSection = async ({ limit, showViewAll, children }: Props = {}) => {
+const FeaturedInSection = async ({ limit, showViewAll, children, asH1 }: Props = {}) => {
     const data = (await client.fetch<FeaturedInDocument[]>(allFeaturedInQuery)) || [];
     const featuredInItems = limit ? data.slice(0, limit) : data;
 
@@ -23,9 +24,15 @@ const FeaturedInSection = async ({ limit, showViewAll, children }: Props = {}) =
             <div className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
                 <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-5 md:space-y-6 pb-12 sm:pb-16 md:pb-20 lg:pb-24 text-center">
                     <Logo className="w-10 sm:w-12 md:w-14" />
-                    <h2 className="text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase px-4">
-                        Featured In
-                    </h2>
+                    {asH1 ? (
+                        <h1 className="text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase px-4">
+                            Featured In
+                        </h1>
+                    ) : (
+                        <h2 className="text-sky-700 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase px-4">
+                            Featured In
+                        </h2>
+                    )}
                     <p className="text-neutral-500 text-sm sm:text-base md:text-lg font-light uppercase px-4">
                         Recognized for Excellence in Real Estate
                     </p>

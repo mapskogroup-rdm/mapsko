@@ -27,7 +27,7 @@ const Page = () => {
           ]}
         />
       </div>
-      <NewsSection />
+      <NewsSection asH1 />
       <Footer />
     </main>
   );

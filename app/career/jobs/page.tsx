@@ -37,9 +37,9 @@ const JobsPage = () => {
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
                 Listed Job
               </p>
-              <h1 className="text-2xl font-bold uppercase text-stone-900 md:text-3xl">
+              <h2 className="text-2xl font-bold uppercase text-stone-900 md:text-3xl">
                 Civil Engineer (Structure &amp; Finishing)
-              </h1>
+              </h2>
               <p className="max-w-2xl text-sm text-neutral-600 md:text-base">
                 We are hiring for an immediate opening on kothi and villa
                 projects in Gurgaon.
@@ -92,9 +92,9 @@ const JobsPage = () => {
               </div>
 
               <div className="rounded-2xl border border-stone-200 p-5">
-                <h2 className="text-lg font-semibold uppercase text-stone-900">
+                <h3 className="text-lg font-semibold uppercase text-stone-900">
                   Key Requirements
-                </h2>
+                </h3>
                 <ul className="mt-4 space-y-3 text-sm text-neutral-700 md:text-base">
                   <li>Bachelor&apos;s Degree in Civil Engineering</li>
                   <li>

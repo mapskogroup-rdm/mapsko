@@ -143,17 +143,17 @@ const JobsPage = () => {
                 </h3>
                 <ul className="mt-4 space-y-3 text-sm text-neutral-700 md:text-base">
                   <li>
-                    LLB or equivalent law degree with a valid bar council
-                    registration
+                    <strong>Qualifications:</strong> LLB or equivalent law
+                    degree, with a valid bar council registration
                   </li>
                   <li>
-                    10+ years of experience in a real estate law firm or
-                    in-house legal team
+                    <strong>Experience:</strong> 10+ years of experience in a
+                    real estate law firm or in-house legal team
                   </li>
                   <li>
-                    Strong knowledge of real estate laws and regulations,
-                    excellent drafting and negotiation skills, and ability to
-                    work under pressure
+                    <strong>Skills:</strong> Strong knowledge of real estate
+                    laws and regulations, excellent drafting and negotiation
+                    skills, and ability to work under pressure
                   </li>
                 </ul>
               </div>

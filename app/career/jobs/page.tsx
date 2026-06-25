@@ -6,7 +6,7 @@ import { absoluteUrl, toOgImage } from "@/lib/seo";
 export const metadata = {
   title: "Mapsko Career Jobs - Current Openings",
   description:
-    "Explore current job openings at Mapsko Group and apply for available positions in Gurgaon.",
+    "Explore current job openings at Mapsko Group and apply for available positions in Gurugram.",
   alternates: {
     canonical: absoluteUrl("/career/jobs"),
   },
@@ -38,11 +38,13 @@ const JobsPage = () => {
                 Listed Job
               </p>
               <h2 className="text-2xl font-bold uppercase text-stone-900 md:text-3xl">
-                Civil Engineer (Structure &amp; Finishing)
+                Sr. Manager / Manager &ndash; Legal (Real Estate)
               </h2>
               <p className="max-w-2xl text-sm text-neutral-600 md:text-base">
-                We are hiring for an immediate opening on kothi and villa
-                projects in Gurgaon.
+                We are seeking an experienced Sr. Manager / Manager – Legal to
+                join our real estate team. The successful candidate will provide
+                legal support and guidance to the business, ensuring compliance
+                with laws and regulations, and managing legal risks.
               </p>
             </div>
 
@@ -59,10 +61,10 @@ const JobsPage = () => {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl bg-stone-50 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                    Project Type
+                    Industry
                   </p>
                   <p className="mt-2 text-lg font-semibold text-stone-900">
-                    Kothi / Villa
+                    Real Estate
                   </p>
                 </div>
                 <div className="rounded-2xl bg-stone-50 p-4">
@@ -70,7 +72,7 @@ const JobsPage = () => {
                     Location
                   </p>
                   <p className="mt-2 text-lg font-semibold text-stone-900">
-                    Gurgaon
+                    Sector 56, Gurugram
                   </p>
                 </div>
                 <div className="rounded-2xl bg-stone-50 p-4">
@@ -78,38 +80,73 @@ const JobsPage = () => {
                     Experience Required
                   </p>
                   <p className="mt-2 text-lg font-semibold text-stone-900">
-                    4 to 6 Years
+                    10 – 15 Years
                   </p>
                 </div>
                 <div className="rounded-2xl bg-stone-50 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                    Joining
+                    Qualification
                   </p>
                   <p className="mt-2 text-lg font-semibold text-stone-900">
-                    Immediate
+                    LLB or Equivalent
                   </p>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-stone-200 p-5">
                 <h3 className="text-lg font-semibold uppercase text-stone-900">
-                  Key Requirements
+                  Key Responsibilities
                 </h3>
                 <ul className="mt-4 space-y-3 text-sm text-neutral-700 md:text-base">
-                  <li>Bachelor&apos;s Degree in Civil Engineering</li>
                   <li>
-                    4 to 6 years of hands-on experience in structural and
-                    finishing works
+                    Assist in drafting, reviewing, and negotiating contracts,
+                    agreements, RERA compliance and other legal documents
+                  </li>
+                  <li>Handling arbitration and other legal proceedings</li>
+                  <li>
+                    Ensure compliance with relevant laws, regulations, and
+                    industry standards, and identify and mitigate legal risks
                   </li>
                   <li>
-                    Strong knowledge of construction methods, materials, and
-                    local regulations
+                    Assist in managing litigation and disputes related to real
+                    estate transactions
                   </li>
                   <li>
-                    Ability to manage site execution and ensure quality
-                    standards
+                    Work with external lawyers and other experts to ensure
+                    high-quality legal advice
                   </li>
-                  <li>Immediate joiners will be preferred</li>
+                  <li>
+                    Assist in developing and implementing policies and procedures
+                    to ensure compliance with laws and regulations
+                  </li>
+                  <li>
+                    Pursue ongoing old cases and provide necessary updates
+                  </li>
+                  <li>
+                    Act as the signing authority on behalf of the company for all
+                    legal matters
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border border-stone-200 p-5">
+                <h3 className="text-lg font-semibold uppercase text-stone-900">
+                  Requirements
+                </h3>
+                <ul className="mt-4 space-y-3 text-sm text-neutral-700 md:text-base">
+                  <li>
+                    LLB or equivalent law degree with a valid bar council
+                    registration
+                  </li>
+                  <li>
+                    10+ years of experience in a real estate law firm or
+                    in-house legal team
+                  </li>
+                  <li>
+                    Strong knowledge of real estate laws and regulations,
+                    excellent drafting and negotiation skills, and ability to
+                    work under pressure
+                  </li>
                 </ul>
               </div>
             </div>
@@ -119,7 +156,8 @@ const JobsPage = () => {
                 How to Apply
               </p>
               <p className="mt-4 text-base leading-7 text-sky-50 md:text-lg">
-                Interested candidates can mail their resume and CV at{" "}
+                Interested candidates are requested to share their updated
+                resume at{" "}
                 <a
                   href="mailto:hr@mapskogroup.com"
                   className="font-semibold text-white underline underline-offset-4"

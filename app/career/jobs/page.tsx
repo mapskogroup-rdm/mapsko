@@ -104,7 +104,7 @@ const JobsPage = () => {
                     compliance and other legal documents
                   </li>
                   <li>
-                    <strong>Handling arbitration and Other Legal proceedings</strong>
+                    Handling arbitration and Other Legal proceedings
                   </li>
                   <li>
                     <strong>Compliance and risk management:</strong> Ensure

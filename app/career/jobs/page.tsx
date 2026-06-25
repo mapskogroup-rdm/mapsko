@@ -99,32 +99,40 @@ const JobsPage = () => {
                 </h3>
                 <ul className="mt-4 space-y-3 text-sm text-neutral-700 md:text-base">
                   <li>
-                    Assist in drafting, reviewing, and negotiating contracts,
-                    agreements, RERA compliance and other legal documents
-                  </li>
-                  <li>Handling arbitration and other legal proceedings</li>
-                  <li>
-                    Ensure compliance with relevant laws, regulations, and
-                    industry standards, and identify and mitigate legal risks
+                    <strong>Provide legal support:</strong> Assist in drafting,
+                    reviewing, and negotiating contracts, agreements, RERA
+                    compliance and other legal documents
                   </li>
                   <li>
-                    Assist in managing litigation and disputes related to real
-                    estate transactions
+                    <strong>Handling arbitration and Other Legal proceedings</strong>
                   </li>
                   <li>
-                    Work with external lawyers and other experts to ensure
-                    high-quality legal advice
+                    <strong>Compliance and risk management:</strong> Ensure
+                    compliance with relevant laws, regulations, and industry
+                    standards, and identify and mitigate legal risks
                   </li>
                   <li>
-                    Assist in developing and implementing policies and procedures
-                    to ensure compliance with laws and regulations
+                    <strong>Manage litigation:</strong> Assist in managing
+                    litigation and disputes related to real estate transactions
                   </li>
                   <li>
-                    Pursue ongoing old cases and provide necessary updates
+                    <strong>Collaborate with external counsel:</strong> Work with
+                    external lawyers and other experts to ensure high-quality
+                    legal advice
                   </li>
                   <li>
-                    Act as the signing authority on behalf of the company for all
-                    legal matters
+                    <strong>Develop and implement policies:</strong> Assist in
+                    developing and implementing policies and procedures to ensure
+                    compliance with laws and regulations
+                  </li>
+                  <li>
+                    <strong>Old case Follow-up:</strong> Pursue ongoing old cases
+                    and provide necessary updates
+                  </li>
+                  <li>
+                    <strong>Signing Authority on Legal Matters:</strong> Act as
+                    the signing authority on behalf of the company for all legal
+                    matters, ensuring timely and appropriate decision-making
                   </li>
                 </ul>
               </div>

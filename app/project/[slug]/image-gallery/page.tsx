@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
 import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
 
+export const revalidate = 60;
+
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata

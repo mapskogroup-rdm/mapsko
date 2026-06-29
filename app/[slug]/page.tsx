@@ -7,6 +7,8 @@ import PageBuilder from "@/views/landing-page/page-builder";
 import { absoluteUrl } from "@/lib/seo";
 import { fetchLandingPageSlugs } from "@/views/blog/utils/blog-data";
 
+export const revalidate = 60;
+
 interface PageProps {
     params: Promise<{ slug: string }>;
 }

@@ -14,6 +14,8 @@ import type { LandingPageSection } from "@/lib/sanity.types";
 import ProjectCard from "@/views/projects/project-updates/project-card";
 import Link from "next/link";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const slugs = await fetchBlogSlugs();
   return slugs.map((slug) => ({ slug }));

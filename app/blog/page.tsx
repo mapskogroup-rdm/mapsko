@@ -5,6 +5,8 @@ import BlogsContainer from "@/views/blog/blogs-container/blogs-container";
 import HeroSection from "@/views/blog/hero-section";
 import { fetchAllBlogs } from "@/views/blog/utils/blog-data";
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "Mapsko Group Blog – News, Project Updates & Insights",
   description:

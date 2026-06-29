@@ -3,6 +3,8 @@ import Navigator from "@/components/navigator/navigator";
 import Footer from "@/components/footer/footer";
 import NewsSection from "@/views/news-section/news-section";
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "Latest News & Updates | Mapsko",
   description: "Stay updated with the latest Mapsko news, project announcements, real estate insights, and infrastructure developments shaping Delhi NCR.",

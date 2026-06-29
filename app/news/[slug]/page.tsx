@@ -8,6 +8,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { absoluteUrl, applyPageDefaults, toOgImage } from "@/lib/seo";
 import { getNewsBySlug, fetchNewsSlugs } from "@/views/news-section/news-section.utils";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const slugs = await fetchNewsSlugs();
   return slugs.map((slug) => ({ slug }));

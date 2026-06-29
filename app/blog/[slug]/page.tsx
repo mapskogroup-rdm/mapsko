@@ -115,8 +115,8 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: blog.title,
-      description: blog.shortDescription,
+      title: blog.metaTitle || blog.title,
+      description: blog.metaDescription || blog.shortDescription,
       alternates: { canonical: absoluteUrl(`/blog/${blog.slug}`) },
       openGraph: {
         url: absoluteUrl(`/blog/${blog.slug}`),

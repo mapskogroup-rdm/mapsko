@@ -142,6 +142,8 @@ export interface BlogDocument {
   coverImage: Image;
   content: PortableTextBlock[];
   createdDate: string;
+  metaTitle?: string;
+  metaDescription?: string;
   sections?: LandingPageSection[];
 }
 
@@ -153,6 +155,8 @@ export interface NewsDocument {
   coverImage: Image;
   bannerImage: Image;
   content: PortableTextBlock[];
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export interface FeaturedInDocument {
@@ -164,6 +168,8 @@ export interface FeaturedInDocument {
   coverImage: Image;
   externalLink: string;
   rankingIndex?: number;
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export interface LandingPageSection {

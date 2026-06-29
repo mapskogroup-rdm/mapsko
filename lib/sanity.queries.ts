@@ -163,6 +163,8 @@ export const blogBySlugQuery = groq`
     category,
     shortDescription,
     coverImage,
+    metaTitle,
+    metaDescription,
     content,
     createdDate,
     sections[]{
@@ -254,6 +256,8 @@ export const newsBySlugQuery = groq`
     title,
     "slug": slug.current,
     shortDescription,
+    metaTitle,
+    metaDescription,
     coverImage,
     content,
     bannerImage,

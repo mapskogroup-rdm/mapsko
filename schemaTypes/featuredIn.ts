@@ -4,6 +4,10 @@ export default defineType({
     name: "featuredIn",
     title: "Featured In",
     type: "document",
+    groups: [
+        { name: "main", title: "Main", default: true },
+        { name: "seo", title: "SEO" },
+    ],
     fields: [
         defineField({
             name: "publicationLogo",
@@ -47,6 +51,22 @@ export default defineType({
             title: "Ranking Index",
             type: "number",
             initialValue: 0,
+        }),
+        defineField({
+            name: "metaTitle",
+            title: "Meta Title",
+            type: "string",
+            group: "seo",
+            description: "Override the page title shown in search results (50–60 characters recommended).",
+            validation: (rule) => rule.max(60),
+        }),
+        defineField({
+            name: "metaDescription",
+            title: "Meta Description",
+            type: "text",
+            group: "seo",
+            description: "Override the page description shown in search results (150–160 characters recommended).",
+            validation: (rule) => rule.max(160),
         }),
     ],
     preview: {

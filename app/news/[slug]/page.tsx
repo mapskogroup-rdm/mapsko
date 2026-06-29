@@ -33,8 +33,8 @@ export async function generateMetadata(
 
   return applyPageDefaults(
     {
-      title: news.title,
-      description: news.shortDescription,
+      title: news.metaTitle || news.title,
+      description: news.metaDescription || news.shortDescription,
       alternates: { canonical: absoluteUrl(`/news/${news.slug}`) },
       openGraph: {
         url: absoluteUrl(`/news/${news.slug}`),

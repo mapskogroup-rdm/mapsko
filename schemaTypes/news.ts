@@ -4,7 +4,10 @@ export default defineType({
   name: "news",
   title: "News",
   type: "document",
-  groups: [{ name: "main", title: "Main", default: true }],
+  groups: [
+    { name: "main", title: "Main", default: true },
+    { name: "seo", title: "SEO" },
+  ],
   fields: [
     defineField({
       name: "title",
@@ -54,6 +57,22 @@ export default defineType({
       group: "main",
       of: [defineArrayMember({ type: "block" })],
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "metaTitle",
+      title: "Meta Title",
+      type: "string",
+      group: "seo",
+      description: "Override the page title shown in search results (50–60 characters recommended).",
+      validation: (rule) => rule.max(60),
+    }),
+    defineField({
+      name: "metaDescription",
+      title: "Meta Description",
+      type: "text",
+      group: "seo",
+      description: "Override the page description shown in search results (150–160 characters recommended).",
+      validation: (rule) => rule.max(160),
     }),
   ],
   preview: {

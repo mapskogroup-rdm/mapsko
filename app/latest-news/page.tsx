@@ -5,7 +5,7 @@ import NewsSection from "@/views/news-section/news-section";
 
 export const metadata = {
   title: "Latest News & Updates | Mapsko",
-  description: "Stay informed with the latest updates and insights from Mapsko.",
+  description: "Stay updated with the latest Mapsko news, project announcements, real estate insights, and infrastructure developments shaping Delhi NCR.",
   alternates: {
     canonical: absoluteUrl("/latest-news"),
   },

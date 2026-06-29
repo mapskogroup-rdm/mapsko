@@ -6,7 +6,7 @@ import Image from "next/image";
 import TOIImage from "./Mapsko TOI.jpeg";
 
 export const metadata = {
-  title: "Featured In | Mapsko",
+  title: "Media Coverage & News | Mapsko Group",
   description: "Recognized for Excellence in Real Estate. See where Mapsko has been featured.",
   alternates: {
     canonical: absoluteUrl("/featured-in"),

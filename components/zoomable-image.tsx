@@ -41,7 +41,7 @@ const ZoomableImage = ({ children, className = "", zoomScale = 1.5 }: ZoomableIm
       onMouseLeave={handleMouseLeave}
     >
       <div 
-        className="w-full h-full transition-transform duration-[50ms] ease-out will-change-transform"
+        className="w-full transition-transform duration-[50ms] ease-out will-change-transform"
         style={zoomStyle}
       >
         {children}

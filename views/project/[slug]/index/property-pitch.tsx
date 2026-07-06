@@ -41,8 +41,8 @@ const PropertyPitch = () => {
           <ZoomableImage className="w-full lg:w-auto lg:min-w-[400px] xl:min-w-[500px] 2xl:min-w-[674px]">
             <SanityImage
               image={property.primaryPropertyPhoto}
-              width={674}
-              height={674}
+              width={2000}
+              height={2000}
               className="w-full h-full object-cover"
             />
           </ZoomableImage>

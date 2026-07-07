@@ -3,6 +3,7 @@
 import Logo from "@/assets/icons/mapsko-logo.svg";
 import { usePropertyData } from "../use-property-data";
 import SanityImage from "@/components/sanity-image";
+import ZoomableImage from "@/components/zoomable-image";
 
 const FloorPlansContent = () => {
   const { property } = usePropertyData();
@@ -26,12 +27,14 @@ const FloorPlansContent = () => {
         {property.floorPlans?.map((floorPlan) => (
           <div key={floorPlan._key} className="flex flex-col">
             {floorPlan.image && (
-              <SanityImage
-                image={floorPlan.image}
-                alt={floorPlan.label || ""}
-                width={1000}
-                className="w-full object-cover"
-              />
+              <ZoomableImage className="w-full border border-neutral-200 rounded-lg overflow-hidden">
+                <SanityImage
+                  image={floorPlan.image}
+                  alt={floorPlan.label || ""}
+                  width={2000}
+                  className="w-full h-auto object-cover"
+                />
+              </ZoomableImage>
             )}
           </div>
         ))}

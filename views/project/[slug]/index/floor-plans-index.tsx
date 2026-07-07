@@ -5,6 +5,7 @@ import { usePropertyData } from "../use-property-data";
 import SanityImage from "@/components/sanity-image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import ZoomableImage from "@/components/zoomable-image";
 
 const FloorPlansIndex = () => {
   const { property } = usePropertyData();
@@ -50,12 +51,14 @@ const FloorPlansIndex = () => {
 
       <div className="relative max-w-[800px] w-full">
         {activeFloorPlan?.image && (
-          <SanityImage
-            image={activeFloorPlan.image}
-            alt={activeFloorPlan.label || `Floor plan for ${property.name}`}
-            width={1100}
-            className="w-full h-auto object-cover"
-          />
+          <ZoomableImage className="w-full">
+            <SanityImage
+              image={activeFloorPlan.image}
+              alt={activeFloorPlan.label || `Floor plan for ${property.name}`}
+              width={2000}
+              className="w-full h-auto object-cover"
+            />
+          </ZoomableImage>
         )}
 
         {canNavigate && (

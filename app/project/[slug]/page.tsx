@@ -106,6 +106,8 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     addressText: project.shortAddress,
   });
 
+  const hideBrochureLine = slug.includes("mount-ville") || slug.includes("mountville") || slug.includes("icon-79") || slug.includes("icon79");
+
   return (
     <PropertyDataProvider property={project}>
       <script
@@ -114,7 +116,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
       <HeroSection />
-      {brochureDownloadHref ? (
+      {brochureDownloadHref && !hideBrochureLine ? (
         <div className="sticky top-0 z-50 border-b border-white/15 bg-[#0069A9] text-white">
           <div
             className="common-frame-box flex items-center justify-between gap-3 py-3 sm:py-3.5"

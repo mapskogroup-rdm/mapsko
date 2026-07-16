@@ -77,9 +77,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         />
 
         <div className="py-10 md:py-24">
-          <h2 className="text-3xl md:text-5xl font-bold pb-10 md:pb-20 md:leading-16 leading-10">
+          <h1 className="text-3xl md:text-5xl font-bold pb-10 md:pb-20 md:leading-16 leading-10">
             {news.title}
-          </h2>
+          </h1>
           <div className="prose space-y-4">
             <PortableText value={news.content} />
           </div>

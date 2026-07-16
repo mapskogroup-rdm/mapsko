@@ -16,9 +16,9 @@ const HeroSection = ({ image }: Props) => {
       >
         <div className="w-screen h-[500px] flex items-center justify-between flex-col text-white px-4 sm:px-6">
           <Navbar />
-          <h1 className="text-center justify-start text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
+          <p className="text-center justify-start text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
             News
-          </h1>
+          </p>
           <div className="h-16" />
         </div>
       </SanityImageBackground>

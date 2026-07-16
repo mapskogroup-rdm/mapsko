@@ -41,9 +41,9 @@ const Page = () => {
       <div className="common-frame-box py-12 md:py-16 lg:py-20 xl:py-28">
         <div className="flex flex-col items-center justify-center space-y-4 pb-12 sm:space-y-5 sm:pb-16 md:space-y-6 md:pb-20 lg:pb-24">
           <Logo className="w-10 sm:w-12 md:w-14" />
-          <h2 className="px-4 text-center text-2xl font-bold uppercase text-sky-700 sm:text-3xl md:text-4xl lg:text-5xl">
+          <h1 className="px-4 text-center text-2xl font-bold uppercase text-sky-700 sm:text-3xl md:text-4xl lg:text-5xl">
             Career at MAPSKO
-          </h2>
+          </h1>
           <p className="px-4 text-center text-sm font-light uppercase text-neutral-500 sm:text-base md:text-lg">
             Build the Future With Us
           </p>

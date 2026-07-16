@@ -16,9 +16,9 @@ const HeroSection = () => {
       >
         <div className="w-screen h-[500px] flex items-center justify-between flex-col text-white px-4 sm:px-6">
           <PropertyNavbar property={property} />
-          <h1 className="text-center justify-start text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
-            {property?.name} (About Us)
-          </h1>
+          <p className="text-center justify-start text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
+            About Us
+          </p>
           <div className="h-16" />
         </div>
       </SanityImageBackground>

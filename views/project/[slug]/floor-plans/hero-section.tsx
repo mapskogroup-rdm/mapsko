@@ -17,7 +17,7 @@ const HeroSection = () => {
         <div className="w-screen h-[500px] flex items-center justify-between flex-col text-white px-4 sm:px-6">
           <PropertyNavbar property={property} />
           <h1 className="text-center justify-start text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
-            Floor Plans
+            {property.name === "The Icon 79" ? "The Icon 79 Floor Plans" : "Floor Plans"}
           </h1>
           <div className="h-16" />
         </div>

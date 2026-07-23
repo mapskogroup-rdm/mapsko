@@ -12,7 +12,7 @@ export const sanityConfig = {
   projectId,
   dataset,
   apiVersion,
-  useCdn: process.env.NODE_ENV === "production",
+  useCdn: false,
   perspective: "published" as const,
 };
 
@@ -22,7 +22,15 @@ const originalFetch = client.fetch.bind(client);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 client.fetch = (async function fetchWrapper(this: unknown, ...args: [query: string, ...rest: unknown[]]) {
   try {
-    return await (originalFetch as (...a: typeof args) => Promise<unknown>)(...args);
+    const query = args[0];
+    const params = args[1] || {};
+    const options = (args[2] || {}) as any;
+    
+    // Disable caching for real-time updates without redeploying
+    options.cache = "no-store";
+    options.next = { ...options.next, revalidate: 0 };
+    
+    return await (originalFetch as any)(query, params, options);
   } catch (err) {
     console.warn("Sanity query failed. Returning fallback empty state.", err);
     return [];

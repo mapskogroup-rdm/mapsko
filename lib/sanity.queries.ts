@@ -152,7 +152,7 @@ export const readyToMoveInProjectsQuery = groq`
 `;
 
 export const blogSlugsQuery = groq`
-  *[_type == "blog" && defined(slug.current)][].slug.current
+  *[_type == "blog" && defined(slug.current) && createdDate <= now()][].slug.current
 `;
 
 export const blogBySlugQuery = groq`
@@ -225,7 +225,7 @@ export const blogBySlugQuery = groq`
 `;
 
 export const allBlogsQuery = groq`
-  *[_type == "blog"] | order(createdDate desc){
+  *[_type == "blog" && createdDate <= now()] | order(createdDate desc){
     _id,
     title,
     "slug": slug.current,

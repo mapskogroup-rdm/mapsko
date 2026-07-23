@@ -26,6 +26,11 @@ client.fetch = (async function fetchWrapper(this: unknown, ...args: [query: stri
     const params = args[1] || {};
     const options = (args[2] || {}) as any;
     
+    // Add current date in IST to params automatically for scheduling
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' });
+    params.currentDateIST = formatter.format(now);
+    
     // Disable caching for real-time updates without redeploying
     options.cache = "no-store";
     options.next = { ...options.next, revalidate: 0 };

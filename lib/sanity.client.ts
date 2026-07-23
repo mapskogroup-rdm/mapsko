@@ -23,7 +23,7 @@ const originalFetch = client.fetch.bind(client);
 client.fetch = (async function fetchWrapper(this: unknown, ...args: [query: string, ...rest: unknown[]]) {
   try {
     const query = args[0];
-    const params = args[1] || {};
+    const params = (args[1] || {}) as Record<string, any>;
     const options = (args[2] || {}) as any;
     
     // Add current date in IST to params automatically for scheduling
